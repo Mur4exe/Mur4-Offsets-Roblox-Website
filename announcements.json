@@ -1,5 +1,11 @@
 [
   {
+    "tag": "Maintenance",
+    "color": "yellow",
+    "date": "17.09.2026",
+    "text": "For a while I won’t be able to share offsets because our offset dumper is currently under maintenance."
+  },
+  {
     "tag": "Technical Glitc",
     "color": "red",
     "date": "14.09.2026",
