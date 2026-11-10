@@ -2,667 +2,449 @@
   "name": "Mur4 Offsets (External)",
   "website": "https://mur4exe.github.io/Mur4-Offsets-Roblox-Website/",
   "type": "external",
-  "version": "version-63eb6055af4e4688",
-  "dump_time": "2026-11-11 00:30:38",
-  "count": 1067,
+  "version": "version-f0ea5da9412f4e35",
+  "dump_time": "2026-11-11 00:46:28",
+  "count": 605,
   "offsets": {
     "AccessoryDescription": {
-      "Position": "0xD8",
-      "Rotation": "0xE4",
-      "Scale": "0xF0",
-      "Order": "0x100",
-      "Puffiness": "0x104"
+      "Position": "0xB0",
+      "Rotation": "0xBC",
+      "Scale": "0xC8",
+      "Order": "0xD8",
+      "Puffiness": "0xDC"
+    },
+    "AdPlacement": {
+      "PlacementId": "0x118"
     },
     "AirController": {
-      "MoveSpeedFactor": "0xC8",
-      "LinearImpulse": "0xF0",
-      "BalanceMaxTorque": "0xFC",
-      "BalanceSpeed": "0x100",
-      "MoveMaxForce": "0x104",
-      "TurnMaxTorque": "0x108",
-      "TurnSpeedFactor": "0x10C"
+      "MoveSpeedFactor": "0xA0",
+      "BalanceMaxTorque": "0xD4",
+      "BalanceSpeed": "0xD8",
+      "MoveMaxForce": "0xDC",
+      "TurnMaxTorque": "0xE0",
+      "TurnSpeedFactor": "0xE4"
     },
     "AlignOrientation": {
-      "LookAtPosition": "0x1A4",
-      "MaxAngularVelocity": "0x1B4",
-      "MaxTorque": "0x1B8",
-      "Responsiveness": "0x1C0"
+      "LookAtPosition": "0x17C",
+      "MaxAngularVelocity": "0x18C",
+      "MaxTorque": "0x190",
+      "Responsiveness": "0x198"
     },
     "AlignPosition": {
-      "MaxAxesForce": "0x180",
-      "Position": "0x18C",
-      "MaxForce": "0x1A0",
-      "MaxVelocity": "0x1A4",
-      "Responsiveness": "0x1AC"
+      "MaxAxesForce": "0x158",
+      "Position": "0x164",
+      "MaxForce": "0x178",
+      "MaxVelocity": "0x17C",
+      "Responsiveness": "0x184"
     },
     "AnimationConstraint": {
-      "AngularDamping": "0x180",
-      "AngularStrength": "0x184",
-      "LinearDamping": "0x188",
-      "LinearStrength": "0x18C",
-      "MaxForce": "0x190",
-      "MaxTorque": "0x194"
+      "AngularDamping": "0x158",
+      "AngularStrength": "0x15C",
+      "LinearDamping": "0x160",
+      "LinearStrength": "0x164",
+      "MaxForce": "0x168",
+      "MaxTorque": "0x16C"
     },
     "ArcHandles": {
-      "Color3": "0xE8",
-      "Transparency": "0xF4"
+      "Color3": "0xC0",
+      "Transparency": "0xCC"
     },
     "Atmosphere": {
-      "Color": "0xC8",
-      "Decay": "0xD4",
-      "Density": "0xE0",
-      "Glare": "0xE4",
-      "Haze": "0xE8",
-      "Offset": "0xEC"
+      "Color": "0xA0",
+      "Decay": "0xAC",
+      "Density": "0xB8",
+      "Glare": "0xBC",
+      "Haze": "0xC0",
+      "Offset": "0xC4"
     },
-    "Attachment": {
-      "Visible": "0xEC"
+    "AudioChorus": {
+      "Depth": "0x120",
+      "Mix": "0x124",
+      "Rate": "0x128"
     },
     "AudioDeviceInput": {
-      "Volume": "0x184"
+      "Volume": "0x15C"
     },
-    "AudioPitchShifter": {
-      "Pitch": "0x148"
+    "AudioDistortion": {
+      "Level": "0x120"
+    },
+    "AudioEmitter": {
+      "DistanceAttenuationBounds": "0x148"
+    },
+    "AudioFader": {
+      "Volume": "0x120"
+    },
+    "AudioFlanger": {
+      "Depth": "0x120",
+      "Mix": "0x124",
+      "Rate": "0x128"
+    },
+    "AudioLimiter": {
+      "Release": "0x124"
     },
     "AudioPlayer": {
-      "PlaybackSpeed": "0x158",
-      "TimePosition": "0x160",
-      "LoopRegion": "0x168",
-      "PlaybackRegion": "0x170",
-      "Volume": "0x17C"
+      "PlaybackSpeed": "0x130",
+      "TimePosition": "0x138",
+      "LoopRegion": "0x140",
+      "PlaybackRegion": "0x148",
+      "Volume": "0x154"
     },
-    "AudioSearchParams": {
-      "MaxDuration": "0x16C",
-      "MaxPageSize": "0x170",
-      "MinDuration": "0x174"
-    },
-    "AudioTremolo": {
-      "Depth": "0x148",
-      "Duty": "0x14C",
-      "Frequency": "0x150",
-      "Shape": "0x154",
-      "Skew": "0x158",
-      "Square": "0x15C"
-    },
-    "AudioWindSynthesizer": {
-      "Volume": "0x158"
-    },
-    "AvatarBodyRules": {
-      "HeadOverride": "0x118",
-      "LeftArmOverride": "0x120",
-      "LeftLegOverride": "0x128",
-      "RightArmOverride": "0x130",
-      "RightLegOverride": "0x138",
-      "TorsoOverride": "0x140",
-      "CustomBuildBodyType": "0x148",
-      "CustomBuildHead": "0x150",
-      "CustomBuildHeight": "0x158",
-      "CustomBuildProportions": "0x160",
-      "CustomBuildWidth": "0x168",
-      "CustomWorldHeight": "0x170"
-    },
-    "AvatarClothingRules": {
-      "ClassicPantsOverride": "0xC0",
-      "ClassicShirtOverride": "0xC8",
-      "ClassicTShirtOverride": "0xD0",
-      "DressSkirtAccessoryOverride": "0x138",
-      "JacketAccessoryOverride": "0x140",
-      "LeftShoeAccessoryOverride": "0x148",
-      "PantsAccessoryOverride": "0x150",
-      "RightShoeAccessoryOverride": "0x158",
-      "ShirtAccessoryOverride": "0x160",
-      "ShortsAccessoryOverride": "0x168",
-      "SweaterAccessoryOverride": "0x170",
-      "TShirtAccessoryOverride": "0x178",
-      "LimitBounds": "0x180"
+    "AvatarAccessoryRules": {
+      "BackAccessoryOverride": "0x98",
+      "FaceAccessoryOverride": "0xE0",
+      "FrontAccessoryOverride": "0xE8",
+      "HairAccessoryOverride": "0xF0",
+      "HeadAccessoryOverride": "0xF8",
+      "NeckAccessoryOverride": "0x100",
+      "ShoulderAccessoryOverride": "0x108",
+      "WaistAccessoryOverride": "0x110",
+      "LimitBounds": "0x118"
     },
     "AvatarCollisionRules": {
-      "HitboxSize": "0xC0",
-      "SingleColliderSize": "0xCC"
+      "SingleColliderSize": "0x98"
     },
     "BasePart": {
-      "Primitive": "0x1A0"
+      "Primitive": "0x148"
     },
     "BillboardGui": {
-      "Enabled": "0x288",
-      "ResetOnSpawn": "0x289",
-      "Size": "0x554",
-      "ExtentsOffset": "0x560",
-      "ExtentsOffsetWorldSpace": "0x56C",
-      "StudsOffset": "0x578",
-      "StudsOffsetWorldSpace": "0x584",
-      "SizeOffset": "0x590",
-      "Brightness": "0x598",
-      "DistanceLowerLimit": "0x5A0",
-      "DistanceStep": "0x5A4",
-      "DistanceUpperLimit": "0x5A8",
-      "LightInfluence": "0x5AC",
-      "MaxDistance": "0x5B0",
-      "Active": "0x5B4",
-      "AlwaysOnTop": "0x5B5",
-      "ClipsDescendants": "0x5B6"
+      "ResetOnSpawn": "0x2BE",
+      "Enabled": "0x490",
+      "Size": "0x744",
+      "ExtentsOffset": "0x750",
+      "ExtentsOffsetWorldSpace": "0x75C",
+      "StudsOffset": "0x768",
+      "StudsOffsetWorldSpace": "0x774",
+      "SizeOffset": "0x780",
+      "Brightness": "0x788",
+      "DistanceLowerLimit": "0x790",
+      "DistanceUpperLimit": "0x798",
+      "LightInfluence": "0x79C",
+      "MaxDistance": "0x7A0",
+      "Active": "0x7A4",
+      "AlwaysOnTop": "0x7A5",
+      "ClipsDescendants": "0x7A6"
     },
     "BlockMesh": {
-      "Offset": "0xC8",
-      "Scale": "0xD4",
-      "VertexColor": "0xE0"
+      "Offset": "0xA0",
+      "Scale": "0xAC",
+      "VertexColor": "0xB8"
     },
     "BloomEffect": {
-      "Enabled": "0xC0",
-      "Intensity": "0xC8",
-      "Size": "0xCC",
-      "Threshold": "0xD0"
+      "Enabled": "0x98",
+      "Intensity": "0xA0",
+      "Size": "0xA4",
+      "Threshold": "0xA8"
     },
     "BlurEffect": {
-      "Enabled": "0xC0",
-      "Size": "0xC8"
+      "Enabled": "0x98",
+      "Size": "0xA0"
+    },
+    "BodyAngularVelocity": {
+      "AngularVelocity": "0x270",
+      "MaxTorque": "0x27C"
     },
     "BodyColors": {
-      "HeadColor3": "0xD4",
-      "LeftArmColor3": "0xE4",
-      "LeftLegColor3": "0xF4",
-      "RightArmColor3": "0x104",
-      "RightLegColor3": "0x114",
-      "TorsoColor3": "0x124"
+      "HeadColor3": "0xAC",
+      "LeftArmColor3": "0xBC",
+      "LeftLegColor3": "0xCC",
+      "RightArmColor3": "0xDC",
+      "RightLegColor3": "0xEC",
+      "TorsoColor3": "0xFC"
     },
     "BodyGyro": {
-      "MaxTorque": "0x2C8"
+      "MaxTorque": "0x2A0"
     },
     "BodyPartDescription": {
-      "Color": "0xF8"
+      "Color": "0xD0"
     },
-    "Camera": {
-      "HeadScale": "0x158"
+    "BodyPosition": {
+      "MaxForce": "0x270",
+      "Position": "0x27C"
+    },
+    "BodyVelocity": {
+      "MaxForce": "0x270",
+      "Velocity": "0x27C"
     },
     "CanvasGroup": {
-      "Position": "0x2D4",
-      "Size": "0x2F4",
-      "BackgroundColor3": "0x300",
-      "BorderColor3": "0x30C",
-      "AnchorPoint": "0x318",
-      "Transparency": "0x324",
-      "LayoutOrder": "0x33C",
-      "Rotation": "0x354",
-      "SelectionOrder": "0x358",
-      "ZIndex": "0x364",
-      "GroupColor3": "0x688",
-      "GroupTransparency": "0x694"
+      "Position": "0x4DC",
+      "Size": "0x4FC",
+      "BackgroundColor3": "0x508",
+      "BorderColor3": "0x514",
+      "AnchorPoint": "0x520",
+      "Transparency": "0x52C",
+      "LayoutOrder": "0x544",
+      "Rotation": "0x55C",
+      "SelectionOrder": "0x560",
+      "ZIndex": "0x56C",
+      "GroupColor3": "0x998",
+      "GroupTransparency": "0x9A4"
     },
     "ChorusSoundEffect": {
-      "Priority": "0xC8",
-      "Depth": "0x108",
-      "Mix": "0x10C",
-      "Rate": "0x110"
+      "Priority": "0xA0",
+      "Depth": "0xE0",
+      "Mix": "0xE4",
+      "Rate": "0xE8"
     },
-    "ClickDetector": {
-      "MaxActivationDistance": "0xF8"
+    "ClimbController": {
+      "MoveSpeedFactor": "0xA0",
+      "AccelerationTime": "0xC8",
+      "BalanceMaxTorque": "0xCC",
+      "BalanceSpeed": "0xD0",
+      "MoveMaxForce": "0xD4"
     },
     "Clothing": {
-      "Color3": "0x130"
+      "Color3": "0x108"
     },
     "Clouds": {
-      "Color": "0xC0",
-      "Cover": "0xCC",
-      "Density": "0xD0"
+      "Color": "0x98",
+      "Cover": "0xA4",
+      "Density": "0xA8"
     },
     "ColorCorrectionEffect": {
-      "Enabled": "0xC0",
-      "TintColor": "0xC8",
-      "Brightness": "0xD4",
-      "Contrast": "0xD8",
-      "Saturation": "0xDC"
+      "Enabled": "0x98",
+      "TintColor": "0xA0",
+      "Brightness": "0xAC",
+      "Contrast": "0xB0",
+      "Saturation": "0xB4"
     },
     "CompressorSoundEffect": {
-      "Priority": "0xC8",
-      "Attack": "0x118",
-      "GainMakeup": "0x11C",
-      "Ratio": "0x120",
-      "Release": "0x124",
-      "Threshold": "0x128"
+      "Priority": "0xA0",
+      "Attack": "0xF0",
+      "GainMakeup": "0xF4",
+      "Ratio": "0xF8",
+      "Release": "0xFC",
+      "Threshold": "0x100"
     },
     "ControllerPartSensor": {
-      "LadderSearchHeight": "0x29C",
-      "LadderSearchOffset": "0x2A0",
-      "SearchDistance": "0x2A4"
+      "LadderSearchHeight": "0x274",
+      "LadderSearchOffset": "0x278",
+      "SearchDistance": "0x27C"
     },
-    "CornerWedgePart": {
-      "BackParamA": "0xD8",
-      "BackParamB": "0xDC",
-      "BottomParamA": "0xE8",
-      "BottomParamB": "0xEC",
-      "FrontParamA": "0xF8",
-      "FrontParamB": "0xFC",
-      "LeftParamA": "0x108",
-      "LeftParamB": "0x10C",
-      "LocalTransparencyModifier": "0x118",
-      "Reflectance": "0x11C",
-      "RightParamA": "0x120",
-      "RightParamB": "0x124",
-      "TopParamA": "0x130",
-      "TopParamB": "0x134",
-      "Transparency": "0x140"
-    },
-    "CylinderHandleAdornment": {
-      "Color3": "0xE8",
-      "Transparency": "0xF4",
-      "SizeRelativeOffset": "0x158",
-      "Angle": "0x1B8",
-      "Height": "0x1BC",
-      "InnerRadius": "0x1C0",
-      "Radius": "0x1C4"
-    },
-    "CylindricalConstraint": {
-      "LinearResponsiveness": "0x184",
-      "LowerLimit": "0x188",
-      "MotorMaxAcceleration": "0x18C",
-      "MotorMaxForce": "0x190",
-      "Restitution": "0x194",
-      "ServoMaxForce": "0x198",
-      "Size": "0x19C",
-      "Speed": "0x1A0",
-      "TargetPosition": "0x1A4",
-      "UpperLimit": "0x1A8",
-      "Velocity": "0x1AC",
-      "AngularRestitution": "0x1E8",
-      "AngularSpeed": "0x1EC",
-      "AngularVelocity": "0x1F0",
-      "InclinationAngle": "0x1F4",
-      "LowerAngle": "0x1F8",
-      "MotorMaxAngularAcceleration": "0x1FC",
-      "MotorMaxTorque": "0x200",
-      "ServoMaxTorque": "0x204",
-      "TargetAngle": "0x208",
-      "UpperAngle": "0x20C"
-    },
-    "DataModel": {
-      "Workspace": "0x190"
+    "CylinderMesh": {
+      "Offset": "0xA0",
+      "Scale": "0xAC",
+      "VertexColor": "0xB8"
     },
     "Decal": {
-      "Color3": "0x260",
-      "EmissiveTint": "0x26C",
-      "UVOffset": "0x278",
-      "UVScale": "0x280",
-      "EmissiveStrength": "0x288",
-      "LocalTransparencyModifier": "0x28C",
-      "Rotation": "0x294",
-      "Shiny": "0x298",
-      "Specular": "0x29C",
-      "Transparency": "0x2A0",
-      "ZIndex": "0x2A4"
+      "Color3": "0x238",
+      "EmissiveTint": "0x244",
+      "UVOffset": "0x250",
+      "UVScale": "0x258",
+      "EmissiveStrength": "0x260",
+      "Rotation": "0x26C",
+      "Transparency": "0x278",
+      "ZIndex": "0x27C"
     },
     "DepthOfFieldEffect": {
-      "Enabled": "0xC0",
-      "FarIntensity": "0xC8",
-      "FocusDistance": "0xCC",
-      "InFocusRadius": "0xD0",
-      "NearIntensity": "0xD4"
+      "Enabled": "0x98",
+      "FarIntensity": "0xA0",
+      "FocusDistance": "0xA4",
+      "InFocusRadius": "0xA8",
+      "NearIntensity": "0xAC"
     },
     "Dialog": {
-      "TriggerOffset": "0x100",
-      "ConversationDistance": "0x110",
-      "TriggerDistance": "0x11C"
+      "TriggerOffset": "0xD8",
+      "ConversationDistance": "0xE8",
+      "TriggerDistance": "0xF4"
     },
     "DigitsRigDescription": {
-      "IndexRange": "0x480",
-      "MiddleRange": "0x48C",
-      "PinkyRange": "0x498",
-      "RingRange": "0x4A4",
-      "ThumbRange": "0x4B0",
-      "IndexSize": "0x4BC",
-      "MiddleSize": "0x4C0",
-      "PinkySize": "0x4C4",
-      "RingSize": "0x4C8",
-      "ThumbSize": "0x4D0"
+      "IndexRange": "0x458",
+      "MiddleRange": "0x464",
+      "PinkyRange": "0x470",
+      "RingRange": "0x47C",
+      "ThumbRange": "0x488",
+      "IndexSize": "0x494",
+      "MiddleSize": "0x498",
+      "PinkySize": "0x49C",
+      "RingSize": "0x4A0",
+      "ThumbSize": "0x4A8"
     },
-    "DragDetector": {
-      "MaxActivationDistance": "0xF8",
-      "MaxDragTranslation": "0x25C",
-      "MinDragTranslation": "0x268",
-      "MaxDragAngle": "0x298",
-      "MaxForce": "0x29C",
-      "MaxTorque": "0x2A0",
-      "MinDragAngle": "0x2A4",
-      "Responsiveness": "0x2B0",
-      "TrackballRadialPullFactor": "0x2B4",
-      "TrackballRollFactor": "0x2B8"
+    "DistortionSoundEffect": {
+      "Priority": "0xA0",
+      "Level": "0xE0"
     },
-    "FaceControls": {
-      "ChinRaiser": "0xF0",
-      "ChinRaiserUpperLip": "0xF4",
-      "Corrugator": "0xF8",
-      "EyesLookDown": "0xFC",
-      "EyesLookLeft": "0x100",
-      "EyesLookRight": "0x104",
-      "EyesLookUp": "0x108",
-      "FlatPucker": "0x10C",
-      "Funneler": "0x110",
-      "JawDrop": "0x114",
-      "JawLeft": "0x118",
-      "JawRight": "0x11C",
-      "LeftBrowLowerer": "0x120",
-      "LeftCheekPuff": "0x124",
-      "LeftCheekRaiser": "0x128",
-      "LeftDimpler": "0x12C",
-      "LeftEyeClosed": "0x130",
-      "LeftEyeUpperLidRaiser": "0x134",
-      "LeftInnerBrowRaiser": "0x138",
-      "LeftLipCornerDown": "0x13C",
-      "LeftLipCornerPuller": "0x140",
-      "LeftLipStretcher": "0x144",
-      "LeftLowerLipDepressor": "0x148",
-      "LeftNoseWrinkler": "0x14C",
-      "LeftOuterBrowRaiser": "0x150",
-      "LeftUpperLipRaiser": "0x154",
-      "LipPresser": "0x158",
-      "LipsTogether": "0x15C",
-      "LowerLipSuck": "0x160",
-      "MouthLeft": "0x164",
-      "MouthRight": "0x168",
-      "Pucker": "0x16C",
-      "RightBrowLowerer": "0x170",
-      "RightCheekPuff": "0x174",
-      "RightCheekRaiser": "0x178",
-      "RightDimpler": "0x17C",
-      "RightEyeClosed": "0x180",
-      "RightEyeUpperLidRaiser": "0x184",
-      "RightInnerBrowRaiser": "0x188",
-      "RightLipCornerDown": "0x18C",
-      "RightLipCornerPuller": "0x190",
-      "RightLipStretcher": "0x194",
-      "RightLowerLipDepressor": "0x198",
-      "RightNoseWrinkler": "0x19C",
-      "RightOuterBrowRaiser": "0x1A0",
-      "RightUpperLipRaiser": "0x1A4",
-      "TongueDown": "0x1A8",
-      "TongueOut": "0x1AC",
-      "TongueUp": "0x1B0",
-      "UpperLipSuck": "0x1B4"
+    "DoubleConstrainedValue": {
+      "MaxValue": "0xA0",
+      "MinValue": "0xA8"
+    },
+    "EchoSoundEffect": {
+      "Priority": "0xA0",
+      "Delay": "0xE0",
+      "DryLevel": "0xE4",
+      "Feedback": "0xE8",
+      "WetLevel": "0xEC"
+    },
+    "EqualizerSoundEffect": {
+      "Priority": "0xA0",
+      "HighGain": "0xE0",
+      "LowGain": "0xE4",
+      "MidGain": "0xE8"
     },
     "FileMesh": {
-      "Offset": "0xC8",
-      "Scale": "0xD4",
-      "VertexColor": "0xE0"
+      "Offset": "0xA0",
+      "Scale": "0xAC",
+      "VertexColor": "0xB8"
     },
     "Fire": {
-      "Enabled": "0xF0"
+      "Color": "0xA0",
+      "SecondaryColor": "0xAC",
+      "TimeScale": "0xBC",
+      "Heat": "0xC0",
+      "Size": "0xC4",
+      "Enabled": "0xC8"
     },
-    "Flag": {
-      "GripPos": "0x4BC"
-    },
-    "FlagStand": {
-      "BackParamA": "0xD8",
-      "BackParamB": "0xDC",
-      "BottomParamA": "0xE8",
-      "BottomParamB": "0xEC",
-      "FrontParamA": "0xF8",
-      "FrontParamB": "0xFC",
-      "LeftParamA": "0x108",
-      "LeftParamB": "0x10C",
-      "LocalTransparencyModifier": "0x118",
-      "Reflectance": "0x11C",
-      "RightParamA": "0x120",
-      "RightParamB": "0x124",
-      "TopParamA": "0x130",
-      "TopParamB": "0x134",
-      "Transparency": "0x140"
+    "FlangeSoundEffect": {
+      "Priority": "0xA0",
+      "Depth": "0xE0",
+      "Mix": "0xE4",
+      "Rate": "0xE8"
     },
     "FloorWire": {
-      "Color3": "0xE8",
-      "Transparency": "0xF4",
-      "TextureSize": "0x150",
-      "CycleOffset": "0x158",
-      "StudsBetweenTextures": "0x15C",
-      "Velocity": "0x160",
-      "WireRadius": "0x164"
-    },
-    "Frame": {
-      "Position": "0x2D4",
-      "Size": "0x2F4",
-      "BackgroundColor3": "0x300",
-      "BorderColor3": "0x30C",
-      "AnchorPoint": "0x318",
-      "Transparency": "0x324",
-      "LayoutOrder": "0x33C",
-      "Rotation": "0x354",
-      "SelectionOrder": "0x358",
-      "ZIndex": "0x364"
-    },
-    "Glue": {
-      "F0": "0x198",
-      "F1": "0x1A4",
-      "F2": "0x1B0",
-      "F3": "0x1BC"
+      "Color3": "0xC0",
+      "Transparency": "0xCC",
+      "TextureSize": "0x128",
+      "CycleOffset": "0x130",
+      "StudsBetweenTextures": "0x134",
+      "Velocity": "0x138",
+      "WireRadius": "0x13C"
     },
     "GroundController": {
-      "MoveSpeedFactor": "0xC8",
-      "AccelerationLean": "0xF0",
-      "AccelerationTime": "0xF4",
-      "BalanceMaxTorque": "0xF8",
-      "BalanceSpeed": "0xFC",
-      "DecelerationTime": "0x100",
-      "Friction": "0x104",
-      "FrictionWeight": "0x108",
-      "GroundOffset": "0x10C",
-      "StandForce": "0x110",
-      "StandSpeed": "0x114",
-      "TurnSpeedFactor": "0x118"
+      "MoveSpeedFactor": "0xA0",
+      "AccelerationLean": "0xC8",
+      "AccelerationTime": "0xCC",
+      "BalanceMaxTorque": "0xD0",
+      "BalanceSpeed": "0xD4",
+      "DecelerationTime": "0xD8",
+      "Friction": "0xDC",
+      "FrictionWeight": "0xE0",
+      "GroundOffset": "0xE4",
+      "StandForce": "0xE8",
+      "StandSpeed": "0xEC",
+      "TurnSpeedFactor": "0xF0"
     },
     "GuiMain": {
-      "DisplayOrder": "0x530"
-    },
-    "GuiObject": {
-      "Position": "0x2D4",
-      "Size": "0x2F4",
-      "BackgroundColor3": "0x300",
-      "BorderColor3": "0x30C",
-      "AnchorPoint": "0x318",
-      "Transparency": "0x324",
-      "LayoutOrder": "0x33C",
-      "Rotation": "0x354",
-      "SelectionOrder": "0x358",
-      "ZIndex": "0x364"
+      "DisplayOrder": "0x720"
     },
     "Handles": {
-      "Color3": "0xE8",
-      "Transparency": "0xF4"
+      "Color3": "0xC0",
+      "Transparency": "0xCC"
     },
     "HapticEffect": {
-      "Position": "0xE8",
-      "Radius": "0xF4"
-    },
-    "Hat": {
-      "AttachmentPos": "0xEC"
+      "Position": "0xC0",
+      "Radius": "0xCC"
     },
     "Highlight": {
-      "FillColor": "0xD8",
-      "OutlineColor": "0xE4",
-      "FillTransparency": "0xF4",
-      "OutlineTransparency": "0xFC",
-      "Enabled": "0x104"
-    },
-    "HingeConstraint": {
-      "AngularResponsiveness": "0x184",
-      "AngularSpeed": "0x188",
-      "AngularVelocity": "0x18C",
-      "LowerAngle": "0x190",
-      "MotorMaxAcceleration": "0x194",
-      "MotorMaxTorque": "0x198",
-      "Radius": "0x19C",
-      "Restitution": "0x1A0",
-      "ServoMaxTorque": "0x1A4",
-      "TargetAngle": "0x1A8",
-      "UpperAngle": "0x1AC"
-    },
-    "Humanoid": {
-      "CameraOffset": "0x138",
-      "TargetPoint": "0x168",
-      "WalkToPoint": "0x180",
-      "HealthDisplayDistance": "0x1A4",
-      "Health": "0x1AC",
-      "HipHeight": "0x1B0",
-      "JumpHeight": "0x1C0",
-      "JumpPower": "0x1C4",
-      "MaxHealth": "0x1C8",
-      "MaxSlopeAngle": "0x1CC",
-      "NameDisplayDistance": "0x1D0",
-      "WalkSpeed": "0x1F0",
-      "HumanoidRootPart": "0x490",
-      "Torso": "0x4F0"
-    },
-    "HumanoidDescription": {
-      "ClimbAnimation": "0xE8",
-      "Face": "0xF0",
-      "FallAnimation": "0xF8",
-      "GraphicTShirt": "0x100",
-      "IdleAnimation": "0x108",
-      "JumpAnimation": "0x110",
-      "MoodAnimation": "0x118",
-      "Pants": "0x120",
-      "RunAnimation": "0x128",
-      "Shirt": "0x130",
-      "SwimAnimation": "0x138",
-      "WalkAnimation": "0x140",
-      "BodyTypeScale": "0x148",
-      "DepthScale": "0x14C",
-      "HeadScale": "0x150",
-      "HeightScale": "0x154",
-      "ProportionScale": "0x15C",
-      "WidthScale": "0x160"
+      "FillColor": "0xB0",
+      "OutlineColor": "0xBC",
+      "FillTransparency": "0xCC",
+      "OutlineTransparency": "0xD4",
+      "Enabled": "0xDC"
     },
     "HumanoidRigDescription": {
-      "ChestRangeMax": "0x690",
-      "ChestRangeMin": "0x69C",
-      "HeadBaseRangeMax": "0x6A8",
-      "HeadBaseRangeMin": "0x6B4",
-      "LeftAnkleRangeMax": "0x6C0",
-      "LeftAnkleRangeMin": "0x6CC",
-      "LeftClavicleRangeMax": "0x6D8",
-      "LeftClavicleRangeMin": "0x6E4",
-      "LeftElbowRangeMax": "0x6F0",
-      "LeftElbowRangeMin": "0x6FC",
-      "LeftHipRangeMax": "0x708",
-      "LeftHipRangeMin": "0x714",
-      "LeftKneeRangeMax": "0x720",
-      "LeftKneeRangeMin": "0x72C",
-      "LeftShoulderRangeMax": "0x738",
-      "LeftShoulderRangeMin": "0x744",
-      "LeftToeBaseRangeMax": "0x750",
-      "LeftToeBaseRangeMin": "0x75C",
-      "LeftWristRangeMax": "0x768",
-      "LeftWristRangeMin": "0x774",
-      "NeckRangeMax": "0x780",
-      "NeckRangeMin": "0x78C",
-      "RightAnkleRangeMax": "0x798",
-      "RightAnkleRangeMin": "0x7A4",
-      "RightClavicleRangeMax": "0x7B0",
-      "RightClavicleRangeMin": "0x7BC",
-      "RightElbowRangeMax": "0x7C8",
-      "RightElbowRangeMin": "0x7D4",
-      "RightHipRangeMax": "0x7E0",
-      "RightHipRangeMin": "0x7EC",
-      "RightKneeRangeMax": "0x7F8",
-      "RightKneeRangeMin": "0x804",
-      "RightShoulderRangeMax": "0x810",
-      "RightShoulderRangeMin": "0x81C",
-      "RightToeBaseRangeMax": "0x828",
-      "RightToeBaseRangeMin": "0x834",
-      "RightWristRangeMax": "0x840",
-      "RightWristRangeMin": "0x84C",
-      "RootRangeMax": "0x858",
-      "RootRangeMin": "0x864",
-      "SpineRangeMax": "0x870",
-      "SpineRangeMin": "0x87C",
-      "WaistRangeMax": "0x888",
-      "WaistRangeMin": "0x894",
-      "ChestSize": "0x8A0",
-      "HeadBaseSize": "0x8A4",
-      "LeftAnkleSize": "0x8A8",
-      "LeftClavicleSize": "0x8AC",
-      "LeftElbowSize": "0x8B0",
-      "LeftHipSize": "0x8B4",
-      "LeftKneeSize": "0x8B8",
-      "LeftShoulderSize": "0x8BC",
-      "LeftToeBaseSize": "0x8C0",
-      "LeftWristSize": "0x8C4",
-      "NeckSize": "0x8C8",
-      "RightAnkleSize": "0x8CC",
-      "RightClavicleSize": "0x8D0",
-      "RightElbowSize": "0x8D4",
-      "RightHipSize": "0x8D8",
-      "RightKneeSize": "0x8DC",
-      "RightShoulderSize": "0x8E0",
-      "RightToeBaseSize": "0x8E4",
-      "RightWristSize": "0x8E8",
-      "RootSize": "0x8EC",
-      "SpineSize": "0x8F0",
-      "WaistSize": "0x8F4"
-    },
-    "IKControl": {
-      "Priority": "0x168",
-      "SmoothTime": "0x16C",
-      "Weight": "0x174"
-    },
-    "ImageButton": {
-      "Position": "0x2D4",
-      "Size": "0x2F4",
-      "BackgroundColor3": "0x300",
-      "BorderColor3": "0x30C",
-      "AnchorPoint": "0x318",
-      "Transparency": "0x324",
-      "LayoutOrder": "0x33C",
-      "Rotation": "0x354",
-      "SelectionOrder": "0x358",
-      "ZIndex": "0x364",
-      "TileSize": "0xAAC",
-      "ImageColor3": "0xAB8",
-      "ImageRectOffset": "0xACC",
-      "ImageRectSize": "0xAD4",
-      "ImageTransparency": "0xADC",
-      "SliceScale": "0xAE8"
-    },
-    "ImageHandleAdornment": {
-      "Color3": "0xE8",
-      "Transparency": "0xF4",
-      "SizeRelativeOffset": "0x158",
-      "Size": "0x1E8"
+      "ChestRangeMax": "0x668",
+      "ChestRangeMin": "0x674",
+      "HeadBaseRangeMax": "0x680",
+      "HeadBaseRangeMin": "0x68C",
+      "LeftAnkleRangeMax": "0x698",
+      "LeftAnkleRangeMin": "0x6A4",
+      "LeftClavicleRangeMax": "0x6B0",
+      "LeftClavicleRangeMin": "0x6BC",
+      "LeftElbowRangeMax": "0x6C8",
+      "LeftElbowRangeMin": "0x6D4",
+      "LeftHipRangeMax": "0x6E0",
+      "LeftHipRangeMin": "0x6EC",
+      "LeftKneeRangeMax": "0x6F8",
+      "LeftKneeRangeMin": "0x704",
+      "LeftShoulderRangeMax": "0x710",
+      "LeftShoulderRangeMin": "0x71C",
+      "LeftToeBaseRangeMax": "0x728",
+      "LeftToeBaseRangeMin": "0x734",
+      "LeftWristRangeMax": "0x740",
+      "LeftWristRangeMin": "0x74C",
+      "NeckRangeMax": "0x758",
+      "NeckRangeMin": "0x764",
+      "RightAnkleRangeMax": "0x770",
+      "RightAnkleRangeMin": "0x77C",
+      "RightClavicleRangeMax": "0x788",
+      "RightClavicleRangeMin": "0x794",
+      "RightElbowRangeMax": "0x7A0",
+      "RightElbowRangeMin": "0x7AC",
+      "RightHipRangeMax": "0x7B8",
+      "RightHipRangeMin": "0x7C4",
+      "RightKneeRangeMax": "0x7D0",
+      "RightKneeRangeMin": "0x7DC",
+      "RightShoulderRangeMax": "0x7E8",
+      "RightShoulderRangeMin": "0x7F4",
+      "RightToeBaseRangeMax": "0x800",
+      "RightToeBaseRangeMin": "0x80C",
+      "RightWristRangeMax": "0x818",
+      "RightWristRangeMin": "0x824",
+      "RootRangeMax": "0x830",
+      "RootRangeMin": "0x83C",
+      "SpineRangeMax": "0x848",
+      "SpineRangeMin": "0x854",
+      "WaistRangeMax": "0x860",
+      "WaistRangeMin": "0x86C",
+      "ChestSize": "0x878",
+      "HeadBaseSize": "0x87C",
+      "LeftAnkleSize": "0x880",
+      "LeftClavicleSize": "0x884",
+      "LeftElbowSize": "0x888",
+      "LeftHipSize": "0x88C",
+      "LeftKneeSize": "0x890",
+      "LeftShoulderSize": "0x894",
+      "LeftToeBaseSize": "0x898",
+      "LeftWristSize": "0x89C",
+      "NeckSize": "0x8A0",
+      "RightAnkleSize": "0x8A4",
+      "RightClavicleSize": "0x8A8",
+      "RightElbowSize": "0x8AC",
+      "RightHipSize": "0x8B0",
+      "RightKneeSize": "0x8B4",
+      "RightShoulderSize": "0x8B8",
+      "RightToeBaseSize": "0x8BC",
+      "RightWristSize": "0x8C0",
+      "RootSize": "0x8C4",
+      "SpineSize": "0x8C8",
+      "WaistSize": "0x8CC"
     },
     "ImageLabel": {
-      "Position": "0x2D4",
-      "Size": "0x2F4",
-      "BackgroundColor3": "0x300",
-      "BorderColor3": "0x30C",
-      "AnchorPoint": "0x318",
-      "Transparency": "0x324",
-      "LayoutOrder": "0x33C",
-      "Rotation": "0x354",
-      "SelectionOrder": "0x358",
-      "ZIndex": "0x364",
-      "TileSize": "0x7CC",
-      "ImageColor3": "0x7D8",
-      "ImageRectOffset": "0x7EC",
-      "ImageRectSize": "0x7F4",
-      "ImageTransparency": "0x7FC",
-      "SliceScale": "0x808"
+      "Position": "0x4DC",
+      "Size": "0x4FC",
+      "BackgroundColor3": "0x508",
+      "BorderColor3": "0x514",
+      "AnchorPoint": "0x520",
+      "Transparency": "0x52C",
+      "LayoutOrder": "0x544",
+      "Rotation": "0x55C",
+      "SelectionOrder": "0x560",
+      "ZIndex": "0x56C",
+      "TileSize": "0xADC",
+      "ImageColor3": "0xAE8",
+      "ImageRectOffset": "0xAFC",
+      "ImageRectSize": "0xB04",
+      "ImageTransparency": "0xB0C",
+      "SliceScale": "0xB18"
     },
     "InputActionLabel": {
-      "Position": "0x2D4",
-      "Size": "0x2F4",
-      "BackgroundColor3": "0x300",
-      "BorderColor3": "0x30C",
-      "AnchorPoint": "0x318",
-      "Transparency": "0x324",
-      "LayoutOrder": "0x33C",
-      "Rotation": "0x354",
-      "SelectionOrder": "0x358",
-      "ZIndex": "0x364",
-      "ImageColor3": "0x6F8",
-      "TextColor3": "0x704",
-      "ImageTransparency": "0x710",
-      "TextSize": "0x714",
-      "TextTransparency": "0x718"
+      "Position": "0x4DC",
+      "Size": "0x4FC",
+      "BackgroundColor3": "0x508",
+      "BorderColor3": "0x514",
+      "AnchorPoint": "0x520",
+      "Transparency": "0x52C",
+      "LayoutOrder": "0x544",
+      "Rotation": "0x55C",
+      "SelectionOrder": "0x560",
+      "ZIndex": "0x56C",
+      "ImageColor3": "0xA08",
+      "TextColor3": "0xA14",
+      "ImageTransparency": "0xA20",
+      "TextSize": "0xA24",
+      "TextTransparency": "0xA28"
     },
     "InputContext": {
-      "Priority": "0xC8"
+      "Priority": "0xA0"
     },
     "Instance": {
       "ChildrenEnd": "0x8",
@@ -673,707 +455,407 @@
       "ChildrenStart": "0x78"
     },
     "IntConstrainedValue": {
-      "MaxValue": "0xC8",
-      "MinValue": "0xD0",
-      "Value": "0xD8"
-    },
-    "IntersectOperation": {
-      "BackParamA": "0xD8",
-      "BackParamB": "0xDC",
-      "BottomParamA": "0xE8",
-      "BottomParamB": "0xEC",
-      "FrontParamA": "0xF8",
-      "FrontParamB": "0xFC",
-      "LeftParamA": "0x108",
-      "LeftParamB": "0x10C",
-      "LocalTransparencyModifier": "0x118",
-      "Reflectance": "0x11C",
-      "RightParamA": "0x120",
-      "RightParamB": "0x124",
-      "TopParamA": "0x130",
-      "TopParamB": "0x134",
-      "Transparency": "0x140"
+      "MaxValue": "0xA0",
+      "MinValue": "0xA8",
+      "Value": "0xB0"
     },
     "KeyframeSequence": {
-      "AuthoredHipHeight": "0xF0"
+      "AuthoredHipHeight": "0xC8"
     },
     "Light": {
-      "Color": "0xD0",
-      "Brightness": "0xDC"
-    },
-    "Lighting": {
-      "Ambient": "0xE0",
-      "ColorShift_Bottom": "0xEC",
-      "ColorShift_Top": "0xF8",
-      "FogColor": "0x104",
-      "OutdoorAmbient": "0x110",
-      "ShadowColor": "0x11C",
-      "Brightness": "0x128",
-      "EnvironmentDiffuseScale": "0x12C",
-      "EnvironmentSpecularScale": "0x130",
-      "ExposureCompensation": "0x134",
-      "FogEnd": "0x13C",
-      "FogStart": "0x140",
-      "GeographicLatitude": "0x144",
-      "ShadowSoftness": "0x14C"
-    },
-    "LineForce": {
-      "Magnitude": "0x180",
-      "MaxForce": "0x184"
-    },
-    "LineHandleAdornment": {
-      "Color3": "0xE8",
-      "Transparency": "0xF4",
-      "SizeRelativeOffset": "0x158",
-      "Length": "0x1B8",
-      "Thickness": "0x1BC"
-    },
-    "LinearVelocity": {
-      "MaxForce": "0x1A0",
-      "MaxPlanarAxesForce": "0x1D8",
-      "MaxAxesForce": "0x248",
-      "VectorVelocity": "0x254"
+      "Color": "0xA8",
+      "Brightness": "0xB4"
     },
     "MakeupDescription": {
-      "Order": "0xDC"
+      "Order": "0xB4"
     },
     "MaterialVariant": {
-      "EmissiveTint": "0x204",
-      "EmissiveStrength": "0x220",
-      "StudsPerTile": "0x228"
-    },
-    "MeshPart": {
-      "BackParamA": "0xD8",
-      "BackParamB": "0xDC",
-      "BottomParamA": "0xE8",
-      "BottomParamB": "0xEC",
-      "FrontParamA": "0xF8",
-      "FrontParamB": "0xFC",
-      "LeftParamA": "0x108",
-      "LeftParamB": "0x10C",
-      "LocalTransparencyModifier": "0x118",
-      "Reflectance": "0x11C",
-      "RightParamA": "0x120",
-      "RightParamB": "0x124",
-      "TopParamA": "0x130",
-      "TopParamB": "0x134",
-      "Transparency": "0x140"
-    },
-    "Model": {
-      "PrimaryPart": "0x268"
-    },
-    "NegateOperation": {
-      "BackParamA": "0xD8",
-      "BackParamB": "0xDC",
-      "BottomParamA": "0xE8",
-      "BottomParamB": "0xEC",
-      "FrontParamA": "0xF8",
-      "FrontParamB": "0xFC",
-      "LeftParamA": "0x108",
-      "LeftParamB": "0x10C",
-      "LocalTransparencyModifier": "0x118",
-      "Reflectance": "0x11C",
-      "RightParamA": "0x120",
-      "RightParamB": "0x124",
-      "TopParamA": "0x130",
-      "TopParamB": "0x134",
-      "Transparency": "0x140"
-    },
-    "NumberPose": {
-      "Weight": "0xD0",
-      "Value": "0xE0"
-    },
-    "Pants": {
-      "Color3": "0x130"
-    },
-    "Part": {
-      "BackParamA": "0xD8",
-      "BackParamB": "0xDC",
-      "BottomParamA": "0xE8",
-      "BottomParamB": "0xEC",
-      "FrontParamA": "0xF8",
-      "FrontParamB": "0xFC",
-      "LeftParamA": "0x108",
-      "LeftParamB": "0x10C",
-      "LocalTransparencyModifier": "0x118",
-      "Reflectance": "0x11C",
-      "RightParamA": "0x120",
-      "RightParamB": "0x124",
-      "TopParamA": "0x130",
-      "TopParamB": "0x134",
-      "Transparency": "0x140",
-      "Primitive": "0x1A0"
-    },
-    "PartOperation": {
-      "BackParamA": "0xD8",
-      "BackParamB": "0xDC",
-      "BottomParamA": "0xE8",
-      "BottomParamB": "0xEC",
-      "FrontParamA": "0xF8",
-      "FrontParamB": "0xFC",
-      "LeftParamA": "0x108",
-      "LeftParamB": "0x10C",
-      "LocalTransparencyModifier": "0x118",
-      "Reflectance": "0x11C",
-      "RightParamA": "0x120",
-      "RightParamB": "0x124",
-      "TopParamA": "0x130",
-      "TopParamB": "0x134",
-      "Transparency": "0x140"
-    },
-    "ParticleEmitter": {
-      "Acceleration": "0x1F0",
-      "FlipbookFramerate": "0x1FC",
-      "Lifetime": "0x204",
-      "RotSpeed": "0x20C",
-      "Rotation": "0x214",
-      "Speed": "0x21C",
-      "VelocitySpread": "0x224",
-      "Brightness": "0x22C",
-      "Drag": "0x230",
-      "LightEmission": "0x248",
-      "LightInfluence": "0x24C",
-      "LocalTransparencyModifier": "0x250",
-      "Rate": "0x258",
-      "ShapePartial": "0x264",
-      "TimeScale": "0x26C",
-      "VelocityInheritance": "0x270",
-      "ZOffset": "0x274"
-    },
-    "ParticleEmitter2D": {
-      "Acceleration": "0x210",
-      "EmissionOffset": "0x218",
-      "EmissionSpread": "0x220",
-      "FlipbookFramerate": "0x228",
-      "Lifetime": "0x230",
-      "RotSpeed": "0x238",
-      "Rotation": "0x240",
-      "Speed": "0x248",
-      "Blend": "0x250",
-      "Brightness": "0x254",
-      "Drag": "0x258",
-      "EmissionAngle": "0x25C",
-      "LightInfluence": "0x274",
-      "Rate": "0x278",
-      "SpreadAngle": "0x27C",
-      "TimeScale": "0x280",
-      "ZIndex": "0x284"
-    },
-    "Path2D": {
-      "Color3": "0xF0",
-      "Thickness": "0x100",
-      "ZIndex": "0x108"
-    },
-    "PhysicsActivitySensor": {
-      "Position": "0x248",
-      "Size": "0x254"
-    },
-    "PitchShiftSoundEffect": {
-      "Priority": "0xC8",
-      "Octave": "0x108"
-    },
-    "Player": {
-      "LocalPlayer": "0x140",
-      "CharacterAppearanceId": "0x330",
-      "CameraMaxZoomDistance": "0x398",
-      "CameraMinZoomDistance": "0x39C",
-      "DataComplexityLimit": "0x3A8",
-      "HealthDisplayDistance": "0x3C8",
-      "NameDisplayDistance": "0x3D8"
-    },
-    "Players": {
-      "LocalPlayer": "0x140",
-      "RespawnTime": "0x158"
-    },
-    "PointLight": {
-      "Color": "0xD0",
-      "Brightness": "0xDC",
-      "Range": "0xE8"
-    },
-    "Pose": {
-      "Weight": "0xD0"
-    },
-    "Primitive": {
-      "Validate": "0x6",
-      "Owner": "0x10",
-      "CFrame": "0xB0",
-      "Rotation": "0xB0",
-      "Position": "0xD4",
-      "Velocity": "0xE0",
-      "RotVelocity": "0xEC",
-      "Size": "0x1C4",
-      "Friction": "0x25C",
-      "Elasticity": "0x260"
-    },
-    "PrismaticConstraint": {
-      "LinearResponsiveness": "0x184",
-      "LowerLimit": "0x188",
-      "MotorMaxAcceleration": "0x18C",
-      "MotorMaxForce": "0x190",
-      "Restitution": "0x194",
-      "ServoMaxForce": "0x198",
-      "Size": "0x19C",
-      "Speed": "0x1A0",
-      "TargetPosition": "0x1A4",
-      "UpperLimit": "0x1A8",
-      "Velocity": "0x1AC"
-    },
-    "ProceduralModel": {
-      "Size": "0x388"
-    },
-    "ProximityPrompt": {
-      "UIOffset": "0x120",
-      "HoldDuration": "0x130",
-      "MaxActivationDistance": "0x138",
-      "MaxIndicatorDistance": "0x13C"
-    },
-    "PyramidHandleAdornment": {
-      "Color3": "0xE8",
-      "Transparency": "0xF4",
-      "SizeRelativeOffset": "0x158",
-      "Height": "0x1B8",
-      "Size": "0x1C4"
-    },
-    "ReflectionMetadataClass": {
-      "UIMaximum": "0x180",
-      "UIMinimum": "0x188",
-      "UINumTicks": "0x190",
-      "PropertyOrder": "0x198",
-      "ExplorerImageIndex": "0x1F0",
-      "ExplorerOrder": "0x1F4"
-    },
-    "ReflectionMetadataEnum": {
-      "UIMaximum": "0x180",
-      "UIMinimum": "0x188",
-      "UINumTicks": "0x190",
-      "PropertyOrder": "0x198"
-    },
-    "ReflectionMetadataEnumItem": {
-      "UIMaximum": "0x180",
-      "UIMinimum": "0x188",
-      "UINumTicks": "0x190",
-      "PropertyOrder": "0x198"
-    },
-    "ReflectionMetadataMember": {
-      "UIMaximum": "0x180",
-      "UIMinimum": "0x188",
-      "UINumTicks": "0x190",
-      "PropertyOrder": "0x198"
-    },
-    "RenderingTest": {
-      "Position": "0x134",
-      "RenderingTestFrameCount": "0x144",
-      "Timeout": "0x148",
-      "ComparisonDiffThreshold": "0x1F8",
-      "ComparisonPsnrThreshold": "0x1FC"
-    },
-    "ReverbSoundEffect": {
-      "Priority": "0xC8",
-      "DecayTime": "0x108",
-      "Density": "0x10C",
-      "Diffusion": "0x110",
-      "DryLevel": "0x114",
-      "WetLevel": "0x118"
-    },
-    "RocketPropulsion": {
-      "MaxTorque": "0x2A8",
-      "TargetOffset": "0x2B4",
-      "CartoonFactor": "0x2C0",
-      "MaxSpeed": "0x2C4",
-      "MaxThrust": "0x2C8",
-      "TargetRadius": "0x2CC",
-      "ThrustD": "0x2D0",
-      "ThrustP": "0x2D4",
-      "TurnD": "0x2D8",
-      "TurnP": "0x2DC"
-    },
-    "ScreenGui": {
-      "DisplayOrder": "0x530"
-    },
-    "ScrollingFrame": {
-      "Visible": "0x16C",
-      "Position": "0x2D4",
-      "Size": "0x2F4",
-      "BackgroundColor3": "0x300",
-      "BorderColor3": "0x30C",
-      "AnchorPoint": "0x318",
-      "Transparency": "0x324",
-      "LayoutOrder": "0x33C",
-      "Rotation": "0x354",
-      "SelectionOrder": "0x358",
-      "ZIndex": "0x364",
-      "ClipsDescendants": "0x369",
-      "CanvasSize": "0x724",
-      "ScrollBarImageColor3": "0x750",
-      "CanvasPosition": "0x764",
-      "ScrollBarImageTransparency": "0x78C",
-      "ScrollBarThickness": "0x790",
-      "ScrollingEnabled": "0x7A4"
-    },
-    "Seat": {
-      "BackParamA": "0xD8",
-      "BackParamB": "0xDC",
-      "BottomParamA": "0xE8",
-      "BottomParamB": "0xEC",
-      "FrontParamA": "0xF8",
-      "FrontParamB": "0xFC",
-      "LeftParamA": "0x108",
-      "LeftParamB": "0x10C",
-      "LocalTransparencyModifier": "0x118",
-      "Reflectance": "0x11C",
-      "RightParamA": "0x120",
-      "RightParamB": "0x124",
-      "TopParamA": "0x130",
-      "TopParamB": "0x134",
-      "Transparency": "0x140",
-      "Disabled": "0x248",
-      "Position": "0x854",
-      "Velocity": "0x860",
-      "RotVelocity": "0x86C",
-      "Size": "0x944",
-      "Friction": "0x9DC",
-      "Elasticity": "0x9E0"
-    },
-    "SelectionBox": {
-      "Color3": "0xE8",
-      "Transparency": "0xF4",
-      "SurfaceColor3": "0x118",
-      "LineThickness": "0x124",
-      "SurfaceTransparency": "0x128"
-    },
-    "SelectionPartLasso": {
-      "Color3": "0xE8",
-      "Transparency": "0xF4"
-    },
-    "SelectionPointLasso": {
-      "Color3": "0xE8",
-      "Transparency": "0xF4",
-      "Point": "0x118"
-    },
-    "SkateboardPlatform": {
-      "BackParamA": "0xD8",
-      "BackParamB": "0xDC",
-      "BottomParamA": "0xE8",
-      "BottomParamB": "0xEC",
-      "FrontParamA": "0xF8",
-      "FrontParamB": "0xFC",
-      "LeftParamA": "0x108",
-      "LeftParamB": "0x10C",
-      "LocalTransparencyModifier": "0x118",
-      "Reflectance": "0x11C",
-      "RightParamA": "0x120",
-      "RightParamB": "0x124",
-      "TopParamA": "0x130",
-      "TopParamB": "0x134",
-      "Transparency": "0x140"
-    },
-    "Sky": {
-      "SkyboxOrientation": "0x248",
-      "MoonAngularSize": "0x254",
-      "SunAngularSize": "0x25C"
-    },
-    "Smoke": {
-      "Color": "0xC8",
-      "LocalTransparencyModifier": "0xD4",
-      "TimeScale": "0xD8",
-      "Opacity": "0xDC",
-      "RiseVelocity": "0xE0",
-      "Size": "0xE4",
-      "Enabled": "0xE8"
-    },
-    "Sound": {
-      "TimePosition": "0x108",
-      "LoopRegion": "0x110",
-      "PlaybackRegion": "0x118",
-      "PlaybackSpeed": "0x134",
-      "RollOffMaxDistance": "0x138",
-      "RollOffMinDistance": "0x13C",
-      "Volume": "0x148",
-      "Looped": "0x155",
-      "PlayOnRemove": "0x156",
-      "PlaybackRegionsEnabled": "0x157",
-      "Playing": "0x158"
-    },
-    "SoundService": {
-      "DistanceFactor": "0x174",
-      "DopplerScale": "0x178",
-      "RolloffScale": "0x180"
-    },
-    "SpawnLocation": {
-      "BackParamA": "0xD8",
-      "BackParamB": "0xDC",
-      "BottomParamA": "0xE8",
-      "BottomParamB": "0xEC",
-      "FrontParamA": "0xF8",
-      "FrontParamB": "0xFC",
-      "LeftParamA": "0x108",
-      "LeftParamB": "0x10C",
-      "LocalTransparencyModifier": "0x118",
-      "Reflectance": "0x11C",
-      "RightParamA": "0x120",
-      "RightParamB": "0x124",
-      "TopParamA": "0x130",
-      "TopParamB": "0x134",
-      "Transparency": "0x140",
-      "Duration": "0x1F8"
-    },
-    "SpecialMesh": {
-      "Offset": "0xC8",
-      "Scale": "0xD4",
-      "VertexColor": "0xE0"
-    },
-    "SphereHandleAdornment": {
-      "Color3": "0xE8",
-      "Transparency": "0xF4",
-      "SizeRelativeOffset": "0x158",
-      "Radius": "0x1B8"
-    },
-    "StyleDerive": {
-      "Priority": "0xDC"
-    },
-    "StyleRule": {
-      "Priority": "0x184"
-    },
-    "SunRaysEffect": {
-      "Enabled": "0xC0",
-      "Intensity": "0xC8",
-      "Spread": "0xCC"
-    },
-    "SurfaceAppearance": {
-      "Color": "0x1E8",
-      "EmissiveTint": "0x1F4",
-      "EmissiveStrength": "0x204",
-      "SurfaceSlot": "0x20C"
-    },
-    "SurfaceGui": {
-      "CanvasSize": "0x124",
-      "Brightness": "0x630",
-      "LightInfluence": "0x638",
-      "MaxDistance": "0x63C",
-      "PixelsPerStud": "0x640",
-      "ToolPunchThroughDistance": "0x64C",
-      "ZOffset": "0x650"
-    },
-    "SurfaceLight": {
-      "Color": "0xD0",
-      "Brightness": "0xDC",
-      "Angle": "0xE8",
-      "Range": "0xF0"
-    },
-    "TerrainDetail": {
-      "EmissiveTint": "0x1E8",
-      "EmissiveStrength": "0x1F4",
+      "EmissiveTint": "0x1DC",
+      "EmissiveStrength": "0x1F8",
       "StudsPerTile": "0x200"
     },
+    "Model": {
+      "PrimaryPart": "0x240"
+    },
+    "NumberPose": {
+      "Weight": "0xA8",
+      "Value": "0xB8"
+    },
+    "Pants": {
+      "Color3": "0x108"
+    },
+    "Part": {
+      "Primitive": "0x148"
+    },
+    "ParticleEmitter": {
+      "Acceleration": "0x1C8",
+      "FlipbookFramerate": "0x1D4",
+      "Lifetime": "0x1DC",
+      "RotSpeed": "0x1E4",
+      "Rotation": "0x1EC",
+      "Speed": "0x1F4",
+      "VelocitySpread": "0x1FC",
+      "Brightness": "0x204",
+      "Drag": "0x208",
+      "LightEmission": "0x220",
+      "LightInfluence": "0x224",
+      "Rate": "0x230",
+      "ShapePartial": "0x23C",
+      "TimeScale": "0x244",
+      "VelocityInheritance": "0x248",
+      "ZOffset": "0x24C",
+      "Enabled": "0x250",
+      "LockedToPart": "0x253",
+      "WindAffectsDrag": "0x254"
+    },
+    "ParticleEmitter2D": {
+      "Acceleration": "0x1E8",
+      "EmissionOffset": "0x1F0",
+      "EmissionSpread": "0x1F8",
+      "FlipbookFramerate": "0x200",
+      "Lifetime": "0x208",
+      "RotSpeed": "0x210",
+      "Rotation": "0x218",
+      "Speed": "0x220",
+      "Blend": "0x228",
+      "Brightness": "0x22C",
+      "Drag": "0x230",
+      "EmissionAngle": "0x234",
+      "Rate": "0x250",
+      "SpreadAngle": "0x254",
+      "TimeScale": "0x258",
+      "ZIndex": "0x25C"
+    },
+    "Path2D": {
+      "Color3": "0xC8",
+      "Thickness": "0xD8",
+      "ZIndex": "0xE0"
+    },
+    "PitchShiftSoundEffect": {
+      "Priority": "0xA0",
+      "Octave": "0xE0"
+    },
+    "PointLight": {
+      "Color": "0xA8",
+      "Brightness": "0xB4",
+      "Enabled": "0xB8",
+      "Shadows": "0xB9",
+      "Range": "0xC0"
+    },
+    "Pose": {
+      "Weight": "0xA8"
+    },
+    "Primitive": {
+      "Validate": "0x6"
+    },
+    "PrismaticConstraint": {
+      "LinearResponsiveness": "0x15C",
+      "LowerLimit": "0x160",
+      "MotorMaxAcceleration": "0x164",
+      "MotorMaxForce": "0x168",
+      "Restitution": "0x16C",
+      "ServoMaxForce": "0x170",
+      "Size": "0x174",
+      "Speed": "0x178",
+      "TargetPosition": "0x17C",
+      "UpperLimit": "0x180",
+      "Velocity": "0x184"
+    },
+    "PyramidHandleAdornment": {
+      "Color3": "0xC0",
+      "Transparency": "0xCC",
+      "SizeRelativeOffset": "0x130",
+      "Height": "0x190",
+      "Size": "0x19C"
+    },
+    "ReverbSoundEffect": {
+      "Priority": "0xA0",
+      "DecayTime": "0xE0",
+      "Density": "0xE4",
+      "Diffusion": "0xE8",
+      "DryLevel": "0xEC",
+      "WetLevel": "0xF0"
+    },
+    "RocketPropulsion": {
+      "MaxTorque": "0x280",
+      "TargetOffset": "0x28C",
+      "CartoonFactor": "0x298",
+      "MaxSpeed": "0x29C",
+      "MaxThrust": "0x2A0",
+      "TargetRadius": "0x2A4",
+      "ThrustD": "0x2A8",
+      "ThrustP": "0x2AC",
+      "TurnD": "0x2B0",
+      "TurnP": "0x2B4"
+    },
+    "ScreenGui": {
+      "DisplayOrder": "0x720"
+    },
+    "Seat": {
+      "Disabled": "0x220"
+    },
+    "SelectionBox": {
+      "Color3": "0xC0",
+      "Transparency": "0xCC",
+      "SurfaceColor3": "0xF0",
+      "LineThickness": "0xFC",
+      "SurfaceTransparency": "0x100"
+    },
+    "SelectionPartLasso": {
+      "Color3": "0xC0",
+      "Transparency": "0xCC"
+    },
+    "SelectionPointLasso": {
+      "Color3": "0xC0",
+      "Transparency": "0xCC",
+      "Point": "0xF0"
+    },
+    "SelectionSphere": {
+      "Color3": "0xC0",
+      "Transparency": "0xCC",
+      "SurfaceColor3": "0xF0",
+      "SurfaceTransparency": "0xFC"
+    },
+    "Shirt": {
+      "Color3": "0x108"
+    },
+    "ShirtGraphic": {
+      "Color3": "0xD8"
+    },
+    "Sky": {
+      "SkyboxOrientation": "0x220",
+      "MoonAngularSize": "0x22C",
+      "SunAngularSize": "0x234"
+    },
+    "Smoke": {
+      "Color": "0xA0",
+      "TimeScale": "0xB0",
+      "Opacity": "0xB4",
+      "RiseVelocity": "0xB8",
+      "Size": "0xBC",
+      "Enabled": "0xC0"
+    },
+    "Sound": {
+      "TimePosition": "0xE0",
+      "LoopRegion": "0xE8",
+      "PlaybackRegion": "0xF0",
+      "PlaybackSpeed": "0x10C",
+      "RollOffMaxDistance": "0x110",
+      "RollOffMinDistance": "0x114",
+      "Volume": "0x120",
+      "Looped": "0x12D",
+      "PlayOnRemove": "0x12E",
+      "PlaybackRegionsEnabled": "0x12F",
+      "Playing": "0x130"
+    },
+    "Sparkles": {
+      "SparkleColor": "0xA0",
+      "TimeScale": "0xB0",
+      "Enabled": "0xB4"
+    },
+    "SpecialMesh": {
+      "Offset": "0xA0",
+      "Scale": "0xAC",
+      "VertexColor": "0xB8"
+    },
+    "SpotLight": {
+      "Color": "0xA8",
+      "Brightness": "0xB4",
+      "Enabled": "0xB8",
+      "Shadows": "0xB9",
+      "Angle": "0xC0",
+      "Range": "0xC8"
+    },
+    "StateMachineTransitionDefinition": {
+      "Priority": "0xD8"
+    },
+    "StyleDerive": {
+      "Priority": "0xB4"
+    },
+    "StyleRule": {
+      "Priority": "0x15C"
+    },
+    "SunRaysEffect": {
+      "Enabled": "0x98",
+      "Intensity": "0xA0",
+      "Spread": "0xA4"
+    },
+    "SurfaceAppearance": {
+      "Color": "0x1C0",
+      "EmissiveTint": "0x1CC",
+      "EmissiveStrength": "0x1DC",
+      "SurfaceSlot": "0x1E4"
+    },
+    "SurfaceGui": {
+      "ClipsDescendants": "0x49",
+      "FaceCamera": "0x49",
+      "AlwaysOnTop": "0x68",
+      "Active": "0x312",
+      "Enabled": "0x490",
+      "ResetOnSpawn": "0x491"
+    },
+    "SurfaceLight": {
+      "Color": "0xA8",
+      "Brightness": "0xB4",
+      "Enabled": "0xB8",
+      "Shadows": "0xB9",
+      "Angle": "0xC0",
+      "Range": "0xC8"
+    },
+    "SurfaceSelection": {
+      "Color3": "0xC0",
+      "Transparency": "0xCC"
+    },
+    "SwimController": {
+      "MoveSpeedFactor": "0xA0",
+      "AccelerationTime": "0xC8",
+      "PitchMaxTorque": "0xCC",
+      "PitchSpeedFactor": "0xD0",
+      "RollMaxTorque": "0xD4",
+      "RollSpeedFactor": "0xD8"
+    },
+    "TerrainDetail": {
+      "EmissiveTint": "0x1C0",
+      "EmissiveStrength": "0x1CC",
+      "StudsPerTile": "0x1D8"
+    },
     "TextBox": {
-      "TextWrapped": "0x48",
-      "TextScaled": "0x68",
-      "TextEditable": "0x158",
-      "MultiLine": "0x1E5",
-      "Position": "0x2D4",
-      "Size": "0x2F4",
-      "BackgroundColor3": "0x300",
-      "BorderColor3": "0x30C",
-      "AnchorPoint": "0x318",
-      "Transparency": "0x324",
-      "LayoutOrder": "0x33C",
-      "Rotation": "0x354",
-      "SelectionOrder": "0x358",
-      "ZIndex": "0x364",
-      "Visible": "0x36D",
-      "RichText": "0x705",
-      "ClearTextOnFocus": "0x715",
-      "LineHeight": "0x900",
-      "PlaceholderColor3": "0xB20",
-      "TextColor3": "0xB2C",
-      "TextStrokeColor3": "0xB38",
-      "MaxVisibleGraphemes": "0xB4C",
-      "TextStrokeTransparency": "0xB64"
+      "Position": "0x4DC",
+      "Size": "0x4FC",
+      "BackgroundColor3": "0x508",
+      "BorderColor3": "0x514",
+      "AnchorPoint": "0x520",
+      "Transparency": "0x52C",
+      "LayoutOrder": "0x544",
+      "Rotation": "0x55C",
+      "SelectionOrder": "0x560",
+      "ZIndex": "0x56C",
+      "LineHeight": "0xCB0",
+      "PlaceholderColor3": "0xED0",
+      "TextColor3": "0xEDC",
+      "TextStrokeColor3": "0xEE8",
+      "MaxVisibleGraphemes": "0xEFC",
+      "TextStrokeTransparency": "0xF14"
     },
-    "TextChannelWindow": {
-      "Position": "0x2D4",
-      "Size": "0x2F4",
-      "BackgroundColor3": "0x300",
-      "BorderColor3": "0x30C",
-      "AnchorPoint": "0x318",
-      "Transparency": "0x324",
-      "LayoutOrder": "0x33C",
-      "Rotation": "0x354",
-      "SelectionOrder": "0x358",
-      "ZIndex": "0x364"
+    "TextButton": {
+      "Position": "0x4DC",
+      "Size": "0x4FC",
+      "BackgroundColor3": "0x508",
+      "BorderColor3": "0x514",
+      "AnchorPoint": "0x520",
+      "Transparency": "0x52C",
+      "LayoutOrder": "0x544",
+      "Rotation": "0x55C",
+      "SelectionOrder": "0x560",
+      "ZIndex": "0x56C",
+      "TextColor3": "0x1138",
+      "TextStrokeColor3": "0x1144",
+      "LineHeight": "0x1150",
+      "MaxVisibleGraphemes": "0x1154",
+      "TextStrokeTransparency": "0x1160"
     },
-    "TextLabel": {
-      "Position": "0x2D4",
-      "Size": "0x2F4",
-      "BackgroundColor3": "0x300",
-      "BorderColor3": "0x30C",
-      "AnchorPoint": "0x318",
-      "Transparency": "0x324",
-      "LayoutOrder": "0x33C",
-      "Rotation": "0x354",
-      "SelectionOrder": "0x358",
-      "ZIndex": "0x364",
-      "LineHeight": "0x908",
-      "TextColor3": "0xB08",
-      "TextStrokeColor3": "0xB14",
-      "MaxVisibleGraphemes": "0xB24",
-      "TextStrokeTransparency": "0xB30"
+    "TextGenerator": {
+      "Seed": "0xB8",
+      "Temperature": "0xBC",
+      "TopP": "0xC0"
     },
-    "Tool": {
-      "GripPos": "0x4BC",
-      "CanBeDropped": "0x4C8",
-      "Enabled": "0x4C9",
-      "ManualActivationOnly": "0x4CA",
-      "RequiresHandle": "0x4CB"
+    "Texture": {
+      "Color3": "0x238",
+      "EmissiveTint": "0x244",
+      "UVOffset": "0x250",
+      "UVScale": "0x258",
+      "EmissiveStrength": "0x260",
+      "Rotation": "0x26C",
+      "Transparency": "0x278",
+      "ZIndex": "0x27C",
+      "OffsetStudsU": "0x2D0",
+      "OffsetStudsV": "0x2D4",
+      "StudsPerTileU": "0x2D8",
+      "StudsPerTileV": "0x2DC"
     },
     "Trail": {
-      "Brightness": "0x1D0",
-      "Lifetime": "0x1D4",
-      "LightEmission": "0x1D8",
-      "LightInfluence": "0x1DC",
-      "LocalTransparencyModifier": "0x1E0",
-      "MaxLength": "0x1E4",
-      "MinLength": "0x1E8",
-      "TextureLength": "0x1EC",
-      "Enabled": "0x1F4",
-      "FaceCamera": "0x1F5"
+      "Brightness": "0x1A8",
+      "Lifetime": "0x1AC",
+      "LightEmission": "0x1B0",
+      "LightInfluence": "0x1B4",
+      "MaxLength": "0x1BC",
+      "MinLength": "0x1C0",
+      "TextureLength": "0x1C4",
+      "Enabled": "0x1CC",
+      "FaceCamera": "0x1CD"
     },
     "TremoloSoundEffect": {
-      "Priority": "0xC8",
-      "Depth": "0x108",
-      "Duty": "0x10C",
-      "Frequency": "0x110"
+      "Priority": "0xA0",
+      "Depth": "0xE0",
+      "Duty": "0xE4",
+      "Frequency": "0xE8"
     },
-    "TrussPart": {
-      "BackParamA": "0xD8",
-      "BackParamB": "0xDC",
-      "BottomParamA": "0xE8",
-      "BottomParamB": "0xEC",
-      "FrontParamA": "0xF8",
-      "FrontParamB": "0xFC",
-      "LeftParamA": "0x108",
-      "LeftParamB": "0x10C",
-      "LocalTransparencyModifier": "0x118",
-      "Reflectance": "0x11C",
-      "RightParamA": "0x120",
-      "RightParamB": "0x124",
-      "TopParamA": "0x130",
-      "TopParamB": "0x134",
-      "Transparency": "0x140"
+    "UIAspectRatioConstraint": {
+      "AspectRatio": "0xB8"
+    },
+    "UIBlur": {
+      "Color": "0xB0",
+      "Transparency": "0xC0"
     },
     "UICorner": {
-      "CornerRadius": "0xE0",
-      "TopLeftRadius": "0xF0",
-      "TopRightRadius": "0xF8"
+      "CornerRadius": "0xB8",
+      "TopLeftRadius": "0xC8",
+      "TopRightRadius": "0xD0"
     },
-    "UIGradient": {
-      "Offset": "0x150",
-      "Rotation": "0x158",
-      "Scale": "0x15C"
+    "UIDragDetector": {
+      "DragUDim2": "0x154",
+      "MaxDragTranslation": "0x164",
+      "MinDragTranslation": "0x174",
+      "SelectionModeDragSpeed": "0x184",
+      "DragRotation": "0x1A0",
+      "MaxDragAngle": "0x1AC",
+      "MinDragAngle": "0x1B0",
+      "SelectionModeRotateSpeed": "0x1B8"
+    },
+    "UIFlexItem": {
+      "GrowRatio": "0xB4",
+      "ShrinkRatio": "0xBC"
     },
     "UIGridLayout": {
-      "CellPadding": "0x174",
-      "CellSize": "0x184",
-      "FillDirectionMaxCells": "0x1A0"
+      "CellPadding": "0x14C",
+      "CellSize": "0x15C",
+      "FillDirectionMaxCells": "0x178"
+    },
+    "UIPadding": {
+      "PaddingBottom": "0xB0",
+      "PaddingLeft": "0xB8",
+      "PaddingRight": "0xC0",
+      "PaddingTop": "0xC8"
     },
     "UIPageLayout": {
-      "Padding": "0x178",
-      "TweenTime": "0x188"
+      "Padding": "0x150",
+      "TweenTime": "0x160"
+    },
+    "UIScale": {
+      "Scale": "0xB0"
     },
     "UIShadow": {
-      "Offset": "0xDC",
-      "Spread": "0xEC",
-      "Color": "0xF8",
-      "BlurRadius": "0x108",
-      "Transparency": "0x110",
-      "ZIndex": "0x114"
+      "Offset": "0xB4",
+      "Spread": "0xC4",
+      "Color": "0xD0",
+      "BlurRadius": "0xE0",
+      "Transparency": "0xE8",
+      "ZIndex": "0xEC"
     },
     "UISizeConstraint": {
-      "MaxSize": "0xE0",
-      "MinSize": "0xE8"
-    },
-    "UIStroke": {
-      "Color": "0xE0",
-      "BorderOffset": "0xF0",
-      "Thickness": "0x104",
-      "Transparency": "0x108",
-      "ZIndex": "0x10C"
-    },
-    "VRService": {
-      "DidPointerHit": "0x890"
-    },
-    "VehicleSeat": {
-      "Disabled": "0x24C",
-      "HeadsUpDisplay": "0x24D"
-    },
-    "VideoFrame": {
-      "Position": "0x2D4",
-      "Size": "0x2F4",
-      "BackgroundColor3": "0x300",
-      "BorderColor3": "0x30C",
-      "AnchorPoint": "0x318",
-      "Transparency": "0x324",
-      "LayoutOrder": "0x33C",
-      "Rotation": "0x354",
-      "SelectionOrder": "0x358",
-      "ZIndex": "0x364",
-      "TimePosition": "0x6C8",
-      "RollOffMaxDistance": "0x6D8",
-      "RollOffMinDistance": "0x6DC",
-      "Volume": "0x6E4",
-      "AutoLocalize": "0x156C"
-    },
-    "VideoPlayer": {
-      "TimePosition": "0x178",
-      "PlaybackSpeed": "0x188",
-      "Volume": "0x18C"
-    },
-    "ViewportFrame": {
-      "Position": "0x2D4",
-      "Size": "0x2F4",
-      "BackgroundColor3": "0x300",
-      "BorderColor3": "0x30C",
-      "AnchorPoint": "0x318",
-      "Transparency": "0x324",
-      "LayoutOrder": "0x33C",
-      "Rotation": "0x354",
-      "SelectionOrder": "0x358",
-      "ZIndex": "0x364",
-      "Ambient": "0x6D0",
-      "ImageColor3": "0x6DC",
-      "LightColor": "0x6E8",
-      "LightDirection": "0x6F4",
-      "ImageTransparency": "0x704"
-    },
-    "WedgePart": {
-      "BackParamA": "0xD8",
-      "BackParamB": "0xDC",
-      "BottomParamA": "0xE8",
-      "BottomParamB": "0xEC",
-      "FrontParamA": "0xF8",
-      "FrontParamB": "0xFC",
-      "LeftParamA": "0x108",
-      "LeftParamB": "0x10C",
-      "LocalTransparencyModifier": "0x118",
-      "Reflectance": "0x11C",
-      "RightParamA": "0x120",
-      "RightParamB": "0x124",
-      "TopParamA": "0x130",
-      "TopParamB": "0x134",
-      "Transparency": "0x140"
-    },
-    "WeldConstraint": {
-      "Enabled": "0xE8"
+      "MaxSize": "0xB8",
+      "MinSize": "0xC0"
     },
     "WireframeHandleAdornment": {
-      "Color3": "0xE8",
-      "Transparency": "0xF4",
-      "SizeRelativeOffset": "0x158",
-      "Scale": "0x1B8",
-      "Thickness": "0x1C4"
+      "Color3": "0xC0",
+      "Transparency": "0xCC",
+      "SizeRelativeOffset": "0x130",
+      "Scale": "0x190",
+      "Thickness": "0x19C"
     },
-    "Workspace": {
-      "CurrentCamera": "0x4C8"
+    "WrapTextureTransfer": {
+      "UVMaxBound": "0xC8",
+      "UVMinBound": "0xD0"
     }
   }
 }
