@@ -7,7 +7,8 @@
 **Fresh Roblox offsets — extracted live from the client, verified in memory, delivered in minutes.**
 
 [![Website](https://img.shields.io/badge/🌐Website-Live%20Offset%20Browser-e31b23?style=for-the-badge)](https://mur4exe.github.io/Mur4-Offsets-Roblox-Website/#home)
-[![Join Discord](https://img.shields.io/badge/Discord-Join%20Server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/xQzrwQCSjg)
+[![Mur4 Offsets Discord](https://img.shields.io/badge/Discord-Mur4%20Offsets-e31b23?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/xQzrwQCSjg)
+[![Mur4Scripts Discord](https://img.shields.io/badge/Discord-Mur4Scripts-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/JdDNqvUWhM)
 [![Roblox](https://img.shields.io/badge/Roblox-Live%20Client-e31b23?style=for-the-badge&logo=roblox&logoColor=white)](https://www.roblox.com)
 [![Status](https://img.shields.io/badge/Auto%20Update-Every%20Roblox%20Patch-00b06f?style=for-the-badge&logo=githubactions&logoColor=white)](https://discord.gg/xQzrwQCSjg)
 
@@ -120,9 +121,10 @@ These offsets are built for **external tools** — anything that reads or writes
 
 **`mur4exe.github.io/Mur4-Offsets-Roblox-Website`** — live offset browser, direct downloads
 
-### 👉 [**JOIN THE DISCORD SERVER**](https://discord.gg/xQzrwQCSjg) 👈
+### 👉 [**JOIN OUR DISCORD SERVERS**](https://mur4exe.github.io/Mur4-Offsets-Roblox-Website/#home) 👈
 
-**`discord.gg/xQzrwQCSjg`**
+- 🩸 [**Mur4 Offsets**](https://discord.gg/xQzrwQCSjg) (`discord.gg/xQzrwQCSjg`) — Live offset updates & verified releases
+- 📜 [**Mur4Scripts / Mur4Code**](https://discord.gg/JdDNqvUWhM) (`discord.gg/JdDNqvUWhM`) — Scripts, source codes & developer community
 
 Get pinged on every Roblox update with fresh, verified offsets.
 Releases channel • Support • Community
