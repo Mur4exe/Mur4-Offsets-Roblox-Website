@@ -153,12 +153,32 @@ body.light #tabs button:hover{background:rgba(0,0,0,.05)}
 #toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 #list tbody tr{cursor:pointer;transition:background .15s}
 #diffToggle{background:var(--card2);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:9px 16px;font-size:13px;font-weight:700;cursor:pointer;transition:.25s;font-family:inherit}
-#diffToggle:hover{border-color:var(--red);color:var(--red2)}
-#diffBox{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:14px;display:none;animation:tabIn .4s ease both}
-.diff-row{display:flex;justify-content:space-between;gap:10px;padding:7px 12px;border-radius:8px;font-size:13px;font-family:Consolas,monospace;margin-bottom:4px}
+#diffToggle:hover,#diffToggle.on{border-color:var(--red);color:var(--red2);background:rgba(227,27,35,.08)}
+#diffBox{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:14px;display:none;animation:tabIn .35s ease both}
+.diff-controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.diff-controls select{flex:1;min-width:210px}
+#diffSwap{background:var(--card2);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:10px 13px;font-size:15px;font-weight:800;cursor:pointer;transition:.25s;line-height:1;font-family:inherit}
+#diffSwap:hover{border-color:var(--red);color:var(--red2);transform:scale(1.06)}
+#diffRun{width:auto;margin:0;padding:11px 20px;border:0;border-radius:10px;background:linear-gradient(135deg,var(--red),#8f1218);color:#fff;font-weight:800;cursor:pointer;font-family:inherit;transition:.25s}
+#diffRun:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(227,27,35,.35)}
+.diff-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:12px}
+.diff-pills{display:flex;gap:6px;flex-wrap:wrap}
+.diff-pill{background:var(--card2);border:1px solid var(--line);color:var(--dim);border-radius:99px;padding:5px 12px;font-size:12px;font-weight:700;cursor:pointer;transition:.2s;font-family:inherit}
+.diff-pill:hover{color:var(--text);border-color:rgba(255,255,255,.25)}
+.diff-pill.on{color:#fff;border-color:var(--red);background:rgba(227,27,35,.18)}
+.diff-pill.p-chg.on{color:#fbbf24;border-color:#fbbf24;background:rgba(255,193,7,.14)}
+.diff-pill.p-add.on{color:var(--green);border-color:var(--green);background:rgba(0,224,143,.14)}
+.diff-pill.p-rem.on{color:var(--red2);border-color:var(--red);background:rgba(227,27,35,.14)}
+#diffSearch{padding:8px 12px;font-size:13px;min-width:210px;flex:1;max-width:300px}
+.diff-list{max-height:460px;overflow-y:auto;padding-right:4px}
+.diff-row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 12px;border-radius:8px;font-size:13px;font-family:Consolas,monospace;margin-bottom:4px;cursor:pointer;transition:filter .15s,transform .15s}
+.diff-row:hover{filter:brightness(1.15);transform:translateX(2px)}
+.diff-row span:first-child{word-break:break-word}
 .diff-row.add{background:rgba(0,224,143,.1);color:var(--green)}
 .diff-row.rem{background:rgba(227,27,35,.1);color:var(--red2)}
-.diff-row.chg{background:rgba(255,193,7,.1);color:#c08a00}
+.diff-row.chg{background:rgba(255,193,7,.11);color:#fbbf24}
+body.light .diff-row.chg{color:#9a6700}
+body.light .diff-pill.p-chg.on{color:#9a6700}
 #lastUpdate{color:var(--dim);font-size:13px;margin-top:10px}
 #lastUpdate b{color:var(--green)}
 .admin{position:fixed;bottom:14px;right:16px;z-index:5;font-size:12px;color:#555}
@@ -619,13 +639,13 @@ body.light .dc-modal-badge {
     <input type="text" id="q" data-i18n-ph="searchPh" placeholder="Search class or property… (e.g. WalkSpeed)">
   </div>
   <div id="lastUpdate"></div>
-  <button id="diffToggle" style="margin:6px 0 14px;display:inline-flex;align-items:center;gap:7px"><svg class="icn" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span data-i18n="diffBtn">Compare versions</span></button>
+  <button id="diffToggle" type="button" style="margin:6px 0 14px;display:inline-flex;align-items:center;gap:7px"><svg class="icn" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span data-i18n="diffBtn">Compare versions</span></button>
   <div id="diffBox">
-    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+    <div class="diff-controls">
       <select id="diffA"></select>
-      <span style="color:var(--dim);font-weight:700">→</span>
+      <button id="diffSwap" type="button" title="Swap versions" aria-label="Swap versions">⇄</button>
       <select id="diffB"></select>
-      <button id="diffRun" style="width:auto;margin:0;padding:10px 20px;border:0;border-radius:10px;background:linear-gradient(135deg,var(--red),#8f1218);color:#fff;font-weight:800;cursor:pointer;font-family:inherit" data-i18n="diffRun">Compare</button>
+      <button id="diffRun" type="button" data-i18n="diffRun">Compare</button>
     </div>
     <div id="diffOut" style="margin-top:14px"></div>
   </div>
@@ -861,7 +881,8 @@ const EN = {
   copied:"Copied!", lastUp:"Updated", lastNow:"just now", uM:"min ago", uH:"h ago", uD:"d ago",
   tabStaff:"Staff", staffTitle:"Staff Team", staffSub:"The people behind Mur4 Offsets.",
   tabAnnounce:"Announcements", annTitle:"Announcements", annSub:"Official updates and status from Mur4t.", annEmpty:"No announcements yet.",
-  diffBtn:"Compare versions", diffRun:"Compare", diffAdded:"ADDED", diffRemoved:"REMOVED", diffChanged:"CHANGED", diffEmpty:"No differences between these versions.", diffSame:"same", diffSel:"Select two versions",
+  diffBtn:"Compare versions", diffRun:"Compare", diffAdded:"ADDED", diffRemoved:"REMOVED", diffChanged:"CHANGED", diffEmpty:"No differences between these versions.", diffSame:"same", diffSel:"Select two different versions",
+  diffAll:"All", diffSearchPh:"Filter diff (e.g. WalkSpeed, Primitive)…", diffSwap:"Swap versions", diffNeedTwo:"At least 2 versions are required to compare.", diffNoMatch:"No matching differences.",
   dlNote:"All files are extracted from the live client and read-verified in memory (dead offsets filtered out) — write usage is expected to work but not guaranteed.",
   browserNote:"Offsets are extracted from the live client and read-verified in memory (dead ones are filtered out) — write usage is expected to work but not guaranteed.",
   dcModalTitle:"Our Discord Servers", dcModalSub:"Choose a community to join:",
@@ -873,7 +894,8 @@ const EN = {
   dcServer2Desc:"Roblox scripts, source codes (C++, Luau, Python), tool releases & active developer chat."
 };
 const I18N = {
-tr:{join:"DISCORD'A KATIL",badgeAuto:"Her güncellemede otomatik",badgeLive:"Canlı doğrulanmış",badgeLive2:"offsetler",badgeZero:"Sıfır paste",badgeFree:"%100 ücretsiz",stOffsets:"Offset",stClasses:"Sınıf",stLive:"Canlı doğrulanmış",stVersion:"Roblox Sürümü",stOnline:"Şu An Online",secBrowser:"Offset Tarayıcı",searchPh:"Sınıf veya özellik ara… (örn. WalkSpeed)",secDownloads:"İndirilenler",tabHome:"Ana Sayfa",tabOffsets:"Offset Tarayıcı",tabDownloads:"İndirilenler",tabStaff:"Yetkili Kadrosu",staffTitle:"Yetkili Kadrosu",staffSub:"Mur4 Offsets'in arkasındaki ekip.",tabAnnounce:"Duyurular",annTitle:"Duyurular",annSub:"Mur4t'tan resmi güncellemeler ve durum bildirimleri.",annEmpty:"Henüz duyuru bulunmuyor.",copied:"Kopyalandı!",lastUp:"Güncellendi",lastNow:"az önce",uM:"dk önce",uH:"sa önce",uD:"gün önce",diffBtn:"Sürümleri karşılaştır",diffRun:"Karşılaştır",diffAdded:"EKLENDİ",diffRemoved:"KALDIRILDI",diffChanged:"DEĞİŞTİ",diffEmpty:"Bu sürümler arasında fark yok.",diffSame:"aynı",diffSel:"İki sürüm seç",dlNote:"Tüm dosyalar canlı client'tan çıkarılır ve bellekte okuma doğrulamasından geçer (ölüler ayıklanır) — yazma tarafının çalışması beklenir ama garanti edilmez.",browserNote:"Offsetler canlı client'tan çıkarılıp bellekte okuma doğrulamasından geçirilir (ölüler ayıklanır) — yazma tarafının çalışması beklenir ama garanti edilmez.",dlJson:"Makine okunur · araçlar ve botlar için",dlTxt:"İnsan okunur namespace dökümü",dlH:"C++ header · projene direkt ekle",secVerify:"Doğrulama ve Topluluk",verifyT:"Offsetler nasıl doğrulanıyor?",verifyP1:"Eşsiz sentinel değerleri sandbox laboratuvarında Roblox property'leri üzerinden yazılır, ardından canlı client belleği taranır. Bulunan her adres zaman içinde tekrar örneklenip sınıflandırılır:",pillLive:"CANLI — değer script fazlarını takip ediyor",pillStable:"SABİT — sentinel değer yerinde",pillDead:"ÖLÜ — sürümlerden otomatik ayıklanır",verifyP2:"Ölü offsetler asla yayınlana pakete girmez. Tipik koşu: 246 CANLI / 136 SABİT / 0 ÖLÜ.",footerEdu:"Yalnızca eğitim ve araştırma amaçlıdır. Roblox Corporation ile bağlantılı değildir.",notFound:"offsets.json bulunamadı — admin panelinden dump dosyalarını yükle.",latest:"Son",filtered:"Filtreli",offsets:"offset",
+tr:{join:"DISCORD'A KATIL",badgeAuto:"Her güncellemede otomatik",badgeLive:"Canlı doğrulanmış",badgeLive2:"offsetler",badgeZero:"Sıfır paste",badgeFree:"%100 ücretsiz",stOffsets:"Offset",stClasses:"Sınıf",stLive:"Canlı doğrulanmış",stVersion:"Roblox Sürümü",stOnline:"Şu An Online",secBrowser:"Offset Tarayıcı",searchPh:"Sınıf veya özellik ara… (örn. WalkSpeed)",secDownloads:"İndirilenler",tabHome:"Ana Sayfa",tabOffsets:"Offset Tarayıcı",tabDownloads:"İndirilenler",tabStaff:"Yetkili Kadrosu",staffTitle:"Yetkili Kadrosu",staffSub:"Mur4 Offsets'in arkasındaki ekip.",tabAnnounce:"Duyurular",annTitle:"Duyurular",annSub:"Mur4t'tan resmi güncellemeler ve durum bildirimleri.",annEmpty:"Henüz duyuru bulunmuyor.",copied:"Kopyalandı!",lastUp:"Güncellendi",lastNow:"az önce",uM:"dk önce",uH:"sa önce",uD:"gün önce",diffBtn:"Sürümleri karşılaştır",diffRun:"Karşılaştır",diffAdded:"EKLENDİ",diffRemoved:"KALDIRILDI",diffChanged:"DEĞİŞTİ",diffEmpty:"Bu sürümler arasında fark yok.",diffSame:"aynı",diffSel:"İki farklı sürüm seç",
+diffAll:"Tümü",diffSearchPh:"Farklarda ara (örn. WalkSpeed, Primitive)…",diffSwap:"Sürümleri değiştir",diffNeedTwo:"Karşılaştırmak için en az 2 sürüm gereklidir.",diffNoMatch:"Eşleşen fark bulunamadı.",dlNote:"Tüm dosyalar canlı client'tan çıkarılır ve bellekte okuma doğrulamasından geçer (ölüler ayıklanır) — yazma tarafının çalışması beklenir ama garanti edilmez.",browserNote:"Offsetler canlı client'tan çıkarılıp bellekte okuma doğrulamasından geçirilir (ölüler ayıklanır) — yazma tarafının çalışması beklenir ama garanti edilmez.",dlJson:"Makine okunur · araçlar ve botlar için",dlTxt:"İnsan okunur namespace dökümü",dlH:"C++ header · projene direkt ekle",secVerify:"Doğrulama ve Topluluk",verifyT:"Offsetler nasıl doğrulanıyor?",verifyP1:"Eşsiz sentinel değerleri sandbox laboratuvarında Roblox property'leri üzerinden yazılır, ardından canlı client belleği taranır. Bulunan her adres zaman içinde tekrar örneklenip sınıflandırılır:",pillLive:"CANLI — değer script fazlarını takip ediyor",pillStable:"SABİT — sentinel değer yerinde",pillDead:"ÖLÜ — sürümlerden otomatik ayıklanır",verifyP2:"Ölü offsetler asla yayınlana pakete girmez. Tipik koşu: 246 CANLI / 136 SABİT / 0 ÖLÜ.",footerEdu:"Yalnızca eğitim ve araştırma amaçlıdır. Roblox Corporation ile bağlantılı değildir.",notFound:"offsets.json bulunamadı — admin panelinden dump dosyalarını yükle.",latest:"Son",filtered:"Filtreli",offsets:"offset",
 dcModalTitle:"Discord Sunucularımız",dcModalSub:"Katılmak istediğiniz topluluğu seçin:",
 dcModalHint:"Tüm güncellemeler ve script paylaşımları için iki sunucuya da katılabilirsiniz!",
 dcJoinBtn:"KATIL",
@@ -1076,22 +1098,59 @@ function applyLang(){
   document.querySelectorAll("[data-i18n-ph]").forEach(el=>el.placeholder=t(el.dataset.i18nPh));
   document.title = LANG==="tr" ? "Mur4 Offsets (External) — Canlı Doğrulanmış Roblox Offsetleri"
                 : "Mur4 Offsets (External) — Live-Verified Roblox Offsets";
-  const sel=document.getElementById("verSel");
-  if(sel.selectedOptions[0]&&sel.selectedOptions[0]._data) fillSel();
+  const swap=document.getElementById("diffSwap");
+  if(swap){swap.title=t("diffSwap");swap.setAttribute("aria-label",t("diffSwap"))}
+  if(VERSIONS.length) fillSel();
+  if(document.getElementById("diffBox")?.style.display==="block"&&LAST_DIFF) renderDiffOut();
   renderMeCard(); // profil karti da dile gore yeniden cizilir
   startType();
 }
+function fmtVerOption(v,forDiff){
+  const dt=v.dump_time?" · "+v.dump_time.slice(0,10):"";
+  if(forDiff){
+    const badge=v.isLatest?" ["+t("latest")+"]":"";
+    return `${v.tag}${badge} (${v.count||"?"}${dt})`;
+  }
+  const cnt=v.count?` (${v.count} ${t("offsets")}${dt})`:(dt?` (${dt.slice(3)})`:"");
+  return v.isLatest?`${t("latest")} — ${v.tag}${cnt}`:`${v.tag}${cnt}`;
+}
 function fillSel(){
   const sel=document.getElementById("verSel");
-  const cur=sel.selectedIndex;
-  [...sel.options].forEach((o,i)=>{
-    if(o._v==="")o.textContent=`${t("latest")} — ${o._data.version||""}`;
-    else{
-      const m=(MANIFEST||[]).find(x=>x.tag===o._v);
-      o.textContent=`${t("filtered")} — ${o._v}`+(m&&m.count?` (${m.count} ${t("offsets")})`:"");
+  const curSel=sel.value;
+  if(!sel.options.length){
+    VERSIONS.forEach(v=>{
+      const o=document.createElement("option");
+      o.value=v.key;
+      o.textContent=fmtVerOption(v,false);
+      sel.appendChild(o);
+    });
+  }else{
+    [...sel.options].forEach((o,i)=>{
+      const v=VERSIONS[i];
+      if(v){o.value=v.key;o.textContent=fmtVerOption(v,false);}
+    });
+    if(curSel!==undefined&&[...sel.options].some(o=>o.value===curSel))sel.value=curSel;
+  }
+
+  const dA=document.getElementById("diffA"),dB=document.getElementById("diffB");
+  if(dA&&dB){
+    const curA=dA.value,curB=dB.value,hadOpts=dA.options.length>0;
+    if(!hadOpts){
+      VERSIONS.forEach(v=>{
+        const o1=document.createElement("option"),o2=document.createElement("option");
+        o1.value=o2.value=v.key;
+        o1.textContent=o2.textContent=fmtVerOption(v,true);
+        dA.appendChild(o1);dB.appendChild(o2);
+      });
+      if(dB.options.length)dB.selectedIndex=0;
+      if(dA.options.length>1)dA.selectedIndex=1;
+    }else{
+      [...dA.options].forEach((o,i)=>{if(VERSIONS[i])o.textContent=fmtVerOption(VERSIONS[i],true)});
+      [...dB.options].forEach((o,i)=>{if(VERSIONS[i])o.textContent=fmtVerOption(VERSIONS[i],true)});
+      if([...dA.options].some(o=>o.value===curA))dA.value=curA;
+      if([...dB.options].some(o=>o.value===curB))dB.value=curB;
     }
-  });
-  sel.selectedIndex=cur;
+  }
 }
 
 /* lang selector UI */
@@ -1222,23 +1281,74 @@ document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 function countUp(el,to){let s=performance.now();(function f(t2){const p=Math.min(1,(t2-s)/900);el.textContent=Math.round(to*(0.2+0.8*p*p));if(p<1)requestAnimationFrame(f)})(s)}
 
 /* ===== DATA ===== */
-let MANIFEST=[],DATA=null,LAST_LIVE=246; // son verify sonucu (manifest yoksa gorunen deger)
+let MANIFEST=[],VERSIONS=[],VERSION_CACHE={},DATA=null,LAST_LIVE=246,LAST_DIFF=null,DIFF_FILTER="all",DIFF_QUERY="";
+function countProps(d){
+  return (d&&typeof d.count==="number")?d.count:Object.values((d&&d.offsets)||{}).reduce((a,c)=>a+Object.keys(c).length,0);
+}
 async function loadVersion(v){
   const file=v?"offsets_"+v+".json":"offsets.json";
   const r=await fetch(file+"?v="+Date.now());if(!r.ok)throw new Error(file);
   return r.json();
 }
+async function getVersionData(key){
+  if(VERSION_CACHE[key])return VERSION_CACHE[key];
+  try{
+    const d=await loadVersion(key);
+    VERSION_CACHE[key]=d;
+    return d;
+  }catch(e){
+    if(key!==""&&DATA&&DATA.version===key){
+      VERSION_CACHE[key]=DATA;
+      return DATA;
+    }
+    throw e;
+  }
+}
+function buildVersionsList(){
+  VERSIONS=[];
+  if(DATA){
+    const tag=DATA.version||"latest";
+    const mMatch=MANIFEST.find(m=>m.tag===tag);
+    const liveVal=(DATA.verify_stats&&typeof DATA.verify_stats.live_count==="number")
+      ?DATA.verify_stats.live_count
+      :(mMatch&&typeof mMatch.live==="number"?mMatch.live:undefined);
+    VERSIONS.push({
+      key:"",
+      tag,
+      count:countProps(DATA),
+      dump_time:DATA.dump_time||(mMatch?mMatch.dump_time:""),
+      live:liveVal,
+      isLatest:true
+    });
+    VERSION_CACHE[""]=DATA;
+  }
+  const archived=[];
+  for(const m of MANIFEST){
+    if(DATA&&m.tag===DATA.version)continue;
+    archived.push({
+      key:m.tag,
+      tag:m.tag,
+      count:m.count||0,
+      dump_time:m.dump_time||"",
+      live:m.live,
+      isLatest:false
+    });
+  }
+  archived.sort((a,b)=>(b.dump_time||"").localeCompare(a.dump_time||""));
+  VERSIONS.push(...archived);
+}
 function render(q){
   q=(q||"").toLowerCase();
   const list=document.getElementById("list");list.innerHTML="";
+  if(!DATA||!DATA.offsets)return;
   let total=0,classes=0;
   for(const [cls,props] of Object.entries(DATA.offsets)){
     const en=Object.entries(props).filter(([p])=>!q||cls.toLowerCase().includes(q)||p.toLowerCase().includes(q));
     if(!en.length)continue;
     classes++;total+=en.length;
     const d=document.createElement("details");d.className="cls";
-    d.innerHTML=`<summary><span>${cls}</span><span class="cnt">${en.length}</span></summary>
-      <table><tbody>${en.map(([p,o])=>`<tr data-copy="${cls}.${p} = ${o}"><td>${p}</td><td>${o}</td></tr>`).join("")}</tbody></table>`;
+    d.innerHTML=`<summary><span>${escapeHtml(cls)}</span><span class="cnt">${en.length}</span></summary>
+      <table><tbody>${en.map(([p,o])=>`<tr data-copy="${escapeHtml(cls+"."+p+" = "+o)}"><td>${escapeHtml(p)}</td><td>${escapeHtml(String(o))}</td></tr>`).join("")}</tbody></table>`;
     d.querySelectorAll("tr").forEach(tr=>tr.onclick=()=>copyText(tr.dataset.copy));
     list.appendChild(d);
   }
@@ -1248,79 +1358,178 @@ function render(q){
 function setVersionStats(d){
   document.getElementById("stVer").textContent=(d.version||"?").replace("version-","").slice(0,8);
   updateLastTime();
-  // Live-verified sayisi: once manifest'teki dogrulama sonucu, yoksa son bildirilen deger
-  const m=(MANIFEST||[]).find(x=>x.tag===(d.version||""))||(MANIFEST||[])[0];
-  document.getElementById("stLive").textContent=(m&&typeof m.live==="number")?m.live:LAST_LIVE;
+  const m=(MANIFEST||[]).find(x=>x.tag===(d.version||""));
+  const live=(d.verify_stats&&typeof d.verify_stats.live_count==="number")
+    ?d.verify_stats.live_count
+    :((m&&typeof m.live==="number")?m.live:LAST_LIVE);
+  document.getElementById("stLive").textContent=live;
 }
 
 /* ---- SURUM KARSILASTIRMA (DIFF) ---- */
-let DIFF_LOADER={};
-function loadTag(v){
-  if(!DIFF_LOADER[v])DIFF_LOADER[v]=loadVersion(v);
-  return DIFF_LOADER[v];
-}
 function flatten(d){
   const out={};
-  for(const [cls,props] of Object.entries(d.offsets||{}))
+  for(const [cls,props] of Object.entries((d&&d.offsets)||{}))
     for(const [p,o] of Object.entries(props)) out[cls+"."+p]=o;
   return out;
 }
-async function runDiff(){
-  const a=document.getElementById("diffA").value, b=document.getElementById("diffB").value;
+function renderDiffList(){
+  const listEl=document.getElementById("diffList");
+  if(!listEl||!LAST_DIFF)return;
+  const q=DIFF_QUERY.trim().toLowerCase();
+  const filtered=LAST_DIFF.items.filter(it=>{
+    if(DIFF_FILTER!=="all"&&it.type!==DIFF_FILTER)return false;
+    if(!q)return true;
+    return it.key.toLowerCase().includes(q)
+      ||(it.oldVal&&String(it.oldVal).toLowerCase().includes(q))
+      ||(it.newVal&&String(it.newVal).toLowerCase().includes(q));
+  });
+  if(!filtered.length){
+    listEl.innerHTML=`<div style="color:var(--dim);padding:10px 4px;font-size:13px">${t("diffNoMatch")}</div>`;
+    return;
+  }
+  listEl.innerHTML="";
+  const frag=document.createDocumentFragment();
+  for(const it of filtered){
+    const row=document.createElement("div");
+    row.className="diff-row "+it.type;
+    const prefix=it.type==="chg"?"~ ":it.type==="add"?"+ ":"- ";
+    const valStr=it.type==="chg"?`${it.oldVal} → ${it.newVal}`:(it.type==="add"?it.newVal:it.oldVal);
+    const s1=document.createElement("span");
+    s1.textContent=prefix+it.key;
+    const s2=document.createElement("span");
+    s2.textContent=valStr;
+    row.appendChild(s1);row.appendChild(s2);
+    row.onclick=()=>copyText(`${it.key} = ${it.type==="rem"?it.oldVal:it.newVal}`);
+    frag.appendChild(row);
+  }
+  listEl.appendChild(frag);
+}
+function renderDiffOut(){
   const out=document.getElementById("diffOut");
-  if(a===b){out.innerHTML=`<div style="color:var(--dim)">${t("diffEmpty")}</div>`;return}
-  out.innerHTML=`<div style="color:var(--dim)">…</div>`;
+  if(!out||!LAST_DIFF)return;
+  if(!LAST_DIFF.items.length){
+    out.innerHTML=`<div style="color:var(--dim);padding:6px 0">${t("diffEmpty")}</div>`;
+    return;
+  }
+  out.innerHTML=`
+    <div class="diff-bar">
+      <div class="diff-pills">
+        <button type="button" class="diff-pill ${DIFF_FILTER==="all"?"on":""}" data-df="all">${t("diffAll")} (${LAST_DIFF.items.length})</button>
+        <button type="button" class="diff-pill p-chg ${DIFF_FILTER==="chg"?"on":""}" data-df="chg">~ ${LAST_DIFF.chg} ${t("diffChanged")}</button>
+        <button type="button" class="diff-pill p-add ${DIFF_FILTER==="add"?"on":""}" data-df="add">+ ${LAST_DIFF.add} ${t("diffAdded")}</button>
+        <button type="button" class="diff-pill p-rem ${DIFF_FILTER==="rem"?"on":""}" data-df="rem">− ${LAST_DIFF.rem} ${t("diffRemoved")}</button>
+      </div>
+      <input type="text" id="diffSearch" placeholder="${escapeHtml(t("diffSearchPh"))}" value="${escapeHtml(DIFF_QUERY)}">
+    </div>
+    <div id="diffList" class="diff-list"></div>
+  `;
+  out.querySelectorAll(".diff-pill").forEach(btn=>{
+    btn.onclick=()=>{
+      DIFF_FILTER=btn.dataset.df;
+      out.querySelectorAll(".diff-pill").forEach(p=>p.classList.toggle("on",p===btn));
+      renderDiffList();
+    };
+  });
+  const searchEl=document.getElementById("diffSearch");
+  if(searchEl){
+    searchEl.oninput=e=>{
+      DIFF_QUERY=e.target.value;
+      renderDiffList();
+    };
+  }
+  renderDiffList();
+}
+async function runDiff(){
+  const dA=document.getElementById("diffA"),dB=document.getElementById("diffB");
+  const out=document.getElementById("diffOut");
+  if(!dA||!dB||!out)return;
+  if(VERSIONS.length<2){
+    LAST_DIFF=null;
+    out.innerHTML=`<div style="color:var(--dim);padding:6px 0">${t("diffNeedTwo")}</div>`;
+    return;
+  }
+  const a=dA.value,b=dB.value;
+  if(a===b){
+    LAST_DIFF=null;
+    out.innerHTML=`<div style="color:var(--dim);padding:6px 0">${t("diffSame")} — ${t("diffSel")}</div>`;
+    return;
+  }
+  out.innerHTML=`<div style="color:var(--dim);padding:6px 0">…</div>`;
   try{
-    const [da,db]=await Promise.all([loadTag(a),loadTag(b)]);
-    const fa=flatten(da), fb=flatten(db);
-    const add=[],rem=[],chg=[];
-    for(const k of Object.keys(fb)) if(!(k in fa)) add.push(`<div class="diff-row add"><span>+ ${k}</span><span>${fb[k]}</span></div>`);
-    for(const k of Object.keys(fa)) if(!(k in fb)) rem.push(`<div class="diff-row rem"><span>- ${k}</span><span>${fa[k]}</span></div>`);
-    for(const k of Object.keys(fb)) if(k in fa && fa[k]!==fb[k]) chg.push(`<div class="diff-row chg"><span>~ ${k}</span><span>${fa[k]} → ${fb[k]}</span></div>`);
-    const rows=[...add,...rem,...chg];
-    out.innerHTML = rows.length
-      ? `<div style="margin-bottom:10px;font-size:13px;color:var(--dim)">
-           <span style="color:var(--green)">+${add.length} ${t("diffAdded")}</span> ·
-           <span style="color:var(--red2)">−${rem.length} ${t("diffRemoved")}</span> ·
-           <span style="color:#c08a00">~${chg.length} ${t("diffChanged")}</span></div>` + rows.join("")
-      : `<div style="color:var(--dim)">${t("diffEmpty")}</div>`;
-  }catch(e){out.innerHTML=`<div style="color:var(--red2)">diff error: ${e.message}</div>`}
+    const [da,db]=await Promise.all([getVersionData(a),getVersionData(b)]);
+    const fa=flatten(da),fb=flatten(db);
+    const chg=[],add=[],rem=[];
+    for(const k of Object.keys(fb)){
+      if(!(k in fa)) add.push({type:"add",key:k,newVal:fb[k]});
+      else if(fa[k]!==fb[k]) chg.push({type:"chg",key:k,oldVal:fa[k],newVal:fb[k]});
+    }
+    for(const k of Object.keys(fa)){
+      if(!(k in fb)) rem.push({type:"rem",key:k,oldVal:fa[k]});
+    }
+    LAST_DIFF={items:[...chg,...add,...rem],chg:chg.length,add:add.length,rem:rem.length};
+    DIFF_FILTER="all";
+    renderDiffOut();
+  }catch(e){
+    LAST_DIFF=null;
+    out.innerHTML=`<div style="color:var(--red2)">diff error: ${escapeHtml(e.message)}</div>`;
+  }
 }
 (async()=>{
   const sel=document.getElementById("verSel"),st=document.getElementById("status");
-  try{const r=await fetch("versions.json?v="+Date.now());if(r.ok){MANIFEST=await r.json();
+  const [mfRes,latRes]=await Promise.allSettled([
+    fetch("versions.json?v="+Date.now()).then(r=>r.ok?r.json():[]),
+    loadVersion("")
+  ]);
+  if(mfRes.status==="fulfilled"&&Array.isArray(mfRes.value)){
+    MANIFEST=mfRes.value;
     const withLive=MANIFEST.find(m=>typeof m.live==="number");
     if(withLive)LAST_LIVE=withLive.live;
     document.getElementById("stLive").textContent=LAST_LIVE;
-  }}catch(e){}
-  sel.innerHTML="";let any=false;
-  try{DATA=await loadVersion("");
-    const o=document.createElement("option");o.textContent="";o._data=DATA;o._v="";sel.appendChild(o);any=true;
-  }catch(e){}
-  for(const m of MANIFEST){
-    try{const d=await loadVersion(m.tag);
-      const o=document.createElement("option");o.textContent="";o._data=d;o._v=m.tag;sel.appendChild(o);any=true;
-    }catch(e){}
   }
-  if(!any){st.innerHTML='<span style="color:var(--red2)">'+t("notFound")+'</span>';return}
+  if(latRes.status==="fulfilled"&&latRes.value){
+    DATA=latRes.value;
+  }
+  buildVersionsList();
+  if(!DATA&&VERSIONS.length){
+    try{DATA=await getVersionData(VERSIONS[0].key)}catch(e){}
+  }
+  if(!DATA||!VERSIONS.length){
+    st.innerHTML='<span style="color:var(--red2)">'+t("notFound")+'</span>';
+    return;
+  }
+  sel.innerHTML="";
+  document.getElementById("diffA").innerHTML="";
+  document.getElementById("diffB").innerHTML="";
   fillSel();setVersionStats(DATA);render("");
-  // diff select'leri doldur: A = eski surumler, B = en yeni (varsayilan)
+
   const dA=document.getElementById("diffA"),dB=document.getElementById("diffB");
-  dA.innerHTML="";dB.innerHTML="";
-  MANIFEST.forEach(m=>{
-    const o1=document.createElement("option"),o2=document.createElement("option");
-    o1.value=o2.value=m.tag;o1.textContent=o2.textContent=m.tag+(m.count?" ("+m.count+")":"");
-    dA.appendChild(o1);dB.appendChild(o2);
-  });
-  if(dB.options.length)dB.selectedIndex=0;
-  if(dA.options.length>1)dA.selectedIndex=1;
-  document.getElementById("diffToggle").onclick=()=>{
-    const b=document.getElementById("diffBox");
-    b.style.display=b.style.display==="block"?"none":"block";
-    if(b.style.display==="block"&&!dA.options.length)runDiff();
+  const diffBox=document.getElementById("diffBox"),diffToggle=document.getElementById("diffToggle");
+  diffToggle.onclick=()=>{
+    const show=diffBox.style.display!=="block";
+    diffBox.style.display=show?"block":"none";
+    diffToggle.classList.toggle("on",show);
+    if(show)runDiff();
   };
   document.getElementById("diffRun").onclick=runDiff;
-  sel.onchange=()=>{DATA=sel.selectedOptions[0]._data;setVersionStats(DATA);render("")};
+  dA.onchange=runDiff;
+  dB.onchange=runDiff;
+  const swap=document.getElementById("diffSwap");
+  if(swap){
+    swap.onclick=()=>{
+      const tmp=dA.value;dA.value=dB.value;dB.value=tmp;
+      runDiff();
+    };
+  }
+  sel.onchange=async()=>{
+    try{
+      const d=await getVersionData(sel.value);
+      DATA=d;
+      setVersionStats(DATA);
+      render(document.getElementById("q").value.trim());
+    }catch(e){
+      toast(e.message);
+    }
+  };
   document.getElementById("q").oninput=e=>render(e.target.value.trim());
   // acilis: hash'te sekmeyi ac (#offsets / #downloads), yoksa ana sayfa
   const h=location.hash.replace("#","");

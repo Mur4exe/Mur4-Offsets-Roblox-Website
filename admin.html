@@ -858,6 +858,7 @@ input:disabled{opacity:.6;cursor:not-allowed;background:#13151a}
           <svg class="icn" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
           Roblox Dump & Offset Dosyalarını Yükle
         </div>
+        <button class="btn btn-dark btn-sm" onclick="clearQueue()">Listeyi Temizle</button>
       </div>
 
       <label>Dump Dosyalarını Bırak (offsets.json, offsets_version-xxx.json, .txt, .h, verify_stats.json)</label>
@@ -871,15 +872,27 @@ input:disabled{opacity:.6;cursor:not-allowed;background:#13151a}
 
       <button class="btn btn-green btn-block" style="margin-top:16px" onclick="uploadAll()">
         <svg class="icn" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        SİTEYE GÖNDER (Otomatik GitHub Commit + versions.json Manifest)
+        SİTEYE GÖNDER (Otomatik Sürüm Arşivleme + GitHub Commit)
       </button>
 
       <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;color:var(--dim);line-height:1.6">
-        <b>Otomatik İşlem Rehberi:</b><br>
-        • Yüklenen <code>offsets_version-xxx.json</code> dosyaları repoya kaydedilir ve <code>versions.json</code> manifestine otomatik eklenir.<br>
+        <b>Otomatik İşlem Rehberi (Eski Sürümler Korunur):</b><br>
+        • Yeni bir <code>offsets.json</code> yüklediğinizde mevcut sürüm <b>asla silinmez</b> — üzerine yazılmadan önce otomatik olarak <code>offsets_version-xxx.json</code> olarak arşivlenir.<br>
+        • Yüklenen <code>offsets.json</code> ve <code>offsets_version-xxx.json</code> dosyaları <code>versions.json</code> manifestine ve sürüm geçmişine otomatik işlenir.<br>
         • <code>verify_stats.json</code> yüklendiğinde sürümün LIVE, SABIT ve ÖLÜ offset analizleri sisteme işlenir.<br>
         • Webhook yapılandırılmışsa yükleme tamamlandığında Discord kanalına bildirim iletilir.
       </div>
+    </div>
+
+    <div class="adm-card" style="margin-top:18px">
+      <div class="adm-card-head">
+        <div class="adm-card-title">
+          <svg class="icn" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          Kayıtlı Sürüm Arşivi (versions.json)
+        </div>
+        <button class="btn btn-dark btn-sm" onclick="loadVersionsToPanel()">Yenile</button>
+      </div>
+      <div id="verHistoryList" style="font-size:13px;color:var(--dim)">Yükleniyor…</div>
     </div>
   </section>
 
@@ -1051,6 +1064,7 @@ async function login(){
     msg('m2','Giriş başarılı! Yönetim paneline hoş geldiniz.',true);
     loadStaffToPanel();
     loadAnnouncementsToPanel();
+    loadVersionsToPanel();
     initNewAnnForm();
   }catch(e){
     msg('m1','Bağlantı hatası: '+e.message,false);
@@ -1092,6 +1106,7 @@ function logout(){
           openPanel();
           loadStaffToPanel();
           loadAnnouncementsToPanel();
+          loadVersionsToPanel();
           initNewAnnForm();
           return;
         }
@@ -1103,13 +1118,43 @@ function logout(){
 })();
 
 /* ---- GITHUB REST API ---- */
+function encodeB64(text){
+  const bytes=new TextEncoder().encode(text);
+  let bin='';
+  for(let i=0;i<bytes.length;i+=8192){
+    bin+=String.fromCharCode.apply(null,bytes.subarray(i,i+8192));
+  }
+  return btoa(bin);
+}
+function decodeB64(b64){
+  const bin=atob((b64||'').replace(/\s/g,''));
+  const bytes=new Uint8Array(bin.length);
+  for(let i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);
+  return new TextDecoder().decode(bytes);
+}
+
 async function ghGet(path){
-  const r=await fetch(`https://api.github.com/repos/${CFG.user}/${CFG.repo}/contents/${path}?ref=${CFG.branch}`,{
-    headers:{Authorization:'Bearer '+CFG.pat}
+  const r=await fetch(`https://api.github.com/repos/${CFG.user}/${CFG.repo}/contents/${path}?ref=${CFG.branch}&_=${Date.now()}`,{
+    headers:{Authorization:'Bearer '+CFG.pat},
+    cache:'no-store'
   });
   if(r.status===404)return null;
   if(!r.ok)throw new Error('GET '+path+' → HTTP '+r.status);
   return r.json();
+}
+
+async function ghGetText(path){
+  const meta=await ghGet(path);
+  if(!meta)return null;
+  if(meta.content)return {sha:meta.sha,text:decodeB64(meta.content)};
+  if(meta.git_url){
+    const r=await fetch(meta.git_url,{headers:{Authorization:'Bearer '+CFG.pat},cache:'no-store'});
+    if(r.ok){
+      const b=await r.json();
+      if(b.content)return {sha:meta.sha,text:decodeB64(b.content)};
+    }
+  }
+  return {sha:meta.sha,text:''};
 }
 
 async function ghPut(path,text,customMsg){
@@ -1118,7 +1163,7 @@ async function ghPut(path,text,customMsg){
     message:customMsg||('Mur4 Offsets güncelleme: '+path),
     branch:CFG.branch,
     sha:meta?meta.sha:null,
-    content:btoa(unescape(encodeURIComponent(text)))
+    content:encodeB64(text)
   };
   const pr=await fetch(`https://api.github.com/repos/${CFG.user}/${CFG.repo}/contents/${path}`,{
     method:'PUT',
@@ -1142,31 +1187,111 @@ if(drop&&fi){
   fi.onchange=()=>{addFiles(fi.files);fi.value=''};
 }
 function addFiles(list){
-  for(const f of list)queue.push({name:f.name,file:f,status:'hazır',cls:'wait'});
+  for(const f of list){
+    const idx=queue.findIndex(x=>x.name===f.name);
+    const item={name:f.name,file:f,status:'hazır',cls:'wait'};
+    if(idx>=0)queue[idx]=item;else queue.push(item);
+  }
+  renderQueue();
+}
+function clearQueue(){
+  queue=[];
   renderQueue();
 }
 function renderQueue(){
   $('files').innerHTML=queue.map(q=>`
     <div class="file">
-      <span style="font-weight:600">${q.name}</span>
-      <span class="${q.cls}">${q.status}</span>
+      <span style="font-weight:600">${escapeHtml(q.name)}</span>
+      <span class="${q.cls}">${escapeHtml(q.status)}</span>
     </div>
   `).join('');
+}
+
+function normTag(v){
+  v=String(v||'').trim();
+  if(!v)return '';
+  return v.startsWith('version-')?v:('version-'+v);
+}
+function countOffsetProps(j){
+  return j.count||Object.values(j.offsets||{}).reduce((a,c)=>a+Object.keys(c).length,0);
+}
+function extractVersionMeta(tag,j){
+  const meta={
+    tag,
+    count:countOffsetProps(j),
+    dump_time:j.dump_time||'',
+    not_working:Array.isArray(j.not_working)?j.not_working.length:(typeof j.not_working==='number'?j.not_working:0)
+  };
+  if(j.verify_stats&&typeof j.verify_stats==='object'){
+    if(typeof j.verify_stats.live_count==='number')meta.live=j.verify_stats.live_count;
+    if(typeof j.verify_stats.stable_count==='number')meta.stable=j.verify_stats.stable_count;
+    if(typeof j.verify_stats.unverified_count==='number')meta.dead=j.verify_stats.unverified_count;
+  }
+  return meta;
+}
+
+async function loadVersionsToPanel(){
+  const el=$('verHistoryList');
+  if(!el||!CFG||!CFG.pat)return;
+  el.innerHTML='<span style="color:var(--dim)">Yükleniyor…</span>';
+  try{
+    const mf=await ghGetText('versions.json');
+    if(!mf||!mf.text){el.innerHTML='<span style="color:var(--dim)">Henüz versions.json kaydı yok.</span>';return}
+    const list=JSON.parse(mf.text);
+    if(!Array.isArray(list)||!list.length){el.innerHTML='<span style="color:var(--dim)">Kayıtlı sürüm bulunamadı.</span>';return}
+    el.innerHTML=list.map((m,i)=>`
+      <div class="file" style="margin-bottom:6px">
+        <span>
+          <b style="color:${i===0?'var(--green)':'var(--text)'}">${escapeHtml(m.tag)}</b>
+          ${i===0?'<span style="font-size:10px;background:rgba(0,224,143,.14);color:var(--green);padding:2px 7px;border-radius:99px;margin-left:6px;font-weight:800">EN SON</span>':''}
+          <span style="color:var(--dim);margin-left:8px;font-size:12px">${m.dump_time?escapeHtml(m.dump_time):''}</span>
+        </span>
+        <span style="color:var(--dim);font-weight:700">${m.count||0} offset</span>
+      </div>
+    `).join('');
+  }catch(e){
+    el.innerHTML='<span style="color:var(--red2)">Sürümler okunamadı: '+escapeHtml(e.message)+'</span>';
+  }
+}
+
+async function archiveOldLatestIfNeeded(newTag,manifest,newVersions){
+  try{
+    const cur=await ghGetText('offsets.json');
+    if(!cur||!cur.text)return;
+    const oldJ=JSON.parse(cur.text);
+    const oldTag=normTag(oldJ.version);
+    if(!oldTag)return;
+    if(!manifest.some(m=>m.tag===oldTag)){
+      newVersions.push(extractVersionMeta(oldTag,oldJ));
+    }
+    if(oldTag!==newTag){
+      const existingArchive=await ghGet('offsets_'+oldTag+'.json');
+      if(!existingArchive){
+        await ghPut('offsets_'+oldTag+'.json',cur.text,'Mur4 Offsets: eski sürüm arşivlendi ('+oldTag+')');
+        log('[ARŞİV] Eski sürüm silinmeden korundu: offsets_'+oldTag+'.json ('+countOffsetProps(oldJ)+' offset)');
+      }
+    }
+  }catch(e){
+    log('[UYARI] Eski offsets.json arşivleme kontrolü atlandı: '+e.message);
+  }
 }
 
 async function uploadAll(){
   CFG.pat=getToken();
   if(!CFG.pat){logout();return}
   if(!queue.length){msg('m2','Lütfen önce en az bir dosya bırakın.',false);return}
+  const pending=queue.filter(q=>q.cls!=='ok');
+  if(!pending.length){msg('m2','Listedeki tüm dosyalar zaten yüklendi. Yeni dosya ekleyin veya listeyi temizleyin.',false);return}
+
   $('log').textContent='';
   let okCount=0;const newVersions=[];let statsFor=null,statsData=null;
   let manifest=[];
 
   try{
-    const mf=await ghGet('versions.json');
-    if(mf){
-      const txt=decodeURIComponent(escape(atob(mf.content.replace(/\n/g,''))));
-      manifest=JSON.parse(txt);
+    const mf=await ghGetText('versions.json');
+    if(mf&&mf.text){
+      manifest=JSON.parse(mf.text);
+      if(!Array.isArray(manifest))manifest=[];
     }else{
       log('[BİLGİ] versions.json bulunamadı — sıfırdan oluşturulacak');
     }
@@ -1174,32 +1299,66 @@ async function uploadAll(){
     log('[BİLGİ] versions.json okunamadı ('+e.message+') — sıfırdan oluşturulacak');
   }
 
-  for(const q of queue){
+  // Yeni offsets.json yukleniyorsa once mevcut offsets.json'daki eski surumu arsivle
+  const offsetsQueueItem=pending.find(q=>q.name==='offsets.json');
+  if(offsetsQueueItem){
+    try{
+      const preText=await offsetsQueueItem.file.text();
+      const preJson=JSON.parse(preText);
+      await archiveOldLatestIfNeeded(normTag(preJson.version),manifest,newVersions);
+    }catch(e){}
+  }
+
+  const pendingNames=new Set(pending.map(q=>q.name));
+
+  for(const q of pending){
     try{
       log('[İŞLEM] '+q.name+' repoya yazılıyor…');
       const text=await q.file.text();
+      let parsedJson=null;
       if(q.name.endsWith('.json')){
-        let j;
-        try{j=JSON.parse(text)}catch(e){throw new Error('Geçersiz JSON dosyası!')}
+        try{parsedJson=JSON.parse(text)}catch(e){throw new Error('Geçersiz JSON dosyası!')}
         const m=q.name.match(/^offsets_(version-.+)\.json$/);
         if(m){
-          newVersions.push({
-            tag:m[1],
-            count:j.count||Object.values(j.offsets||{}).reduce((a,c)=>a+Object.keys(c).length,0),
-            dump_time:j.dump_time||'',
-            not_working:(j.not_working||[]).length
-          });
+          newVersions.push(extractVersionMeta(m[1],parsedJson));
         }
-        if(q.name==='verify_stats.json'&&j.version){
-          statsFor=j.version;
-          statsData=j;
+        if(q.name==='verify_stats.json'&&parsedJson.version){
+          statsFor=normTag(parsedJson.version);
+          statsData=parsedJson;
         }
       }
+
       await ghPut(q.name,text);
       q.status='yüklendi';
       q.cls='ok';
       okCount++;
       log('[BAŞARILI] '+q.name+' repoya yazıldı');
+
+      // offsets.json yuklendiyse surum arsiv kopyasini da otomatik kaydet
+      if(q.name==='offsets.json'&&parsedJson&&parsedJson.version){
+        const verTag=normTag(parsedJson.version);
+        if(verTag){
+          newVersions.push(extractVersionMeta(verTag,parsedJson));
+          const archiveName='offsets_'+verTag+'.json';
+          if(!pendingNames.has(archiveName)){
+            await ghPut(archiveName,text,'Mur4 Offsets: sürüm arşivi ('+verTag+')');
+            log('[ARŞİV] Sürüm dosyası da kaydedildi: '+archiveName);
+          }
+        }
+      }else if(q.name.match(/^offsets_(version-.+)\.json$/)&&!pendingNames.has('offsets.json')&&parsedJson){
+        // Sadece offsets_version-xxx.json yuklendiyse ve daha yeniyse offsets.json'i da guncelle
+        const verTag=q.name.match(/^offsets_(version-.+)\.json$/)[1];
+        try{
+          const cur=await ghGetText('offsets.json');
+          const curJ=cur&&cur.text?JSON.parse(cur.text):null;
+          const isNewer=!curJ||!curJ.dump_time||(parsedJson.dump_time&&parsedJson.dump_time>=curJ.dump_time);
+          if(isNewer){
+            await archiveOldLatestIfNeeded(verTag,manifest,newVersions);
+            await ghPut('offsets.json',text,'Mur4 Offsets güncelleme: offsets.json ('+verTag+')');
+            log('[BİLGİ] En güncel sürüm olduğu için offsets.json da güncellendi');
+          }
+        }catch(e){}
+      }
     }catch(e){
       q.status='hata: '+e.message;
       q.cls='fail';
@@ -1208,42 +1367,38 @@ async function uploadAll(){
     renderQueue();
   }
 
-  if(newVersions.length){
+  if(newVersions.length||(statsFor&&statsData)){
     for(const nv of newVersions){
       const i=manifest.findIndex(m=>m.tag===nv.tag);
-      if(i>=0)manifest[i]=nv;else manifest.push(nv);
+      if(i>=0)manifest[i]=Object.assign({},manifest[i],nv);
+      else manifest.push(nv);
+    }
+    if(statsFor&&statsData){
+      let i=manifest.findIndex(m=>m.tag===statsFor);
+      if(i<0){
+        manifest.push({tag:statsFor,count:statsData.total,dump_time:statsData.dump_time||''});
+        i=manifest.length-1;
+      }
+      manifest[i].live=statsData.live;
+      manifest[i].stable=statsData.stable;
+      manifest[i].dead=statsData.dead;
+      log('[BİLGİ] Doğrulama istatistikleri işlendi: '+statsFor);
     }
     manifest.sort((a,b)=>(b.dump_time||'').localeCompare(a.dump_time||''));
     try{
       await ghPut('versions.json',JSON.stringify(manifest,null,2),'Mur4 Offsets: sürüm manifesti güncellendi');
-      log('[BAŞARILI] versions.json güncellendi ('+manifest.length+' sürüm)');
+      log('[BAŞARILI] versions.json güncellendi (toplam '+manifest.length+' sürüm korunuyor)');
     }catch(e){
       log('[HATA] versions.json → '+e.message);
     }
   }
 
-  if(statsFor&&statsData){
-    let i=manifest.findIndex(m=>m.tag===statsFor);
-    if(i<0){
-      manifest.push({tag:statsFor,count:statsData.total,dump_time:statsData.dump_time});
-      i=manifest.length-1;
-    }
-    manifest[i].live=statsData.live;
-    manifest[i].stable=statsData.stable;
-    manifest[i].dead=statsData.dead;
-    try{
-      await ghPut('versions.json',JSON.stringify(manifest,null,2),'Mur4 Offsets: verify istatistikleri eklendi');
-      log('[BAŞARILI] Doğrulama istatistikleri işlendi: '+statsFor);
-    }catch(e){
-      log('[HATA] verify istatistikleri → '+e.message);
-    }
-  }
-
-  msg('m2',okCount+' dosya başarıyla gönderildi! Site 1-2 dakika içinde güncellenecektir.',true);
+  loadVersionsToPanel();
+  msg('m2',okCount+' dosya başarıyla gönderildi! Eski sürümler korundu, site 1-2 dakika içinde güncellenecektir.',true);
 
   const hook=$('hook').value.trim();
   if(hook&&okCount>0){
-    const jv=newVersions[0];
+    const jv=newVersions[newVersions.length-1]||newVersions[0];
     try{
       const r=await fetch(hook,{
         method:'POST',

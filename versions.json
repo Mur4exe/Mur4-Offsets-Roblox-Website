@@ -1,5 +1,23 @@
 [
   {
+    "tag": "version-4ea8e85481e34f46",
+    "count": 1563,
+    "dump_time": "2026-11-14 15:00:29",
+    "not_working": 0
+  },
+  {
+    "tag": "version-63eb6055af4e4688",
+    "count": 1335,
+    "dump_time": "2026-11-11 20:07:28",
+    "not_working": 0
+  },
+  {
+    "tag": "version-f0ea5da9412f4e35",
+    "count": 605,
+    "dump_time": "2026-11-11 00:46:28",
+    "not_working": 0
+  },
+  {
     "tag": "version-c5aecda2245e4fae",
     "count": 576,
     "dump_time": "2026-09-12 18:20",
