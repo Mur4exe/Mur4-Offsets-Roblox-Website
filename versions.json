@@ -1,6 +1,22 @@
 [
   {
     "tag": "version-4ea8e85481e34f46",
+    "count": 1654,
+    "dump_time": "2026-11-14 19:37:23",
+    "not_working": 0,
+    "file": "offsets_version-4ea8e85481e34f46_3.json",
+    "uploaded_at": "2026-11-14T17:02:13.584Z"
+  },
+  {
+    "tag": "version-4ea8e85481e34f46",
+    "count": 1563,
+    "dump_time": "2026-11-14 15:00:29",
+    "not_working": 0,
+    "file": "offsets_version-4ea8e85481e34f46_2.json",
+    "uploaded_at": "2026-11-14T17:02:02.812Z"
+  },
+  {
+    "tag": "version-4ea8e85481e34f46",
     "count": 1563,
     "dump_time": "2026-11-14 15:00:29",
     "not_working": 0
