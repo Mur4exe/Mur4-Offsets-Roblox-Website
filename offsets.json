@@ -3,8 +3,8 @@
   "website": "https://mur4exe.github.io/Mur4-Offsets-Roblox-Website/",
   "type": "external",
   "version": "version-4ea8e85481e34f46",
-  "dump_time": "2026-11-14 15:00:29",
-  "count": 1563,
+  "dump_time": "2026-11-14 19:37:23",
+  "count": 1654,
   "offsets": {
     "Accessory": {
       "AttachmentPos": "0xC4"
@@ -44,12 +44,27 @@
       "MaxTorque": "0x190",
       "Responsiveness": "0x198"
     },
+    "AlignPosition": {
+      "MaxAxesForce": "0x158",
+      "Position": "0x164",
+      "MaxForce": "0x178",
+      "MaxVelocity": "0x17C",
+      "Responsiveness": "0x184"
+    },
     "AngularVelocity": {
       "AngularVelocity": "0x158",
-      "MaxTorque": "0x164"
+      "MaxTorque": "0x2AC"
     },
     "Animation": {
       "AnimationId": "0xA8"
+    },
+    "AnimationConstraint": {
+      "AngularDamping": "0x158",
+      "AngularStrength": "0x15C",
+      "LinearDamping": "0x160",
+      "LinearStrength": "0x164",
+      "MaxForce": "0x168",
+      "MaxTorque": "0x16C"
     },
     "AnimationNodeDefinition": {
       "NodeId": "0x98"
@@ -240,23 +255,47 @@
       "HitboxSize": "0x98",
       "SingleColliderSize": "0xA4"
     },
+    "BallSocketConstraint": {
+      "MaxFrictionTorque": "0x158",
+      "Radius": "0x15C",
+      "Restitution": "0x160",
+      "TwistLowerAngle": "0x164",
+      "TwistUpperAngle": "0x168",
+      "UpperAngle": "0x16C"
+    },
     "BasePart": {
-      "CanQuery": "0x8E",
       "LocalTransparencyModifier": "0xF0",
       "Reflectance": "0xF4",
       "Transparency": "0x118",
       "CastShadow": "0x120",
-      "Locked": "0x121",
-      "Massless": "0x122",
-      "CanCollide": "0x181",
-      "Anchored": "0x1A1",
-      "Primitive": "0x208",
+      "Primitive": "0x178",
+      "CanQuery": "0x322",
+      "CanCollide": "0x440",
+      "Locked": "0x520",
+      "Anchored": "0x521",
+      "Massless": "0x5A1",
       "CanTouch": "0x7D8"
+    },
+    "Beam": {
+      "TextureContent": "0x128",
+      "Brightness": "0x168",
+      "CurveSize0": "0x16C",
+      "CurveSize1": "0x170",
+      "LightEmission": "0x174",
+      "LightInfluence": "0x178",
+      "LocalTransparencyModifier": "0x17C",
+      "TextureLength": "0x184",
+      "TextureSpeed": "0x18C",
+      "Width0": "0x190",
+      "Width1": "0x194",
+      "ZOffset": "0x198",
+      "Enabled": "0x19C",
+      "FaceCamera": "0x19D"
     },
     "BillboardGui": {
       "Enabled": "0x260",
       "ResetOnSpawn": "0x261",
-      "Size": "0x52C",
+      "Size": "0x528",
       "ExtentsOffset": "0x538",
       "ExtentsOffsetWorldSpace": "0x544",
       "StudsOffset": "0x550",
@@ -321,17 +360,28 @@
     "BoolValue": {
       "Value": "0xA0"
     },
+    "BoxHandleAdornment": {
+      "Color3": "0xC0",
+      "Transparency": "0xCC",
+      "CFrame": "0x124",
+      "SizeRelativeOffset": "0x130",
+      "Size": "0x190"
+    },
     "ByteCode": {
       "Pointer": "0x18",
       "Size": "0x28"
     },
     "Camera": {
+      "CameraSubject": "0xB0",
+      "Rotation": "0xC0",
+      "Position": "0xE4",
+      "FieldOfView": "0x128",
       "MaxAxisFieldOfView": "0x128",
       "HeadScale": "0x130"
     },
     "CanvasGroup": {
-      "Position": "0x2AC",
-      "Size": "0x2CC",
+      "Position": "0x2A8",
+      "Size": "0x2C8",
       "BackgroundColor3": "0x2D8",
       "BorderColor3": "0x2E4",
       "AnchorPoint": "0x2F0",
@@ -388,6 +438,14 @@
       "Release": "0xFC",
       "Threshold": "0x100"
     },
+    "ConeHandleAdornment": {
+      "Color3": "0xC0",
+      "Transparency": "0xCC",
+      "CFrame": "0x124",
+      "SizeRelativeOffset": "0x130",
+      "Height": "0x190",
+      "Radius": "0x194"
+    },
     "ControllerManager": {
       "BaseMoveSpeed": "0x104",
       "BaseTurnSpeed": "0x108"
@@ -398,6 +456,7 @@
       "SearchDistance": "0x27C"
     },
     "CornerWedgePart": {
+      "CollisionGroup": "0x68",
       "BackParamA": "0xB0",
       "BackParamB": "0xB4",
       "BottomParamA": "0xC0",
@@ -414,6 +473,16 @@
       "TopParamB": "0x10C",
       "Transparency": "0x118",
       "MaterialVariant": "0x238"
+    },
+    "CylinderHandleAdornment": {
+      "Color3": "0xC0",
+      "Transparency": "0xCC",
+      "CFrame": "0x124",
+      "SizeRelativeOffset": "0x130",
+      "Angle": "0x190",
+      "Height": "0x194",
+      "InnerRadius": "0x198",
+      "Radius": "0x19C"
     },
     "CylinderMesh": {
       "Offset": "0xA0",
@@ -605,6 +674,7 @@
       "UpperLipSuck": "0x18C"
     },
     "FakeDataModel": {
+      "DataModel": "0x1F8",
       "RealDataModel": "0x1F8",
       "Pointer": "0x8F8E968"
     },
@@ -630,6 +700,7 @@
       "GripPos": "0x494"
     },
     "FlagStand": {
+      "CollisionGroup": "0x68",
       "BackParamA": "0xB0",
       "BackParamB": "0xB4",
       "BottomParamA": "0xC0",
@@ -649,7 +720,6 @@
       "Velocity": "0x360",
       "RotVelocity": "0x36C",
       "Size": "0x444",
-      "CollisionGroup": "0x4C0",
       "Friction": "0x4DC",
       "Elasticity": "0x4E0",
       "MaterialVariant": "0x538"
@@ -671,8 +741,8 @@
       "WireRadius": "0x13C"
     },
     "Frame": {
-      "Position": "0x2AC",
-      "Size": "0x2CC",
+      "Position": "0x2A8",
+      "Size": "0x2C8",
       "BackgroundColor3": "0x2D8",
       "BorderColor3": "0x2E4",
       "AnchorPoint": "0x2F0",
@@ -689,6 +759,12 @@
     },
     "FunctionalTest": {
       "Description": "0x98"
+    },
+    "Glue": {
+      "F0": "0x170",
+      "F1": "0x17C",
+      "F2": "0x188",
+      "F3": "0x194"
     },
     "GroundController": {
       "MoveSpeedFactor": "0xA0",
@@ -708,8 +784,8 @@
       "DisplayOrder": "0x508"
     },
     "GuiObject": {
-      "Position": "0x2AC",
-      "Size": "0x2CC",
+      "Position": "0x2A8",
+      "Size": "0x2C8",
       "BackgroundColor3": "0x2D8",
       "BorderColor3": "0x2E4",
       "AnchorPoint": "0x2F0",
@@ -750,13 +826,28 @@
       "OutlineTransparency": "0xD4",
       "Enabled": "0xDC"
     },
+    "HingeConstraint": {
+      "AngularResponsiveness": "0x15C",
+      "AngularSpeed": "0x160",
+      "AngularVelocity": "0x164",
+      "LowerAngle": "0x168",
+      "MotorMaxAcceleration": "0x16C",
+      "MotorMaxTorque": "0x170",
+      "Radius": "0x174",
+      "Restitution": "0x178",
+      "ServoMaxTorque": "0x17C",
+      "TargetAngle": "0x180",
+      "UpperAngle": "0x184"
+    },
     "HopperBin": {
       "TextureId": "0x348"
     },
     "Humanoid": {
+      "EvaluateStateMachine": "0x68",
       "DisplayName": "0xA0",
       "CameraOffset": "0x110",
       "WalkToPoint": "0x158",
+      "FloorMaterial": "0x178",
       "HealthDisplayDistance": "0x17C",
       "Health": "0x184",
       "HipHeight": "0x188",
@@ -770,14 +861,15 @@
       "AutoRotate": "0x1CD",
       "AutomaticScalingEnabled": "0x1CE",
       "BreakJointsOnDeath": "0x1D0",
-      "EvaluateStateMachine": "0x1D1",
       "Jump": "0x1D4",
       "PlatformStand": "0x1D6",
       "RequiresNeck": "0x1D7",
       "Sit": "0x1D8",
       "UseJumpPower": "0x1DA",
+      "WalkspeedCheck": "0x3A4",
+      "HumanoidRootPart": "0x468",
       "Torso": "0x4C8",
-      "HumanoidRootPart": "0x5D8"
+      "HumanoidState": "0x8B0"
     },
     "HumanoidDescription": {
       "ClimbAnimation": "0xC0",
@@ -873,8 +965,8 @@
       "Weight": "0x14C"
     },
     "ImageButton": {
-      "Position": "0x2AC",
-      "Size": "0x2CC",
+      "Position": "0x2A8",
+      "Size": "0x2C8",
       "BackgroundColor3": "0x2D8",
       "BorderColor3": "0x2E4",
       "AnchorPoint": "0x2F0",
@@ -886,7 +978,7 @@
       "HoverImageContent": "0x9C0",
       "ImageContent": "0x9F0",
       "PressedImageContent": "0xA50",
-      "TileSize": "0xA84",
+      "TileSize": "0xA80",
       "ImageColor3": "0xA90",
       "ImageRectOffset": "0xAA4",
       "ImageRectSize": "0xAAC",
@@ -902,8 +994,8 @@
       "Size": "0x1C0"
     },
     "ImageLabel": {
-      "Position": "0x2AC",
-      "Size": "0x2CC",
+      "Position": "0x2A8",
+      "Size": "0x2C8",
       "BackgroundColor3": "0x2D8",
       "BorderColor3": "0x2E4",
       "AnchorPoint": "0x2F0",
@@ -913,7 +1005,7 @@
       "SelectionOrder": "0x330",
       "ZIndex": "0x33C",
       "ImageContent": "0x740",
-      "TileSize": "0x7A4",
+      "TileSize": "0x7A0",
       "ImageColor3": "0x7B0",
       "ImageRectOffset": "0x7C4",
       "ImageRectSize": "0x7CC",
@@ -924,8 +1016,8 @@
       "DisplayName": "0xA0"
     },
     "InputActionLabel": {
-      "Position": "0x2AC",
-      "Size": "0x2CC",
+      "Position": "0x2A8",
+      "Size": "0x2C8",
       "BackgroundColor3": "0x2D8",
       "BorderColor3": "0x2E4",
       "AnchorPoint": "0x2F0",
@@ -949,7 +1041,9 @@
       "ClassDescriptor": "0x18",
       "Parent": "0x60",
       "Name": "0x68",
-      "ChildrenStart": "0x78"
+      "NameContainer": "0x68",
+      "Children": "0x70",
+      "ChildrenStart": "0x70"
     },
     "IntConstrainedValue": {
       "MaxValue": "0xA0",
@@ -957,6 +1051,7 @@
       "Value": "0xB0"
     },
     "IntersectOperation": {
+      "CollisionGroup": "0x68",
       "BackParamA": "0xB0",
       "BackParamB": "0xB4",
       "BottomParamA": "0xC0",
@@ -971,8 +1066,7 @@
       "RightParamB": "0xFC",
       "TopParamA": "0x108",
       "TopParamB": "0x10C",
-      "Transparency": "0x118",
-      "MaterialVariant": "0x1F0"
+      "Transparency": "0x118"
     },
     "JointInstance": {
       "Part0": "0x100",
@@ -1006,6 +1100,14 @@
       "Magnitude": "0x158",
       "MaxForce": "0x15C"
     },
+    "LineHandleAdornment": {
+      "Color3": "0xC0",
+      "Transparency": "0xCC",
+      "CFrame": "0x124",
+      "SizeRelativeOffset": "0x130",
+      "Length": "0x190",
+      "Thickness": "0x194"
+    },
     "LinearVelocity": {
       "MaxForce": "0x178",
       "MaxPlanarAxesForce": "0x1B0",
@@ -1033,7 +1135,6 @@
       "StudsPerTile": "0x200"
     },
     "MeshPart": {
-      "CollisionGroup": "0x68",
       "BackParamA": "0xB0",
       "BackParamB": "0xB4",
       "BottomParamA": "0xC0",
@@ -1052,12 +1153,11 @@
       "MeshId": "0x2F8",
       "Texture": "0x328",
       "TextureID": "0x328",
-      "DoubleSided": "0x364",
-      "MaterialVariant": "0x438"
+      "DoubleSided": "0x364"
     },
     "Misc": {
-      "Adornee": "0xA0",
-      "AnimationId": "0xA8"
+      "AnimationId": "0xA8",
+      "Adornee": "0xD8"
     },
     "Model": {
       "Scale": "0x12C",
@@ -1067,7 +1167,12 @@
       "GUID": "0xB8",
       "ByteCode": "0x120"
     },
+    "Motor6D": {
+      "Part0": "0x100",
+      "Part1": "0x110"
+    },
     "NegateOperation": {
+      "CollisionGroup": "0x68",
       "BackParamA": "0xB0",
       "BackParamB": "0xB4",
       "BottomParamA": "0xC0",
@@ -1093,7 +1198,7 @@
       "Color3": "0x108"
     },
     "Part": {
-      "CanQuery": "0x8E",
+      "CollisionGroup": "0x68",
       "BackParamA": "0xB0",
       "BackParamB": "0xB4",
       "BottomParamA": "0xC0",
@@ -1110,12 +1215,13 @@
       "TopParamB": "0x10C",
       "Transparency": "0x118",
       "CastShadow": "0x120",
-      "Locked": "0x121",
-      "Massless": "0x122",
-      "CanCollide": "0x181",
-      "Anchored": "0x1A1",
-      "Primitive": "0x208",
-      "MaterialVariant": "0x608",
+      "Primitive": "0x178",
+      "MaterialVariant": "0x238",
+      "CanQuery": "0x322",
+      "CanCollide": "0x440",
+      "Locked": "0x520",
+      "Anchored": "0x521",
+      "Massless": "0x5A1",
       "CanTouch": "0x7D8"
     },
     "PartOperation": {
@@ -1133,8 +1239,7 @@
       "RightParamB": "0xFC",
       "TopParamA": "0x108",
       "TopParamB": "0x10C",
-      "Transparency": "0x118",
-      "CollisionGroup": "0x438"
+      "Transparency": "0x118"
     },
     "ParticleEmitter": {
       "TextureContent": "0x1A8",
@@ -1227,42 +1332,24 @@
     },
     "Primitive": {
       "Validate": "0x6",
-      "Owner": "0x10",
-      "Flags": "0x34",
-      "CFrame": "0x88",
-      "Rotation": "0x88",
-      "Position": "0xAC",
-      "BackParamA": "0xB0",
-      "BackParamB": "0xB4",
-      "BottomParamA": "0xC0",
-      "BottomParamB": "0xC4",
-      "FrontParamA": "0xD0",
-      "FrontParamB": "0xD4",
+      "CFrame": "0xB0",
+      "Rotation": "0xB0",
+      "Position": "0xD4",
       "AssemblyLinearVelocity": "0xE0",
-      "LeftParamA": "0xE0",
       "Velocity": "0xE0",
-      "LeftParamB": "0xE4",
       "AssemblyAngularVelocity": "0xEC",
       "RotVelocity": "0xEC",
-      "LocalTransparencyModifier": "0xF0",
-      "Reflectance": "0xF4",
-      "Size": "0xF4",
-      "RightParamA": "0xF8",
-      "RightParamB": "0xFC",
-      "TopParamA": "0x108",
-      "TopParamB": "0x10C",
-      "Transparency": "0x118",
+      "Flags": "0x1BE",
+      "Size": "0x1C4",
+      "Owner": "0x218",
       "Friction": "0x25C",
       "Elasticity": "0x260"
     },
     "PrimitiveFlags": {
-      "CanQuery": "0x1",
-      "CastShadow": "0x1",
-      "CanTouch": "0x2",
-      "Locked": "0x2",
-      "Anchored": "0x4",
-      "Massless": "0x20",
-      "CanCollide": "0x40"
+      "Anchored": "0x2",
+      "CanCollide": "0x8",
+      "CanTouch": "0x10",
+      "CanQuery": "0x20"
     },
     "PrismaticConstraint": {
       "LinearResponsiveness": "0x15C",
@@ -1278,8 +1365,19 @@
       "Velocity": "0x184"
     },
     "ProceduralModel": {
-      "Size": "0x360",
-      "ExplorerIconContent": "0x410"
+      "Size": "0x360"
+    },
+    "ProximityPrompt": {
+      "ActionText": "0x98",
+      "ObjectText": "0xB8",
+      "UIOffset": "0xF8",
+      "HoldDuration": "0x108",
+      "MaxActivationDistance": "0x110",
+      "MaxIndicatorDistance": "0x114",
+      "AutoLocalize": "0x11C",
+      "ClickablePrompt": "0x11D",
+      "Enabled": "0x11E",
+      "RequiresLineOfSight": "0x11F"
     },
     "PyramidHandleAdornment": {
       "Color3": "0xC0",
@@ -1318,6 +1416,12 @@
       "TurnD": "0x2B0",
       "TurnP": "0x2B4"
     },
+    "RodConstraint": {
+      "Length": "0x158",
+      "LimitAngle0": "0x15C",
+      "LimitAngle1": "0x160",
+      "Thickness": "0x164"
+    },
     "RopeConstraint": {
       "Length": "0x158",
       "Restitution": "0x15C",
@@ -1328,7 +1432,7 @@
       "WinchTarget": "0x170"
     },
     "ScreenGui": {
-      "IgnoreGuiInset": "0x95",
+      "IgnoreGuiInset": "0x68",
       "Enabled": "0x260",
       "ResetOnSpawn": "0x261",
       "DisplayOrder": "0x508"
@@ -1338,8 +1442,9 @@
       "ByteCode": "0x178"
     },
     "ScrollingFrame": {
-      "Position": "0x2AC",
-      "Size": "0x2CC",
+      "ScrollingEnabled": "0x13C",
+      "Position": "0x2A8",
+      "Size": "0x2C8",
       "BackgroundColor3": "0x2D8",
       "BorderColor3": "0x2E4",
       "AnchorPoint": "0x2F0",
@@ -1353,12 +1458,11 @@
       "BottomImageContent": "0x678",
       "MidImageContent": "0x6A8",
       "TopImageContent": "0x6D8",
-      "CanvasSize": "0x6FC",
+      "CanvasSize": "0x6F8",
       "ScrollBarImageColor3": "0x728",
       "CanvasPosition": "0x73C",
       "ScrollBarImageTransparency": "0x764",
-      "ScrollBarThickness": "0x768",
-      "ScrollingEnabled": "0x77C"
+      "ScrollBarThickness": "0x768"
     },
     "Seat": {
       "BackParamA": "0xB0",
@@ -1417,7 +1521,6 @@
       "Color3": "0xD8"
     },
     "SkateboardPlatform": {
-      "CollisionGroup": "0x68",
       "BackParamA": "0xB0",
       "BackParamB": "0xB4",
       "BottomParamA": "0xC0",
@@ -1445,7 +1548,8 @@
       "SunTextureId": "0x200",
       "SkyboxOrientation": "0x220",
       "MoonAngularSize": "0x22C",
-      "SunAngularSize": "0x234"
+      "SunAngularSize": "0x234",
+      "CelestialBodiesShown": "0x238"
     },
     "Smoke": {
       "Color": "0xA0",
@@ -1455,6 +1559,20 @@
       "RiseVelocity": "0xB8",
       "Size": "0xBC",
       "Enabled": "0xC0"
+    },
+    "Sound": {
+      "SoundId": "0xB0",
+      "TimePosition": "0xE0",
+      "LoopRegion": "0xE8",
+      "PlaybackRegion": "0xF0",
+      "PlaybackSpeed": "0x10C",
+      "RollOffMaxDistance": "0x110",
+      "RollOffMinDistance": "0x114",
+      "Volume": "0x120",
+      "Looped": "0x12D",
+      "PlayOnRemove": "0x12E",
+      "PlaybackRegionsEnabled": "0x12F",
+      "Playing": "0x130"
     },
     "SoundService": {
       "DistanceFactor": "0x14C",
@@ -1486,8 +1604,7 @@
       "Duration": "0x1D0",
       "AllowTeamChangeOnTouch": "0x1D8",
       "Enabled": "0x1D9",
-      "Neutral": "0x1DA",
-      "MaterialVariant": "0x238"
+      "Neutral": "0x1DA"
     },
     "SpecialMesh": {
       "Offset": "0xA0",
@@ -1588,7 +1705,7 @@
       "JobName": "0x18",
       "JobStart": "0xC8",
       "JobEnd": "0xD0",
-      "Pointer": "0x82B9F48"
+      "Pointer": "0x8F1E408"
     },
     "Team": {
       "Score": "0x9C",
@@ -1611,14 +1728,12 @@
       "StudsPerTile": "0x1D8"
     },
     "TextBox": {
-      "ClearTextOnFocus": "0x68",
-      "TextEditable": "0x68",
-      "TextWrapped": "0x68",
-      "MultiLine": "0x69",
-      "RichText": "0x69",
+      "RichText": "0x48",
+      "TextWrapped": "0x48",
+      "ClearTextOnFocus": "0x69",
       "TextScaled": "0x1A9",
-      "Position": "0x2AC",
-      "Size": "0x2CC",
+      "Position": "0x2A8",
+      "Size": "0x2C8",
       "BackgroundColor3": "0x2D8",
       "BorderColor3": "0x2E4",
       "AnchorPoint": "0x2F0",
@@ -1628,7 +1743,7 @@
       "SelectionOrder": "0x330",
       "ZIndex": "0x33C",
       "Visible": "0x345",
-      "Text": "0x780",
+      "Text": "0x880",
       "LineHeight": "0x8D8",
       "PlaceholderText": "0xA88",
       "OpenTypeFeatures": "0xAF0",
@@ -1639,8 +1754,8 @@
       "TextStrokeTransparency": "0xB3C"
     },
     "TextButton": {
-      "Position": "0x2AC",
-      "Size": "0x2CC",
+      "Position": "0x2A8",
+      "Size": "0x2C8",
       "BackgroundColor3": "0x2D8",
       "BorderColor3": "0x2E4",
       "AnchorPoint": "0x2F0",
@@ -1658,8 +1773,8 @@
       "TextStrokeTransparency": "0xD88"
     },
     "TextChannelWindow": {
-      "Position": "0x2AC",
-      "Size": "0x2CC",
+      "Position": "0x2A8",
+      "Size": "0x2C8",
       "BackgroundColor3": "0x2D8",
       "BorderColor3": "0x2E4",
       "AnchorPoint": "0x2F0",
@@ -1685,10 +1800,9 @@
       "TopP": "0xC0"
     },
     "TextLabel": {
-      "TextWrapped": "0x48",
-      "Active": "0x1BC",
-      "Position": "0x2AC",
-      "Size": "0x2CC",
+      "TextWrapped": "0x1A1",
+      "Position": "0x2A8",
+      "Size": "0x2C8",
       "BackgroundColor3": "0x2D8",
       "BorderColor3": "0x2E4",
       "AnchorPoint": "0x2F0",
@@ -1697,10 +1811,12 @@
       "Rotation": "0x32C",
       "SelectionOrder": "0x330",
       "ZIndex": "0x33C",
+      "Active": "0x340",
       "ClipsDescendants": "0x341",
       "Visible": "0x345",
       "RichText": "0x658",
-      "Text": "0x788",
+      "TextScaled": "0x749",
+      "Text": "0x888",
       "LineHeight": "0x8E0",
       "OpenTypeFeatures": "0xAD8",
       "TextColor3": "0xAE0",
@@ -1733,7 +1849,7 @@
     "Tool": {
       "TextureId": "0x348",
       "ToolTip": "0x450",
-      "Grip": "0x470",
+      "Grip": "0x494",
       "GripPos": "0x494",
       "CanBeDropped": "0x4A0",
       "Enabled": "0x4A1",
@@ -1800,10 +1916,10 @@
     "UIDragDetector": {
       "ActivatedCursorIconContent": "0xC8",
       "CursorIconContent": "0xF8",
-      "DragUDim2": "0x154",
-      "MaxDragTranslation": "0x164",
-      "MinDragTranslation": "0x174",
-      "SelectionModeDragSpeed": "0x184",
+      "DragUDim2": "0x150",
+      "MaxDragTranslation": "0x160",
+      "MinDragTranslation": "0x170",
+      "SelectionModeDragSpeed": "0x180",
       "DragRotation": "0x1A0",
       "MaxDragAngle": "0x1AC",
       "MinDragAngle": "0x1B0",
@@ -1820,8 +1936,8 @@
       "Enabled": "0x140"
     },
     "UIGridLayout": {
-      "CellPadding": "0x14C",
-      "CellSize": "0x15C",
+      "CellPadding": "0x148",
+      "CellSize": "0x158",
       "FillDirectionMaxCells": "0x178"
     },
     "UIListLayout": {
@@ -1841,10 +1957,10 @@
       "Scale": "0xB0"
     },
     "UIShadow": {
-      "Offset": "0xB4",
-      "Spread": "0xC4",
+      "Offset": "0xB0",
+      "Spread": "0xC0",
       "Color": "0xD0",
-      "BlurRadius": "0xE0",
+      "BlurRadius": "0xDC",
       "Transparency": "0xE8",
       "ZIndex": "0xEC"
     },
@@ -1854,14 +1970,14 @@
     },
     "UIStroke": {
       "Color": "0xB8",
-      "BorderOffset": "0xC8",
+      "BorderOffset": "0xC4",
       "Thickness": "0xDC",
       "Transparency": "0xE0",
       "ZIndex": "0xE4",
       "Enabled": "0xE8"
     },
     "UITableLayout": {
-      "Padding": "0x14C"
+      "Padding": "0x148"
     },
     "UnionOperation": {
       "BackParamA": "0xB0",
@@ -1914,8 +2030,8 @@
       "HeadsUpDisplay": "0x225"
     },
     "VideoDisplay": {
-      "Position": "0x2AC",
-      "Size": "0x2CC",
+      "Position": "0x2A8",
+      "Size": "0x2C8",
       "BackgroundColor3": "0x2D8",
       "BorderColor3": "0x2E4",
       "AnchorPoint": "0x2F0",
@@ -1924,15 +2040,15 @@
       "Rotation": "0x32C",
       "SelectionOrder": "0x330",
       "ZIndex": "0x33C",
-      "TileSize": "0x72C",
+      "TileSize": "0x728",
       "VideoColor3": "0x738",
       "VideoRectOffset": "0x744",
       "VideoRectSize": "0x74C",
       "VideoTransparency": "0x75C"
     },
     "VideoFrame": {
-      "Position": "0x2AC",
-      "Size": "0x2CC",
+      "Position": "0x2A8",
+      "Size": "0x2C8",
       "BackgroundColor3": "0x2D8",
       "BorderColor3": "0x2E4",
       "AnchorPoint": "0x2F0",
@@ -1945,8 +2061,7 @@
       "TimePosition": "0x6A0",
       "RollOffMaxDistance": "0x6B0",
       "RollOffMinDistance": "0x6B4",
-      "Volume": "0x6BC",
-      "Video": "0x9D0"
+      "Volume": "0x6BC"
     },
     "VideoPlayer": {
       "VideoContent": "0x130",
@@ -1958,8 +2073,8 @@
       "HeadScale": "0x130"
     },
     "ViewportFrame": {
-      "Position": "0x2AC",
-      "Size": "0x2CC",
+      "Position": "0x2A8",
+      "Size": "0x2C8",
       "BackgroundColor3": "0x2D8",
       "BorderColor3": "0x2E4",
       "AnchorPoint": "0x2F0",
@@ -1973,6 +2088,12 @@
       "LightColor": "0x6C0",
       "LightDirection": "0x6CC",
       "ImageTransparency": "0x6DC"
+    },
+    "VisualEngine": {
+      "ViewMatrix": "0x170",
+      "FakeDataModel": "0xAF0",
+      "Dimensions": "0xB10",
+      "Pointer": "0x8A11808"
     },
     "WedgePart": {
       "BackParamA": "0xB0",
