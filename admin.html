@@ -1230,6 +1230,37 @@ function extractVersionMeta(tag,j){
   return meta;
 }
 
+function verFileOf(m){return (m&&m.file)?m.file:('offsets_'+(m?m.tag:'')+'.json')}
+function sameJsonContent(a,b){return String(a||'').trim()===String(b||'').trim()}
+function sortManifest(list){
+  list.sort((a,b)=>(b.dump_time||'').localeCompare(a.dump_time||'')||(b.uploaded_at||'').localeCompare(a.uploaded_at||''));
+}
+async function findExistingArchiveMatch(tag,jsonText,manifest){
+  for(const m of manifest){
+    if(m.tag!==tag)continue;
+    const f=verFileOf(m);
+    const existing=await ghGetText(f);
+    if(existing&&existing.text&&sameJsonContent(existing.text,jsonText))return{entry:m,file:f};
+  }
+  return null;
+}
+async function pickFreeArchiveFile(tag,manifest,takenFiles,jsonText){
+  const base='offsets_'+tag+'.json';
+  if(!takenFiles.has(base)){
+    const cur=await ghGetText(base);
+    if(!cur||!cur.text||(jsonText&&sameJsonContent(cur.text,jsonText)))return base;
+  }
+  let n=2;
+  while(true){
+    const cand='offsets_'+tag+'_'+n+'.json';
+    if(!takenFiles.has(cand)){
+      const cur=await ghGetText(cand);
+      if(!cur||!cur.text||(jsonText&&sameJsonContent(cur.text,jsonText)))return cand;
+    }
+    n++;
+  }
+}
+
 async function loadVersionsToPanel(){
   const el=$('verHistoryList');
   if(!el||!CFG||!CFG.pat)return;
@@ -1239,40 +1270,50 @@ async function loadVersionsToPanel(){
     if(!mf||!mf.text){el.innerHTML='<span style="color:var(--dim)">Henüz versions.json kaydı yok.</span>';return}
     const list=JSON.parse(mf.text);
     if(!Array.isArray(list)||!list.length){el.innerHTML='<span style="color:var(--dim)">Kayıtlı sürüm bulunamadı.</span>';return}
-    el.innerHTML=list.map((m,i)=>`
+    const seen={};
+    el.innerHTML=list.map((m,i)=>{
+      seen[m.tag]=(seen[m.tag]||0)+1;
+      const revBadge=seen[m.tag]>1?` <span style="font-size:10px;background:rgba(255,193,7,.16);color:#fbbf24;padding:2px 7px;border-radius:99px;font-weight:800">${seen[m.tag]}</span>`:'';
+      return `
       <div class="file" style="margin-bottom:6px">
         <span>
-          <b style="color:${i===0?'var(--green)':'var(--text)'}">${escapeHtml(m.tag)}</b>
+          <b style="color:${i===0?'var(--green)':'var(--text)'}">${escapeHtml(m.tag)}</b>${revBadge}
           ${i===0?'<span style="font-size:10px;background:rgba(0,224,143,.14);color:var(--green);padding:2px 7px;border-radius:99px;margin-left:6px;font-weight:800">EN SON</span>':''}
           <span style="color:var(--dim);margin-left:8px;font-size:12px">${m.dump_time?escapeHtml(m.dump_time):''}</span>
         </span>
         <span style="color:var(--dim);font-weight:700">${m.count||0} offset</span>
-      </div>
-    `).join('');
+      </div>`;
+    }).join('');
   }catch(e){
     el.innerHTML='<span style="color:var(--red2)">Sürümler okunamadı: '+escapeHtml(e.message)+'</span>';
   }
 }
 
-async function archiveOldLatestIfNeeded(newTag,manifest,newVersions){
+async function archiveOldLatestIfNeeded(newText,manifest,takenFiles){
   try{
     const cur=await ghGetText('offsets.json');
-    if(!cur||!cur.text)return;
+    if(!cur||!cur.text)return false;
+    if(newText&&sameJsonContent(cur.text,newText))return false;
     const oldJ=JSON.parse(cur.text);
     const oldTag=normTag(oldJ.version);
-    if(!oldTag)return;
-    if(!manifest.some(m=>m.tag===oldTag)){
-      newVersions.push(extractVersionMeta(oldTag,oldJ));
+    if(!oldTag)return false;
+    const match=await findExistingArchiveMatch(oldTag,cur.text,manifest);
+    if(match)return false;
+    const archFile=await pickFreeArchiveFile(oldTag,manifest,takenFiles,cur.text);
+    const curArch=await ghGetText(archFile);
+    if(!curArch||!sameJsonContent(curArch.text,cur.text)){
+      await ghPut(archFile,cur.text,'Mur4 Offsets: eski sürüm arşivlendi ('+oldTag+')');
     }
-    if(oldTag!==newTag){
-      const existingArchive=await ghGet('offsets_'+oldTag+'.json');
-      if(!existingArchive){
-        await ghPut('offsets_'+oldTag+'.json',cur.text,'Mur4 Offsets: eski sürüm arşivlendi ('+oldTag+')');
-        log('[ARŞİV] Eski sürüm silinmeden korundu: offsets_'+oldTag+'.json ('+countOffsetProps(oldJ)+' offset)');
-      }
-    }
+    const meta=extractVersionMeta(oldTag,oldJ);
+    meta.file=archFile;
+    if(!meta.uploaded_at)meta.uploaded_at=new Date(Date.now()-1000).toISOString();
+    manifest.push(meta);
+    takenFiles.add(archFile);
+    log('[ARŞİV] Eski sürüm silinmeden korundu: '+archFile+' ('+countOffsetProps(oldJ)+' offset)');
+    return true;
   }catch(e){
     log('[UYARI] Eski offsets.json arşivleme kontrolü atlandı: '+e.message);
+    return false;
   }
 }
 
@@ -1284,7 +1325,7 @@ async function uploadAll(){
   if(!pending.length){msg('m2','Listedeki tüm dosyalar zaten yüklendi. Yeni dosya ekleyin veya listeyi temizleyin.',false);return}
 
   $('log').textContent='';
-  let okCount=0;const newVersions=[];let statsFor=null,statsData=null;
+  let okCount=0,manifestChanged=false;const uploadedVersions=[];let statsFor=null,statsData=null;
   let manifest=[];
 
   try{
@@ -1299,13 +1340,49 @@ async function uploadAll(){
     log('[BİLGİ] versions.json okunamadı ('+e.message+') — sıfırdan oluşturulacak');
   }
 
+  const takenFiles=new Set(manifest.map(verFileOf));
+  const batchSaved=[];
+
+  async function saveArchiveForDump(verTag,text,parsedJson){
+    const inBatch=batchSaved.find(b=>b.tag===verTag&&sameJsonContent(b.text,text));
+    if(inBatch)return{entry:inBatch.entry,file:inBatch.file,duplicated:false,fromBatch:true};
+
+    const existing=await findExistingArchiveMatch(verTag,text,manifest);
+    const meta=extractVersionMeta(verTag,parsedJson);
+    if(existing){
+      Object.assign(existing.entry,meta);
+      existing.entry.file=existing.file;
+      manifestChanged=true;
+      uploadedVersions.push(existing.entry);
+      batchSaved.push({tag:verTag,text,file:existing.file,entry:existing.entry});
+      return{entry:existing.entry,file:existing.file,duplicated:false};
+    }
+
+    const sameTagExists=manifest.some(m=>m.tag===verTag);
+    const archFile=await pickFreeArchiveFile(verTag,manifest,takenFiles,text);
+    const curFile=await ghGetText(archFile);
+    if(!curFile||!sameJsonContent(curFile.text,text)){
+      await ghPut(archFile,text,'Mur4 Offsets: sürüm arşivi ('+archFile+')');
+    }
+    meta.file=archFile;
+    meta.uploaded_at=new Date().toISOString();
+    manifest.push(meta);
+    takenFiles.add(archFile);
+    manifestChanged=true;
+    uploadedVersions.push(meta);
+    batchSaved.push({tag:verTag,text,file:archFile,entry:meta});
+    log(sameTagExists
+      ?('[ARŞİV] Aynı sürümün yeni kopyası korundu: '+archFile+' (eski sürüm silinmedi)')
+      :('[ARŞİV] Sürüm dosyası kaydedildi: '+archFile));
+    return{entry:meta,file:archFile,duplicated:sameTagExists};
+  }
+
   // Yeni offsets.json yukleniyorsa once mevcut offsets.json'daki eski surumu arsivle
   const offsetsQueueItem=pending.find(q=>q.name==='offsets.json');
   if(offsetsQueueItem){
     try{
       const preText=await offsetsQueueItem.file.text();
-      const preJson=JSON.parse(preText);
-      await archiveOldLatestIfNeeded(normTag(preJson.version),manifest,newVersions);
+      if(await archiveOldLatestIfNeeded(preText,manifest,takenFiles))manifestChanged=true;
     }catch(e){}
   }
 
@@ -1313,51 +1390,51 @@ async function uploadAll(){
 
   for(const q of pending){
     try{
-      log('[İŞLEM] '+q.name+' repoya yazılıyor…');
+      log('[İŞLEM] '+q.name+' işleniyor…');
       const text=await q.file.text();
       let parsedJson=null;
+      const verMatch=q.name.match(/^offsets_(version-.+)\.json$/);
       if(q.name.endsWith('.json')){
         try{parsedJson=JSON.parse(text)}catch(e){throw new Error('Geçersiz JSON dosyası!')}
-        const m=q.name.match(/^offsets_(version-.+)\.json$/);
-        if(m){
-          newVersions.push(extractVersionMeta(m[1],parsedJson));
-        }
         if(q.name==='verify_stats.json'&&parsedJson.version){
           statsFor=normTag(parsedJson.version);
           statsData=parsedJson;
         }
       }
 
-      await ghPut(q.name,text);
-      q.status='yüklendi';
-      q.cls='ok';
-      okCount++;
-      log('[BAŞARILI] '+q.name+' repoya yazıldı');
+      if(verMatch&&parsedJson){
+        const verTag=verMatch[1];
+        const saved=await saveArchiveForDump(verTag,text,parsedJson);
+        q.status='yüklendi → '+saved.file;
+        q.cls='ok';
+        okCount++;
+        log('[BAŞARILI] '+saved.file+' repoya yazıldı');
 
-      // offsets.json yuklendiyse surum arsiv kopyasini da otomatik kaydet
-      if(q.name==='offsets.json'&&parsedJson&&parsedJson.version){
-        const verTag=normTag(parsedJson.version);
-        if(verTag){
-          newVersions.push(extractVersionMeta(verTag,parsedJson));
-          const archiveName='offsets_'+verTag+'.json';
-          if(!pendingNames.has(archiveName)){
-            await ghPut(archiveName,text,'Mur4 Offsets: sürüm arşivi ('+verTag+')');
-            log('[ARŞİV] Sürüm dosyası da kaydedildi: '+archiveName);
-          }
+        if(!pendingNames.has('offsets.json')){
+          try{
+            const cur=await ghGetText('offsets.json');
+            const curJ=cur&&cur.text?JSON.parse(cur.text):null;
+            const isNewer=!curJ||!curJ.dump_time||(parsedJson.dump_time&&parsedJson.dump_time>=curJ.dump_time);
+            if(isNewer){
+              if(await archiveOldLatestIfNeeded(text,manifest,takenFiles))manifestChanged=true;
+              if(!cur||!sameJsonContent(cur.text,text)){
+                await ghPut('offsets.json',text,'Mur4 Offsets güncelleme: offsets.json ('+verTag+')');
+                log('[BİLGİ] En güncel sürüm olduğu için offsets.json da güncellendi');
+              }
+            }
+          }catch(e){}
         }
-      }else if(q.name.match(/^offsets_(version-.+)\.json$/)&&!pendingNames.has('offsets.json')&&parsedJson){
-        // Sadece offsets_version-xxx.json yuklendiyse ve daha yeniyse offsets.json'i da guncelle
-        const verTag=q.name.match(/^offsets_(version-.+)\.json$/)[1];
-        try{
-          const cur=await ghGetText('offsets.json');
-          const curJ=cur&&cur.text?JSON.parse(cur.text):null;
-          const isNewer=!curJ||!curJ.dump_time||(parsedJson.dump_time&&parsedJson.dump_time>=curJ.dump_time);
-          if(isNewer){
-            await archiveOldLatestIfNeeded(verTag,manifest,newVersions);
-            await ghPut('offsets.json',text,'Mur4 Offsets güncelleme: offsets.json ('+verTag+')');
-            log('[BİLGİ] En güncel sürüm olduğu için offsets.json da güncellendi');
-          }
-        }catch(e){}
+      }else{
+        await ghPut(q.name,text);
+        q.status='yüklendi';
+        q.cls='ok';
+        okCount++;
+        log('[BAŞARILI] '+q.name+' repoya yazıldı');
+
+        if(q.name==='offsets.json'&&parsedJson&&parsedJson.version){
+          const verTag=normTag(parsedJson.version);
+          if(verTag)await saveArchiveForDump(verTag,text,parsedJson);
+        }
       }
     }catch(e){
       q.status='hata: '+e.message;
@@ -1367,24 +1444,23 @@ async function uploadAll(){
     renderQueue();
   }
 
-  if(newVersions.length||(statsFor&&statsData)){
-    for(const nv of newVersions){
-      const i=manifest.findIndex(m=>m.tag===nv.tag);
-      if(i>=0)manifest[i]=Object.assign({},manifest[i],nv);
-      else manifest.push(nv);
+  if(statsFor&&statsData){
+    sortManifest(manifest);
+    let i=manifest.findIndex(m=>m.tag===statsFor&&(!statsData.dump_time||m.dump_time===statsData.dump_time));
+    if(i<0)i=manifest.findIndex(m=>m.tag===statsFor);
+    if(i<0){
+      manifest.push({tag:statsFor,file:'offsets_'+statsFor+'.json',count:statsData.total,dump_time:statsData.dump_time||''});
+      i=manifest.length-1;
     }
-    if(statsFor&&statsData){
-      let i=manifest.findIndex(m=>m.tag===statsFor);
-      if(i<0){
-        manifest.push({tag:statsFor,count:statsData.total,dump_time:statsData.dump_time||''});
-        i=manifest.length-1;
-      }
-      manifest[i].live=statsData.live;
-      manifest[i].stable=statsData.stable;
-      manifest[i].dead=statsData.dead;
-      log('[BİLGİ] Doğrulama istatistikleri işlendi: '+statsFor);
-    }
-    manifest.sort((a,b)=>(b.dump_time||'').localeCompare(a.dump_time||''));
+    manifest[i].live=statsData.live;
+    manifest[i].stable=statsData.stable;
+    manifest[i].dead=statsData.dead;
+    manifestChanged=true;
+    log('[BİLGİ] Doğrulama istatistikleri işlendi: '+statsFor);
+  }
+
+  if(manifestChanged){
+    sortManifest(manifest);
     try{
       await ghPut('versions.json',JSON.stringify(manifest,null,2),'Mur4 Offsets: sürüm manifesti güncellendi');
       log('[BAŞARILI] versions.json güncellendi (toplam '+manifest.length+' sürüm korunuyor)');
@@ -1398,7 +1474,7 @@ async function uploadAll(){
 
   const hook=$('hook').value.trim();
   if(hook&&okCount>0){
-    const jv=newVersions[newVersions.length-1]||newVersions[0];
+    const jv=uploadedVersions[uploadedVersions.length-1]||uploadedVersions[0];
     try{
       const r=await fetch(hook,{
         method:'POST',

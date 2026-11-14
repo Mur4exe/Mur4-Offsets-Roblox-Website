@@ -181,6 +181,9 @@ body.light .diff-row.chg{color:#9a6700}
 body.light .diff-pill.p-chg.on{color:#9a6700}
 #lastUpdate{color:var(--dim);font-size:13px;margin-top:10px}
 #lastUpdate b{color:var(--green)}
+.ver-dl-wrap{margin-top:26px;display:none;animation:tabIn .3s ease both}
+.ver-dl-badge{font-size:12px;color:var(--dim);font-weight:700;background:var(--card2);border:1px solid var(--line);padding:3px 10px;border-radius:99px;font-family:Consolas,monospace}
+.ver-dl-wrap .dl{cursor:pointer}
 .admin{position:fixed;bottom:14px;right:16px;z-index:5;font-size:12px;color:#555}
 .admin:hover{color:var(--red2)}
 footer{border-top:1px solid var(--line);margin-top:60px;padding:30px 0 44px;text-align:center;color:var(--dim);font-size:13px}
@@ -655,6 +658,14 @@ body.light .dc-modal-badge {
     <svg class="icn" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
     <span data-i18n="browserNote">Offsets are extracted from the live client and read-verified in memory (dead ones are filtered out) — write usage is expected to work but not guaranteed.</span>
   </div>
+  <div id="verDownloads" class="ver-dl-wrap">
+    <div class="sec"><svg class="icn" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span id="verDlTitle" data-i18n="verDlTitle">Version Downloads</span><span id="verDlVerBadge" class="ver-dl-badge"></span></div>
+    <div class="dls">
+      <a class="dl" href="#" id="verDlJson"><svg class="icn icn-lg" viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg><div class="t">offsets.json</div><div class="d" data-i18n="dlJson">Machine-readable · for tools & bots</div></a>
+      <a class="dl" href="#" id="verDlTxt"><svg class="icn icn-lg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><div class="t">Mur4_Offsets.txt</div><div class="d" data-i18n="dlTxt">Human-readable namespace dump</div></a>
+      <a class="dl" href="#" id="verDlH"><svg class="icn icn-lg" viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1"/><path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"/></svg><div class="t">Mur4_Offsets.h</div><div class="d" data-i18n="dlH">C++ header · drop into your project</div></a>
+    </div>
+  </div>
 </div>
 
 <div class="wrap tab" id="tab-staff">
@@ -883,6 +894,7 @@ const EN = {
   tabAnnounce:"Announcements", annTitle:"Announcements", annSub:"Official updates and status from Mur4t.", annEmpty:"No announcements yet.",
   diffBtn:"Compare versions", diffRun:"Compare", diffAdded:"ADDED", diffRemoved:"REMOVED", diffChanged:"CHANGED", diffEmpty:"No differences between these versions.", diffSame:"same", diffSel:"Select two different versions",
   diffAll:"All", diffSearchPh:"Filter diff (e.g. WalkSpeed, Primitive)…", diffSwap:"Swap versions", diffNeedTwo:"At least 2 versions are required to compare.", diffNoMatch:"No matching differences.",
+  verDlTitle:"Version Downloads",
   dlNote:"All files are extracted from the live client and read-verified in memory (dead offsets filtered out) — write usage is expected to work but not guaranteed.",
   browserNote:"Offsets are extracted from the live client and read-verified in memory (dead ones are filtered out) — write usage is expected to work but not guaranteed.",
   dcModalTitle:"Our Discord Servers", dcModalSub:"Choose a community to join:",
@@ -895,7 +907,7 @@ const EN = {
 };
 const I18N = {
 tr:{join:"DISCORD'A KATIL",badgeAuto:"Her güncellemede otomatik",badgeLive:"Canlı doğrulanmış",badgeLive2:"offsetler",badgeZero:"Sıfır paste",badgeFree:"%100 ücretsiz",stOffsets:"Offset",stClasses:"Sınıf",stLive:"Canlı doğrulanmış",stVersion:"Roblox Sürümü",stOnline:"Şu An Online",secBrowser:"Offset Tarayıcı",searchPh:"Sınıf veya özellik ara… (örn. WalkSpeed)",secDownloads:"İndirilenler",tabHome:"Ana Sayfa",tabOffsets:"Offset Tarayıcı",tabDownloads:"İndirilenler",tabStaff:"Yetkili Kadrosu",staffTitle:"Yetkili Kadrosu",staffSub:"Mur4 Offsets'in arkasındaki ekip.",tabAnnounce:"Duyurular",annTitle:"Duyurular",annSub:"Mur4t'tan resmi güncellemeler ve durum bildirimleri.",annEmpty:"Henüz duyuru bulunmuyor.",copied:"Kopyalandı!",lastUp:"Güncellendi",lastNow:"az önce",uM:"dk önce",uH:"sa önce",uD:"gün önce",diffBtn:"Sürümleri karşılaştır",diffRun:"Karşılaştır",diffAdded:"EKLENDİ",diffRemoved:"KALDIRILDI",diffChanged:"DEĞİŞTİ",diffEmpty:"Bu sürümler arasında fark yok.",diffSame:"aynı",diffSel:"İki farklı sürüm seç",
-diffAll:"Tümü",diffSearchPh:"Farklarda ara (örn. WalkSpeed, Primitive)…",diffSwap:"Sürümleri değiştir",diffNeedTwo:"Karşılaştırmak için en az 2 sürüm gereklidir.",diffNoMatch:"Eşleşen fark bulunamadı.",dlNote:"Tüm dosyalar canlı client'tan çıkarılır ve bellekte okuma doğrulamasından geçer (ölüler ayıklanır) — yazma tarafının çalışması beklenir ama garanti edilmez.",browserNote:"Offsetler canlı client'tan çıkarılıp bellekte okuma doğrulamasından geçirilir (ölüler ayıklanır) — yazma tarafının çalışması beklenir ama garanti edilmez.",dlJson:"Makine okunur · araçlar ve botlar için",dlTxt:"İnsan okunur namespace dökümü",dlH:"C++ header · projene direkt ekle",secVerify:"Doğrulama ve Topluluk",verifyT:"Offsetler nasıl doğrulanıyor?",verifyP1:"Eşsiz sentinel değerleri sandbox laboratuvarında Roblox property'leri üzerinden yazılır, ardından canlı client belleği taranır. Bulunan her adres zaman içinde tekrar örneklenip sınıflandırılır:",pillLive:"CANLI — değer script fazlarını takip ediyor",pillStable:"SABİT — sentinel değer yerinde",pillDead:"ÖLÜ — sürümlerden otomatik ayıklanır",verifyP2:"Ölü offsetler asla yayınlana pakete girmez. Tipik koşu: 246 CANLI / 136 SABİT / 0 ÖLÜ.",footerEdu:"Yalnızca eğitim ve araştırma amaçlıdır. Roblox Corporation ile bağlantılı değildir.",notFound:"offsets.json bulunamadı — admin panelinden dump dosyalarını yükle.",latest:"Son",filtered:"Filtreli",offsets:"offset",
+diffAll:"Tümü",diffSearchPh:"Farklarda ara (örn. WalkSpeed, Primitive)…",diffSwap:"Sürümleri değiştir",diffNeedTwo:"Karşılaştırmak için en az 2 sürüm gereklidir.",diffNoMatch:"Eşleşen fark bulunamadı.",verDlTitle:"Bu Sürümün İndirilenleri",dlNote:"Tüm dosyalar canlı client'tan çıkarılır ve bellekte okuma doğrulamasından geçer (ölüler ayıklanır) — yazma tarafının çalışması beklenir ama garanti edilmez.",browserNote:"Offsetler canlı client'tan çıkarılıp bellekte okuma doğrulamasından geçirilir (ölüler ayıklanır) — yazma tarafının çalışması beklenir ama garanti edilmez.",dlJson:"Makine okunur · araçlar ve botlar için",dlTxt:"İnsan okunur namespace dökümü",dlH:"C++ header · projene direkt ekle",secVerify:"Doğrulama ve Topluluk",verifyT:"Offsetler nasıl doğrulanıyor?",verifyP1:"Eşsiz sentinel değerleri sandbox laboratuvarında Roblox property'leri üzerinden yazılır, ardından canlı client belleği taranır. Bulunan her adres zaman içinde tekrar örneklenip sınıflandırılır:",pillLive:"CANLI — değer script fazlarını takip ediyor",pillStable:"SABİT — sentinel değer yerinde",pillDead:"ÖLÜ — sürümlerden otomatik ayıklanır",verifyP2:"Ölü offsetler asla yayınlana pakete girmez. Tipik koşu: 246 CANLI / 136 SABİT / 0 ÖLÜ.",footerEdu:"Yalnızca eğitim ve araştırma amaçlıdır. Roblox Corporation ile bağlantılı değildir.",notFound:"offsets.json bulunamadı — admin panelinden dump dosyalarını yükle.",latest:"Son",filtered:"Filtreli",offsets:"offset",
 dcModalTitle:"Discord Sunucularımız",dcModalSub:"Katılmak istediğiniz topluluğu seçin:",
 dcModalHint:"Tüm güncellemeler ve script paylaşımları için iki sunucuya da katılabilirsiniz!",
 dcJoinBtn:"KATIL",
@@ -1100,19 +1112,20 @@ function applyLang(){
                 : "Mur4 Offsets (External) — Live-Verified Roblox Offsets";
   const swap=document.getElementById("diffSwap");
   if(swap){swap.title=t("diffSwap");swap.setAttribute("aria-label",t("diffSwap"))}
-  if(VERSIONS.length) fillSel();
+  if(VERSIONS.length){fillSel();updateVersionDownloads(getActiveVersionObj())}
   if(document.getElementById("diffBox")?.style.display==="block"&&LAST_DIFF) renderDiffOut();
   renderMeCard(); // profil karti da dile gore yeniden cizilir
   startType();
 }
 function fmtVerOption(v,forDiff){
   const dt=v.dump_time?" · "+v.dump_time.slice(0,10):"";
+  const revTag=(v.rev&&v.rev>1)?` (${v.rev})`:"";
   if(forDiff){
     const badge=v.isLatest?" ["+t("latest")+"]":"";
-    return `${v.tag}${badge} (${v.count||"?"}${dt})`;
+    return `${v.tag}${revTag}${badge} (${v.count||"?"}${dt})`;
   }
   const cnt=v.count?` (${v.count} ${t("offsets")}${dt})`:(dt?` (${dt.slice(3)})`:"");
-  return v.isLatest?`${t("latest")} — ${v.tag}${cnt}`:`${v.tag}${cnt}`;
+  return v.isLatest?`${t("latest")} — ${v.tag}${revTag}${cnt}`:`${v.tag}${revTag}${cnt}`;
 }
 function fillSel(){
   const sel=document.getElementById("verSel");
@@ -1285,57 +1298,68 @@ let MANIFEST=[],VERSIONS=[],VERSION_CACHE={},DATA=null,LAST_LIVE=246,LAST_DIFF=n
 function countProps(d){
   return (d&&typeof d.count==="number")?d.count:Object.values((d&&d.offsets)||{}).reduce((a,c)=>a+Object.keys(c).length,0);
 }
+function getActiveVersionObj(){
+  const sel=document.getElementById("verSel");
+  const key=sel?sel.value:"";
+  return VERSIONS.find(v=>v.key===key)||VERSIONS[0]||null;
+}
 async function loadVersion(v){
-  const file=v?"offsets_"+v+".json":"offsets.json";
+  const file=!v?"offsets.json":(v.endsWith(".json")?v:("offsets_"+v+".json"));
   const r=await fetch(file+"?v="+Date.now());if(!r.ok)throw new Error(file);
   return r.json();
 }
 async function getVersionData(key){
   if(VERSION_CACHE[key])return VERSION_CACHE[key];
-  try{
-    const d=await loadVersion(key);
-    VERSION_CACHE[key]=d;
-    return d;
-  }catch(e){
-    if(key!==""&&DATA&&DATA.version===key){
-      VERSION_CACHE[key]=DATA;
-      return DATA;
-    }
-    throw e;
-  }
+  const d=await loadVersion(key);
+  VERSION_CACHE[key]=d;
+  return d;
 }
 function buildVersionsList(){
   VERSIONS=[];
+  let latestMatchIdx=-1;
   if(DATA){
     const tag=DATA.version||"latest";
-    const mMatch=MANIFEST.find(m=>m.tag===tag);
+    const dataCnt=countProps(DATA);
+    latestMatchIdx=MANIFEST.findIndex(m=>m.tag===tag&&(m.dump_time||"")===(DATA.dump_time||"")&&(!m.count||m.count===dataCnt));
+    if(latestMatchIdx<0)latestMatchIdx=MANIFEST.findIndex(m=>m.tag===tag);
+    const mMatch=latestMatchIdx>=0?MANIFEST[latestMatchIdx]:null;
     const liveVal=(DATA.verify_stats&&typeof DATA.verify_stats.live_count==="number")
       ?DATA.verify_stats.live_count
       :(mMatch&&typeof mMatch.live==="number"?mMatch.live:undefined);
     VERSIONS.push({
       key:"",
+      file:"offsets.json",
       tag,
-      count:countProps(DATA),
+      count:dataCnt,
       dump_time:DATA.dump_time||(mMatch?mMatch.dump_time:""),
+      uploaded_at:mMatch?mMatch.uploaded_at||"":"",
       live:liveVal,
       isLatest:true
     });
     VERSION_CACHE[""]=DATA;
   }
   const archived=[];
-  for(const m of MANIFEST){
-    if(DATA&&m.tag===DATA.version)continue;
+  MANIFEST.forEach((m,idx)=>{
+    if(idx===latestMatchIdx)return;
+    const file=m.file||("offsets_"+m.tag+".json");
     archived.push({
-      key:m.tag,
+      key:file,
+      file,
       tag:m.tag,
       count:m.count||0,
       dump_time:m.dump_time||"",
+      uploaded_at:m.uploaded_at||"",
       live:m.live,
       isLatest:false
     });
-  }
-  archived.sort((a,b)=>(b.dump_time||"").localeCompare(a.dump_time||""));
+  });
+  archived.sort((a,b)=>(b.dump_time||"").localeCompare(a.dump_time||"")||(b.uploaded_at||"").localeCompare(a.uploaded_at||""));
   VERSIONS.push(...archived);
+  const tagCounts={};
+  for(const v of VERSIONS){
+    tagCounts[v.tag]=(tagCounts[v.tag]||0)+1;
+    v.rev=tagCounts[v.tag];
+  }
 }
 function render(q){
   q=(q||"").toLowerCase();
@@ -1355,14 +1379,101 @@ function render(q){
   countUp(document.getElementById("stTotal"),total);
   document.getElementById("stClasses").textContent=classes;
 }
-function setVersionStats(d){
-  document.getElementById("stVer").textContent=(d.version||"?").replace("version-","").slice(0,8);
+function setVersionStats(d,verObj){
+  const v=verObj||getActiveVersionObj();
+  const baseVer=(d.version||"?").replace("version-","").slice(0,8);
+  document.getElementById("stVer").textContent=baseVer+(v&&v.rev>1?` (${v.rev})`:"");
   updateLastTime();
   const m=(MANIFEST||[]).find(x=>x.tag===(d.version||""));
-  const live=(d.verify_stats&&typeof d.verify_stats.live_count==="number")
-    ?d.verify_stats.live_count
-    :((m&&typeof m.live==="number")?m.live:LAST_LIVE);
+  const live=(v&&typeof v.live==="number")
+    ?v.live
+    :((d.verify_stats&&typeof d.verify_stats.live_count==="number")
+      ?d.verify_stats.live_count
+      :((m&&typeof m.live==="number")?m.live:LAST_LIVE));
   document.getElementById("stLive").textContent=live;
+  updateVersionDownloads(v);
+}
+function toCppIdent(s){
+  let id=String(s||"").replace(/[^A-Za-z0-9_]/g,"_");
+  if(/^[0-9]/.test(id))id="_"+id;
+  return id||"_";
+}
+function buildOffsetsExport(d,wrapNs){
+  const entries=Object.entries((d&&d.offsets)||{});
+  const total=countProps(d);
+  const lines=[
+    "/* =============================================================",
+    "/*                 Mur4 Offsets (External)",
+    "/*                       By: Mur4t",
+    "/*  Discord: Mur4 Offsets -> discord.gg/xQzrwQCSjg",
+    "/*  Discord: Mur4Scripts  -> discord.gg/JdDNqvUWhM",
+    "/*  Website : https://mur4exe.github.io/Mur4-Offsets-Roblox-Website/",
+    "/* -------------------------------------------------------------",
+    "/*  Type            : External Offsets (direct memory read/write)",
+    "/*  Roblox Version  : "+(d&&d.version?d.version:"unknown"),
+    "/*  Dumped At       : "+(d&&d.dump_time?d.dump_time:"unknown"),
+    "/*  Total Offsets   : "+total+" ("+entries.length+" classes)",
+    "/* =============================================================",
+    "*/",
+    "",
+    "#pragma once",
+    "#include <cstdint>",
+    ""
+  ];
+  const ind=wrapNs?"    ":"";
+  if(wrapNs)lines.push("", "namespace Mur4 {");
+  for(const [cls,props] of entries){
+    lines.push(`${ind}namespace ${toCppIdent(cls)} {`);
+    for(const [p,off] of Object.entries(props||{})){
+      lines.push(`${ind}    inline constexpr uintptr_t ${toCppIdent(p)} = ${off};`);
+    }
+    lines.push(`${ind}}`, "", "");
+  }
+  if(wrapNs)lines.push("}");
+  return lines.join("\r\n");
+}
+function triggerBlobDownload(filename,text,mime){
+  if(typeof Blob==="undefined"||typeof URL==="undefined"||typeof URL.createObjectURL!=="function")return;
+  const blob=new Blob([text],{type:mime||"text/plain;charset=utf-8"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+  a.href=url;a.download=filename;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(()=>{a.remove();URL.revokeObjectURL(url)},1500);
+}
+function updateVersionDownloads(verObj){
+  const wrap=document.getElementById("verDownloads");
+  if(!wrap)return;
+  if(!verObj||verObj.isLatest||!DATA){
+    wrap.style.display="none";
+    return;
+  }
+  wrap.style.display="block";
+  const badge=document.getElementById("verDlVerBadge");
+  if(badge)badge.textContent=verObj.tag+(verObj.rev>1?` (${verObj.rev})`:"");
+  const suf=verObj.tag+(verObj.rev>1?"_"+verObj.rev:"");
+  const btnJ=document.getElementById("verDlJson");
+  const btnT=document.getElementById("verDlTxt");
+  const btnH=document.getElementById("verDlH");
+  if(btnJ){
+    btnJ.onclick=e=>{
+      if(e&&e.preventDefault)e.preventDefault();
+      triggerBlobDownload(`offsets_${suf}.json`,JSON.stringify(DATA,null,2),"application/json;charset=utf-8");
+    };
+  }
+  if(btnT){
+    btnT.onclick=e=>{
+      if(e&&e.preventDefault)e.preventDefault();
+      triggerBlobDownload(`Mur4_Offsets_${suf}.txt`,buildOffsetsExport(DATA,false),"text/plain;charset=utf-8");
+    };
+  }
+  if(btnH){
+    btnH.onclick=e=>{
+      if(e&&e.preventDefault)e.preventDefault();
+      triggerBlobDownload(`Mur4_Offsets_${suf}.h`,buildOffsetsExport(DATA,true),"text/plain;charset=utf-8");
+    };
+  }
 }
 
 /* ---- SURUM KARSILASTIRMA (DIFF) ---- */
@@ -1500,7 +1611,7 @@ async function runDiff(){
   sel.innerHTML="";
   document.getElementById("diffA").innerHTML="";
   document.getElementById("diffB").innerHTML="";
-  fillSel();setVersionStats(DATA);render("");
+  fillSel();setVersionStats(DATA,VERSIONS[0]);render("");
 
   const dA=document.getElementById("diffA"),dB=document.getElementById("diffB");
   const diffBox=document.getElementById("diffBox"),diffToggle=document.getElementById("diffToggle");
@@ -1522,9 +1633,10 @@ async function runDiff(){
   }
   sel.onchange=async()=>{
     try{
+      const verObj=getActiveVersionObj();
       const d=await getVersionData(sel.value);
       DATA=d;
-      setVersionStats(DATA);
+      setVersionStats(DATA,verObj);
       render(document.getElementById("q").value.trim());
     }catch(e){
       toast(e.message);
