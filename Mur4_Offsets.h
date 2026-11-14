@@ -6,16 +6,22 @@
 /*  Website : https://mur4exe.github.io/Mur4-Offsets-Roblox-Website/
 /* -------------------------------------------------------------
 /*  Type            : External Offsets (direct memory read/write)
-/*  Roblox Version  : version-f0ea5da9412f4e35
-/*  Dumped At       : 2026-11-11 00:46:28
-/*  Total Offsets   : 605
+/*  Roblox Version  : version-4ea8e85481e34f46
+/*  Dumped At       : 2026-11-14 15:00:29
+/*  Total Offsets   : 1563 (233 classes)
 /* =============================================================
 */
 
 #pragma once
 #include <cstdint>
 
+
 namespace Mur4 {
+    namespace Accessory {
+        inline constexpr uintptr_t AttachmentPos = 0xC4;
+    }
+
+
     namespace AccessoryDescription {
         inline constexpr uintptr_t Position = 0xB0;
         inline constexpr uintptr_t Rotation = 0xBC;
@@ -24,18 +30,38 @@ namespace Mur4 {
         inline constexpr uintptr_t Puffiness = 0xDC;
     }
 
+
+    namespace Accoutrement {
+        inline constexpr uintptr_t AttachmentPos = 0xC4;
+    }
+
+
+    namespace AdGui {
+        inline constexpr uintptr_t FallbackImageContent = 0x610;
+    }
+
+
     namespace AdPlacement {
         inline constexpr uintptr_t PlacementId = 0x118;
     }
 
+
     namespace AirController {
         inline constexpr uintptr_t MoveSpeedFactor = 0xA0;
+        inline constexpr uintptr_t LinearImpulse = 0xC8;
         inline constexpr uintptr_t BalanceMaxTorque = 0xD4;
         inline constexpr uintptr_t BalanceSpeed = 0xD8;
         inline constexpr uintptr_t MoveMaxForce = 0xDC;
         inline constexpr uintptr_t TurnMaxTorque = 0xE0;
         inline constexpr uintptr_t TurnSpeedFactor = 0xE4;
     }
+
+
+    namespace AirProperties {
+        inline constexpr uintptr_t AirDensity = 0x18;
+        inline constexpr uintptr_t GlobalWind = 0x3C;
+    }
+
 
     namespace AlignOrientation {
         inline constexpr uintptr_t LookAtPosition = 0x17C;
@@ -44,27 +70,39 @@ namespace Mur4 {
         inline constexpr uintptr_t Responsiveness = 0x198;
     }
 
-    namespace AlignPosition {
-        inline constexpr uintptr_t MaxAxesForce = 0x158;
-        inline constexpr uintptr_t Position = 0x164;
-        inline constexpr uintptr_t MaxForce = 0x178;
-        inline constexpr uintptr_t MaxVelocity = 0x17C;
-        inline constexpr uintptr_t Responsiveness = 0x184;
+
+    namespace AngularVelocity {
+        inline constexpr uintptr_t AngularVelocity = 0x158;
+        inline constexpr uintptr_t MaxTorque = 0x164;
     }
 
-    namespace AnimationConstraint {
-        inline constexpr uintptr_t AngularDamping = 0x158;
-        inline constexpr uintptr_t AngularStrength = 0x15C;
-        inline constexpr uintptr_t LinearDamping = 0x160;
-        inline constexpr uintptr_t LinearStrength = 0x164;
-        inline constexpr uintptr_t MaxForce = 0x168;
-        inline constexpr uintptr_t MaxTorque = 0x16C;
+
+    namespace Animation {
+        inline constexpr uintptr_t AnimationId = 0xA8;
     }
+
+
+    namespace AnimationNodeDefinition {
+        inline constexpr uintptr_t NodeId = 0x98;
+    }
+
+
+    namespace AnimationTrack {
+        inline constexpr uintptr_t Animation = 0xA0;
+        inline constexpr uintptr_t Animator = 0xF8;
+    }
+
+
+    namespace AnimationValueNodeDefinition {
+        inline constexpr uintptr_t NodeId = 0x98;
+    }
+
 
     namespace ArcHandles {
         inline constexpr uintptr_t Color3 = 0xC0;
         inline constexpr uintptr_t Transparency = 0xCC;
     }
+
 
     namespace Atmosphere {
         inline constexpr uintptr_t Color = 0xA0;
@@ -75,27 +113,68 @@ namespace Mur4 {
         inline constexpr uintptr_t Offset = 0xC4;
     }
 
+
+    namespace Attachment {
+        inline constexpr uintptr_t WorldPosition = 0xAC;
+        inline constexpr uintptr_t Visible = 0xC4;
+    }
+
+
     namespace AudioChorus {
         inline constexpr uintptr_t Depth = 0x120;
         inline constexpr uintptr_t Mix = 0x124;
         inline constexpr uintptr_t Rate = 0x128;
     }
 
+
+    namespace AudioCompressor {
+        inline constexpr uintptr_t MakeupGain = 0x124;
+        inline constexpr uintptr_t Ratio = 0x128;
+        inline constexpr uintptr_t Release = 0x12C;
+    }
+
+
     namespace AudioDeviceInput {
         inline constexpr uintptr_t Volume = 0x15C;
     }
+
 
     namespace AudioDistortion {
         inline constexpr uintptr_t Level = 0x120;
     }
 
+
+    namespace AudioEcho {
+        inline constexpr uintptr_t DelayTime = 0x120;
+        inline constexpr uintptr_t DryLevel = 0x124;
+        inline constexpr uintptr_t Feedback = 0x128;
+        inline constexpr uintptr_t RampTime = 0x12C;
+        inline constexpr uintptr_t WetLevel = 0x130;
+    }
+
+
     namespace AudioEmitter {
+        inline constexpr uintptr_t AudioInteractionGroup = 0x68;
         inline constexpr uintptr_t DistanceAttenuationBounds = 0x148;
     }
+
+
+    namespace AudioEqualizer {
+        inline constexpr uintptr_t HighGain = 0x128;
+        inline constexpr uintptr_t LowGain = 0x12C;
+        inline constexpr uintptr_t MidGain = 0x130;
+    }
+
 
     namespace AudioFader {
         inline constexpr uintptr_t Volume = 0x120;
     }
+
+
+    namespace AudioFilter {
+        inline constexpr uintptr_t Gain = 0x128;
+    }
+
 
     namespace AudioFlanger {
         inline constexpr uintptr_t Depth = 0x120;
@@ -103,17 +182,92 @@ namespace Mur4 {
         inline constexpr uintptr_t Rate = 0x128;
     }
 
+
+    namespace AudioGate {
+        inline constexpr uintptr_t Threshold = 0x120;
+        inline constexpr uintptr_t Attack = 0x128;
+        inline constexpr uintptr_t Release = 0x12C;
+    }
+
+
     namespace AudioLimiter {
         inline constexpr uintptr_t Release = 0x124;
     }
 
+
+    namespace AudioListener {
+        inline constexpr uintptr_t AudioInteractionGroup = 0x68;
+    }
+
+
+    namespace AudioPitchShifter {
+        inline constexpr uintptr_t Pitch = 0x120;
+    }
+
+
     namespace AudioPlayer {
+        inline constexpr uintptr_t AudioContent = 0x128;
         inline constexpr uintptr_t PlaybackSpeed = 0x130;
         inline constexpr uintptr_t TimePosition = 0x138;
         inline constexpr uintptr_t LoopRegion = 0x140;
         inline constexpr uintptr_t PlaybackRegion = 0x148;
         inline constexpr uintptr_t Volume = 0x154;
     }
+
+
+    namespace AudioReverb {
+        inline constexpr uintptr_t DecayRatio = 0x120;
+        inline constexpr uintptr_t DecayTime = 0x124;
+        inline constexpr uintptr_t Density = 0x128;
+        inline constexpr uintptr_t Diffusion = 0x12C;
+        inline constexpr uintptr_t DryLevel = 0x130;
+        inline constexpr uintptr_t LowShelfGain = 0x144;
+        inline constexpr uintptr_t WetLevel = 0x14C;
+    }
+
+
+    namespace AudioSearchParams {
+        inline constexpr uintptr_t Album = 0xA0;
+        inline constexpr uintptr_t Artist = 0xC0;
+        inline constexpr uintptr_t SearchKeyword = 0xE0;
+        inline constexpr uintptr_t Tag = 0x100;
+        inline constexpr uintptr_t Title = 0x120;
+        inline constexpr uintptr_t MaxDuration = 0x144;
+        inline constexpr uintptr_t MaxPageSize = 0x148;
+        inline constexpr uintptr_t MinDuration = 0x14C;
+    }
+
+
+    namespace AudioSpeechToText {
+        inline constexpr uintptr_t Text = 0x140;
+    }
+
+
+    namespace AudioTextToSpeech {
+        inline constexpr uintptr_t Text = 0x120;
+        inline constexpr uintptr_t VoiceId = 0x140;
+        inline constexpr uintptr_t TimePosition = 0x160;
+        inline constexpr uintptr_t Pitch = 0x168;
+        inline constexpr uintptr_t PlaybackSpeed = 0x16C;
+        inline constexpr uintptr_t Speed = 0x170;
+        inline constexpr uintptr_t Volume = 0x174;
+    }
+
+
+    namespace AudioTremolo {
+        inline constexpr uintptr_t Depth = 0x120;
+        inline constexpr uintptr_t Duty = 0x124;
+        inline constexpr uintptr_t Frequency = 0x128;
+        inline constexpr uintptr_t Shape = 0x12C;
+        inline constexpr uintptr_t Skew = 0x130;
+        inline constexpr uintptr_t Square = 0x134;
+    }
+
+
+    namespace AudioWindSynthesizer {
+        inline constexpr uintptr_t Volume = 0x130;
+    }
+
 
     namespace AvatarAccessoryRules {
         inline constexpr uintptr_t BackAccessoryOverride = 0x98;
@@ -127,38 +281,102 @@ namespace Mur4 {
         inline constexpr uintptr_t LimitBounds = 0x118;
     }
 
-    namespace AvatarCollisionRules {
-        inline constexpr uintptr_t SingleColliderSize = 0x98;
+
+    namespace AvatarAnimationRules {
+        inline constexpr uintptr_t ClimbAnimationOverride = 0x98;
+        inline constexpr uintptr_t FallAnimationOverride = 0xF0;
+        inline constexpr uintptr_t IdleAltAnimationOverride = 0xF8;
+        inline constexpr uintptr_t IdleAnimationOverride = 0x100;
+        inline constexpr uintptr_t JumpAnimationOverride = 0x108;
+        inline constexpr uintptr_t MoodAnimationOverride = 0x110;
+        inline constexpr uintptr_t RunAnimationOverride = 0x118;
+        inline constexpr uintptr_t SwimAnimationOverride = 0x120;
+        inline constexpr uintptr_t SwimIdleAnimationOverride = 0x128;
+        inline constexpr uintptr_t WalkAnimationOverride = 0x130;
     }
+
+
+    namespace AvatarBodyRules {
+        inline constexpr uintptr_t HeadOverride = 0xF0;
+        inline constexpr uintptr_t LeftArmOverride = 0xF8;
+        inline constexpr uintptr_t LeftLegOverride = 0x100;
+        inline constexpr uintptr_t RightArmOverride = 0x108;
+        inline constexpr uintptr_t RightLegOverride = 0x110;
+        inline constexpr uintptr_t TorsoOverride = 0x118;
+        inline constexpr uintptr_t CustomBuildBodyType = 0x120;
+        inline constexpr uintptr_t CustomBuildHead = 0x128;
+        inline constexpr uintptr_t CustomBuildHeight = 0x130;
+        inline constexpr uintptr_t CustomBuildProportions = 0x138;
+        inline constexpr uintptr_t CustomBuildWidth = 0x140;
+        inline constexpr uintptr_t CustomWorldHeight = 0x148;
+    }
+
+
+    namespace AvatarClothingRules {
+        inline constexpr uintptr_t ClassicPantsOverride = 0x98;
+        inline constexpr uintptr_t ClassicShirtOverride = 0xA0;
+        inline constexpr uintptr_t ClassicTShirtOverride = 0xA8;
+        inline constexpr uintptr_t DressSkirtAccessoryOverride = 0x110;
+        inline constexpr uintptr_t JacketAccessoryOverride = 0x118;
+        inline constexpr uintptr_t LeftShoeAccessoryOverride = 0x120;
+        inline constexpr uintptr_t PantsAccessoryOverride = 0x128;
+        inline constexpr uintptr_t RightShoeAccessoryOverride = 0x130;
+        inline constexpr uintptr_t ShirtAccessoryOverride = 0x138;
+        inline constexpr uintptr_t ShortsAccessoryOverride = 0x140;
+        inline constexpr uintptr_t SweaterAccessoryOverride = 0x148;
+        inline constexpr uintptr_t TShirtAccessoryOverride = 0x150;
+        inline constexpr uintptr_t LimitBounds = 0x158;
+    }
+
+
+    namespace AvatarCollisionRules {
+        inline constexpr uintptr_t HitboxSize = 0x98;
+        inline constexpr uintptr_t SingleColliderSize = 0xA4;
+    }
+
 
     namespace BasePart {
-        inline constexpr uintptr_t Primitive = 0x148;
+        inline constexpr uintptr_t CanQuery = 0x8E;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0xF0;
+        inline constexpr uintptr_t Reflectance = 0xF4;
+        inline constexpr uintptr_t Transparency = 0x118;
+        inline constexpr uintptr_t CastShadow = 0x120;
+        inline constexpr uintptr_t Locked = 0x121;
+        inline constexpr uintptr_t Massless = 0x122;
+        inline constexpr uintptr_t CanCollide = 0x181;
+        inline constexpr uintptr_t Anchored = 0x1A1;
+        inline constexpr uintptr_t Primitive = 0x208;
+        inline constexpr uintptr_t CanTouch = 0x7D8;
     }
 
+
     namespace BillboardGui {
-        inline constexpr uintptr_t ResetOnSpawn = 0x2BE;
-        inline constexpr uintptr_t Enabled = 0x490;
-        inline constexpr uintptr_t Size = 0x744;
-        inline constexpr uintptr_t ExtentsOffset = 0x750;
-        inline constexpr uintptr_t ExtentsOffsetWorldSpace = 0x75C;
-        inline constexpr uintptr_t StudsOffset = 0x768;
-        inline constexpr uintptr_t StudsOffsetWorldSpace = 0x774;
-        inline constexpr uintptr_t SizeOffset = 0x780;
-        inline constexpr uintptr_t Brightness = 0x788;
-        inline constexpr uintptr_t DistanceLowerLimit = 0x790;
-        inline constexpr uintptr_t DistanceUpperLimit = 0x798;
-        inline constexpr uintptr_t LightInfluence = 0x79C;
-        inline constexpr uintptr_t MaxDistance = 0x7A0;
-        inline constexpr uintptr_t Active = 0x7A4;
-        inline constexpr uintptr_t AlwaysOnTop = 0x7A5;
-        inline constexpr uintptr_t ClipsDescendants = 0x7A6;
+        inline constexpr uintptr_t Enabled = 0x260;
+        inline constexpr uintptr_t ResetOnSpawn = 0x261;
+        inline constexpr uintptr_t Size = 0x52C;
+        inline constexpr uintptr_t ExtentsOffset = 0x538;
+        inline constexpr uintptr_t ExtentsOffsetWorldSpace = 0x544;
+        inline constexpr uintptr_t StudsOffset = 0x550;
+        inline constexpr uintptr_t StudsOffsetWorldSpace = 0x55C;
+        inline constexpr uintptr_t SizeOffset = 0x568;
+        inline constexpr uintptr_t Brightness = 0x570;
+        inline constexpr uintptr_t DistanceLowerLimit = 0x578;
+        inline constexpr uintptr_t DistanceStep = 0x57C;
+        inline constexpr uintptr_t DistanceUpperLimit = 0x580;
+        inline constexpr uintptr_t LightInfluence = 0x584;
+        inline constexpr uintptr_t MaxDistance = 0x588;
+        inline constexpr uintptr_t Active = 0x58C;
+        inline constexpr uintptr_t AlwaysOnTop = 0x58D;
+        inline constexpr uintptr_t ClipsDescendants = 0x58E;
     }
+
 
     namespace BlockMesh {
         inline constexpr uintptr_t Offset = 0xA0;
         inline constexpr uintptr_t Scale = 0xAC;
         inline constexpr uintptr_t VertexColor = 0xB8;
     }
+
 
     namespace BloomEffect {
         inline constexpr uintptr_t Enabled = 0x98;
@@ -167,15 +385,18 @@ namespace Mur4 {
         inline constexpr uintptr_t Threshold = 0xA8;
     }
 
+
     namespace BlurEffect {
         inline constexpr uintptr_t Enabled = 0x98;
         inline constexpr uintptr_t Size = 0xA0;
     }
 
+
     namespace BodyAngularVelocity {
         inline constexpr uintptr_t AngularVelocity = 0x270;
         inline constexpr uintptr_t MaxTorque = 0x27C;
     }
+
 
     namespace BodyColors {
         inline constexpr uintptr_t HeadColor3 = 0xAC;
@@ -186,38 +407,68 @@ namespace Mur4 {
         inline constexpr uintptr_t TorsoColor3 = 0xFC;
     }
 
+
     namespace BodyGyro {
         inline constexpr uintptr_t MaxTorque = 0x2A0;
     }
 
+
     namespace BodyPartDescription {
+        inline constexpr uintptr_t HeadShape = 0x98;
         inline constexpr uintptr_t Color = 0xD0;
     }
+
 
     namespace BodyPosition {
         inline constexpr uintptr_t MaxForce = 0x270;
         inline constexpr uintptr_t Position = 0x27C;
     }
 
+
+    namespace BodyThrust {
+        inline constexpr uintptr_t Force = 0x268;
+        inline constexpr uintptr_t Location = 0x274;
+    }
+
+
     namespace BodyVelocity {
         inline constexpr uintptr_t MaxForce = 0x270;
         inline constexpr uintptr_t Velocity = 0x27C;
     }
 
-    namespace CanvasGroup {
-        inline constexpr uintptr_t Position = 0x4DC;
-        inline constexpr uintptr_t Size = 0x4FC;
-        inline constexpr uintptr_t BackgroundColor3 = 0x508;
-        inline constexpr uintptr_t BorderColor3 = 0x514;
-        inline constexpr uintptr_t AnchorPoint = 0x520;
-        inline constexpr uintptr_t Transparency = 0x52C;
-        inline constexpr uintptr_t LayoutOrder = 0x544;
-        inline constexpr uintptr_t Rotation = 0x55C;
-        inline constexpr uintptr_t SelectionOrder = 0x560;
-        inline constexpr uintptr_t ZIndex = 0x56C;
-        inline constexpr uintptr_t GroupColor3 = 0x998;
-        inline constexpr uintptr_t GroupTransparency = 0x9A4;
+
+    namespace BoolValue {
+        inline constexpr uintptr_t Value = 0xA0;
     }
+
+
+    namespace ByteCode {
+        inline constexpr uintptr_t Pointer = 0x18;
+        inline constexpr uintptr_t Size = 0x28;
+    }
+
+
+    namespace Camera {
+        inline constexpr uintptr_t MaxAxisFieldOfView = 0x128;
+        inline constexpr uintptr_t HeadScale = 0x130;
+    }
+
+
+    namespace CanvasGroup {
+        inline constexpr uintptr_t Position = 0x2AC;
+        inline constexpr uintptr_t Size = 0x2CC;
+        inline constexpr uintptr_t BackgroundColor3 = 0x2D8;
+        inline constexpr uintptr_t BorderColor3 = 0x2E4;
+        inline constexpr uintptr_t AnchorPoint = 0x2F0;
+        inline constexpr uintptr_t Transparency = 0x2FC;
+        inline constexpr uintptr_t LayoutOrder = 0x314;
+        inline constexpr uintptr_t Rotation = 0x32C;
+        inline constexpr uintptr_t SelectionOrder = 0x330;
+        inline constexpr uintptr_t ZIndex = 0x33C;
+        inline constexpr uintptr_t GroupColor3 = 0x660;
+        inline constexpr uintptr_t GroupTransparency = 0x66C;
+    }
+
 
     namespace ChorusSoundEffect {
         inline constexpr uintptr_t Priority = 0xA0;
@@ -225,6 +476,13 @@ namespace Mur4 {
         inline constexpr uintptr_t Mix = 0xE4;
         inline constexpr uintptr_t Rate = 0xE8;
     }
+
+
+    namespace ClickDetector {
+        inline constexpr uintptr_t CursorIconContent = 0xB0;
+        inline constexpr uintptr_t MaxActivationDistance = 0xD0;
+    }
+
 
     namespace ClimbController {
         inline constexpr uintptr_t MoveSpeedFactor = 0xA0;
@@ -234,15 +492,19 @@ namespace Mur4 {
         inline constexpr uintptr_t MoveMaxForce = 0xD4;
     }
 
+
     namespace Clothing {
         inline constexpr uintptr_t Color3 = 0x108;
     }
+
 
     namespace Clouds {
         inline constexpr uintptr_t Color = 0x98;
         inline constexpr uintptr_t Cover = 0xA4;
         inline constexpr uintptr_t Density = 0xA8;
+        inline constexpr uintptr_t Enabled = 0xAC;
     }
+
 
     namespace ColorCorrectionEffect {
         inline constexpr uintptr_t Enabled = 0x98;
@@ -251,6 +513,13 @@ namespace Mur4 {
         inline constexpr uintptr_t Contrast = 0xB0;
         inline constexpr uintptr_t Saturation = 0xB4;
     }
+
+
+    namespace ColorGradingEffect {
+        inline constexpr uintptr_t Enabled = 0x98;
+        inline constexpr uintptr_t TonemapperPreset = 0xA0;
+    }
+
 
     namespace CompressorSoundEffect {
         inline constexpr uintptr_t Priority = 0xA0;
@@ -261,11 +530,39 @@ namespace Mur4 {
         inline constexpr uintptr_t Threshold = 0x100;
     }
 
+
+    namespace ControllerManager {
+        inline constexpr uintptr_t BaseMoveSpeed = 0x104;
+        inline constexpr uintptr_t BaseTurnSpeed = 0x108;
+    }
+
+
     namespace ControllerPartSensor {
         inline constexpr uintptr_t LadderSearchHeight = 0x274;
         inline constexpr uintptr_t LadderSearchOffset = 0x278;
         inline constexpr uintptr_t SearchDistance = 0x27C;
     }
+
+
+    namespace CornerWedgePart {
+        inline constexpr uintptr_t BackParamA = 0xB0;
+        inline constexpr uintptr_t BackParamB = 0xB4;
+        inline constexpr uintptr_t BottomParamA = 0xC0;
+        inline constexpr uintptr_t BottomParamB = 0xC4;
+        inline constexpr uintptr_t FrontParamA = 0xD0;
+        inline constexpr uintptr_t FrontParamB = 0xD4;
+        inline constexpr uintptr_t LeftParamA = 0xE0;
+        inline constexpr uintptr_t LeftParamB = 0xE4;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0xF0;
+        inline constexpr uintptr_t Reflectance = 0xF4;
+        inline constexpr uintptr_t RightParamA = 0xF8;
+        inline constexpr uintptr_t RightParamB = 0xFC;
+        inline constexpr uintptr_t TopParamA = 0x108;
+        inline constexpr uintptr_t TopParamB = 0x10C;
+        inline constexpr uintptr_t Transparency = 0x118;
+        inline constexpr uintptr_t MaterialVariant = 0x238;
+    }
+
 
     namespace CylinderMesh {
         inline constexpr uintptr_t Offset = 0xA0;
@@ -273,16 +570,61 @@ namespace Mur4 {
         inline constexpr uintptr_t VertexColor = 0xB8;
     }
 
+
+    namespace CylindricalConstraint {
+        inline constexpr uintptr_t LinearResponsiveness = 0x15C;
+        inline constexpr uintptr_t LowerLimit = 0x160;
+        inline constexpr uintptr_t MotorMaxAcceleration = 0x164;
+        inline constexpr uintptr_t MotorMaxForce = 0x168;
+        inline constexpr uintptr_t Restitution = 0x16C;
+        inline constexpr uintptr_t ServoMaxForce = 0x170;
+        inline constexpr uintptr_t Size = 0x174;
+        inline constexpr uintptr_t Speed = 0x178;
+        inline constexpr uintptr_t TargetPosition = 0x17C;
+        inline constexpr uintptr_t UpperLimit = 0x180;
+        inline constexpr uintptr_t Velocity = 0x184;
+        inline constexpr uintptr_t AngularRestitution = 0x1C0;
+        inline constexpr uintptr_t AngularSpeed = 0x1C4;
+        inline constexpr uintptr_t AngularVelocity = 0x1C8;
+        inline constexpr uintptr_t InclinationAngle = 0x1CC;
+        inline constexpr uintptr_t LowerAngle = 0x1D0;
+        inline constexpr uintptr_t MotorMaxAngularAcceleration = 0x1D4;
+        inline constexpr uintptr_t MotorMaxTorque = 0x1D8;
+        inline constexpr uintptr_t ServoMaxTorque = 0x1DC;
+        inline constexpr uintptr_t TargetAngle = 0x1E0;
+        inline constexpr uintptr_t UpperAngle = 0x1E4;
+    }
+
+
+    namespace DataModel {
+        inline constexpr uintptr_t JobId = 0x108;
+        inline constexpr uintptr_t Workspace = 0x168;
+        inline constexpr uintptr_t CreatorId = 0x190;
+        inline constexpr uintptr_t GameId = 0x198;
+        inline constexpr uintptr_t PlaceId = 0x1A0;
+        inline constexpr uintptr_t PlaceVersion = 0x1BC;
+    }
+
+
     namespace Decal {
+        inline constexpr uintptr_t EmissiveMaskContent = 0xD8;
+        inline constexpr uintptr_t MetalnessMapContent = 0x138;
+        inline constexpr uintptr_t NormalMapContent = 0x168;
+        inline constexpr uintptr_t RoughnessMapContent = 0x198;
+        inline constexpr uintptr_t TextureContent = 0x1C8;
         inline constexpr uintptr_t Color3 = 0x238;
         inline constexpr uintptr_t EmissiveTint = 0x244;
         inline constexpr uintptr_t UVOffset = 0x250;
         inline constexpr uintptr_t UVScale = 0x258;
         inline constexpr uintptr_t EmissiveStrength = 0x260;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0x264;
         inline constexpr uintptr_t Rotation = 0x26C;
+        inline constexpr uintptr_t Shiny = 0x270;
+        inline constexpr uintptr_t Specular = 0x274;
         inline constexpr uintptr_t Transparency = 0x278;
         inline constexpr uintptr_t ZIndex = 0x27C;
     }
+
 
     namespace DepthOfFieldEffect {
         inline constexpr uintptr_t Enabled = 0x98;
@@ -292,11 +634,22 @@ namespace Mur4 {
         inline constexpr uintptr_t NearIntensity = 0xAC;
     }
 
+
     namespace Dialog {
+        inline constexpr uintptr_t GoodbyeDialog = 0x98;
+        inline constexpr uintptr_t InitialPrompt = 0xB8;
         inline constexpr uintptr_t TriggerOffset = 0xD8;
         inline constexpr uintptr_t ConversationDistance = 0xE8;
         inline constexpr uintptr_t TriggerDistance = 0xF4;
     }
+
+
+    namespace DialogChoice {
+        inline constexpr uintptr_t GoodbyeDialog = 0xA0;
+        inline constexpr uintptr_t ResponseDialog = 0xC0;
+        inline constexpr uintptr_t UserDialog = 0xE0;
+    }
+
 
     namespace DigitsRigDescription {
         inline constexpr uintptr_t IndexRange = 0x458;
@@ -311,15 +664,36 @@ namespace Mur4 {
         inline constexpr uintptr_t ThumbSize = 0x4A8;
     }
 
+
     namespace DistortionSoundEffect {
         inline constexpr uintptr_t Priority = 0xA0;
         inline constexpr uintptr_t Level = 0xE0;
     }
 
+
     namespace DoubleConstrainedValue {
         inline constexpr uintptr_t MaxValue = 0xA0;
         inline constexpr uintptr_t MinValue = 0xA8;
     }
+
+
+    namespace DragDetector {
+        inline constexpr uintptr_t CursorIconContent = 0xB0;
+        inline constexpr uintptr_t MaxActivationDistance = 0xD0;
+        inline constexpr uintptr_t ActivatedCursorIconContent = 0x188;
+        inline constexpr uintptr_t ReferenceInstance = 0x1B8;
+        inline constexpr uintptr_t MaxDragTranslation = 0x234;
+        inline constexpr uintptr_t MinDragTranslation = 0x240;
+        inline constexpr uintptr_t MaxDragAngle = 0x270;
+        inline constexpr uintptr_t MaxForce = 0x274;
+        inline constexpr uintptr_t MaxTorque = 0x278;
+        inline constexpr uintptr_t MinDragAngle = 0x27C;
+        inline constexpr uintptr_t Responsiveness = 0x288;
+        inline constexpr uintptr_t TrackballRadialPullFactor = 0x28C;
+        inline constexpr uintptr_t TrackballRollFactor = 0x290;
+        inline constexpr uintptr_t Enabled = 0x299;
+    }
+
 
     namespace EchoSoundEffect {
         inline constexpr uintptr_t Priority = 0xA0;
@@ -329,6 +703,7 @@ namespace Mur4 {
         inline constexpr uintptr_t WetLevel = 0xEC;
     }
 
+
     namespace EqualizerSoundEffect {
         inline constexpr uintptr_t Priority = 0xA0;
         inline constexpr uintptr_t HighGain = 0xE0;
@@ -336,20 +711,139 @@ namespace Mur4 {
         inline constexpr uintptr_t MidGain = 0xE8;
     }
 
+
+    namespace ExperienceInviteOptions {
+        inline constexpr uintptr_t InviteMessageId = 0x98;
+        inline constexpr uintptr_t LaunchData = 0xB8;
+        inline constexpr uintptr_t PromptMessage = 0xD8;
+        inline constexpr uintptr_t InviteUser = 0xF8;
+    }
+
+
+    namespace Explosion {
+        inline constexpr uintptr_t Position = 0xD8;
+        inline constexpr uintptr_t BlastPressure = 0xE4;
+        inline constexpr uintptr_t BlastRadius = 0xE8;
+        inline constexpr uintptr_t DestroyJointRadiusPercent = 0xEC;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0xF4;
+        inline constexpr uintptr_t TimeScale = 0xF8;
+        inline constexpr uintptr_t Visible = 0xFC;
+    }
+
+
+    namespace FaceControls {
+        inline constexpr uintptr_t ChinRaiser = 0xC8;
+        inline constexpr uintptr_t ChinRaiserUpperLip = 0xCC;
+        inline constexpr uintptr_t Corrugator = 0xD0;
+        inline constexpr uintptr_t EyesLookDown = 0xD4;
+        inline constexpr uintptr_t EyesLookLeft = 0xD8;
+        inline constexpr uintptr_t EyesLookRight = 0xDC;
+        inline constexpr uintptr_t EyesLookUp = 0xE0;
+        inline constexpr uintptr_t FlatPucker = 0xE4;
+        inline constexpr uintptr_t Funneler = 0xE8;
+        inline constexpr uintptr_t JawDrop = 0xEC;
+        inline constexpr uintptr_t JawLeft = 0xF0;
+        inline constexpr uintptr_t JawRight = 0xF4;
+        inline constexpr uintptr_t LeftBrowLowerer = 0xF8;
+        inline constexpr uintptr_t LeftCheekPuff = 0xFC;
+        inline constexpr uintptr_t LeftCheekRaiser = 0x100;
+        inline constexpr uintptr_t LeftDimpler = 0x104;
+        inline constexpr uintptr_t LeftEyeClosed = 0x108;
+        inline constexpr uintptr_t LeftEyeUpperLidRaiser = 0x10C;
+        inline constexpr uintptr_t LeftInnerBrowRaiser = 0x110;
+        inline constexpr uintptr_t LeftLipCornerDown = 0x114;
+        inline constexpr uintptr_t LeftLipCornerPuller = 0x118;
+        inline constexpr uintptr_t LeftLipStretcher = 0x11C;
+        inline constexpr uintptr_t LeftLowerLipDepressor = 0x120;
+        inline constexpr uintptr_t LeftNoseWrinkler = 0x124;
+        inline constexpr uintptr_t LeftOuterBrowRaiser = 0x128;
+        inline constexpr uintptr_t LeftUpperLipRaiser = 0x12C;
+        inline constexpr uintptr_t LipPresser = 0x130;
+        inline constexpr uintptr_t LipsTogether = 0x134;
+        inline constexpr uintptr_t LowerLipSuck = 0x138;
+        inline constexpr uintptr_t MouthLeft = 0x13C;
+        inline constexpr uintptr_t MouthRight = 0x140;
+        inline constexpr uintptr_t Pucker = 0x144;
+        inline constexpr uintptr_t RightBrowLowerer = 0x148;
+        inline constexpr uintptr_t RightCheekPuff = 0x14C;
+        inline constexpr uintptr_t RightCheekRaiser = 0x150;
+        inline constexpr uintptr_t RightDimpler = 0x154;
+        inline constexpr uintptr_t RightEyeClosed = 0x158;
+        inline constexpr uintptr_t RightEyeUpperLidRaiser = 0x15C;
+        inline constexpr uintptr_t RightInnerBrowRaiser = 0x160;
+        inline constexpr uintptr_t RightLipCornerDown = 0x164;
+        inline constexpr uintptr_t RightLipCornerPuller = 0x168;
+        inline constexpr uintptr_t RightLipStretcher = 0x16C;
+        inline constexpr uintptr_t RightLowerLipDepressor = 0x170;
+        inline constexpr uintptr_t RightNoseWrinkler = 0x174;
+        inline constexpr uintptr_t RightOuterBrowRaiser = 0x178;
+        inline constexpr uintptr_t RightUpperLipRaiser = 0x17C;
+        inline constexpr uintptr_t TongueDown = 0x180;
+        inline constexpr uintptr_t TongueOut = 0x184;
+        inline constexpr uintptr_t TongueUp = 0x188;
+        inline constexpr uintptr_t UpperLipSuck = 0x18C;
+    }
+
+
+    namespace FakeDataModel {
+        inline constexpr uintptr_t RealDataModel = 0x1F8;
+        inline constexpr uintptr_t Pointer = 0x8F8E968;
+    }
+
+
     namespace FileMesh {
         inline constexpr uintptr_t Offset = 0xA0;
         inline constexpr uintptr_t Scale = 0xAC;
         inline constexpr uintptr_t VertexColor = 0xB8;
+        inline constexpr uintptr_t MeshId = 0xE0;
+        inline constexpr uintptr_t TextureId = 0x110;
     }
+
 
     namespace Fire {
         inline constexpr uintptr_t Color = 0xA0;
         inline constexpr uintptr_t SecondaryColor = 0xAC;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0xB8;
         inline constexpr uintptr_t TimeScale = 0xBC;
         inline constexpr uintptr_t Heat = 0xC0;
         inline constexpr uintptr_t Size = 0xC4;
         inline constexpr uintptr_t Enabled = 0xC8;
     }
+
+
+    namespace Flag {
+        inline constexpr uintptr_t TextureId = 0x348;
+        inline constexpr uintptr_t ToolTip = 0x450;
+        inline constexpr uintptr_t GripPos = 0x494;
+    }
+
+
+    namespace FlagStand {
+        inline constexpr uintptr_t BackParamA = 0xB0;
+        inline constexpr uintptr_t BackParamB = 0xB4;
+        inline constexpr uintptr_t BottomParamA = 0xC0;
+        inline constexpr uintptr_t BottomParamB = 0xC4;
+        inline constexpr uintptr_t FrontParamA = 0xD0;
+        inline constexpr uintptr_t FrontParamB = 0xD4;
+        inline constexpr uintptr_t LeftParamA = 0xE0;
+        inline constexpr uintptr_t LeftParamB = 0xE4;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0xF0;
+        inline constexpr uintptr_t Reflectance = 0xF4;
+        inline constexpr uintptr_t RightParamA = 0xF8;
+        inline constexpr uintptr_t RightParamB = 0xFC;
+        inline constexpr uintptr_t TopParamA = 0x108;
+        inline constexpr uintptr_t TopParamB = 0x10C;
+        inline constexpr uintptr_t Transparency = 0x118;
+        inline constexpr uintptr_t Position = 0x354;
+        inline constexpr uintptr_t Velocity = 0x360;
+        inline constexpr uintptr_t RotVelocity = 0x36C;
+        inline constexpr uintptr_t Size = 0x444;
+        inline constexpr uintptr_t CollisionGroup = 0x4C0;
+        inline constexpr uintptr_t Friction = 0x4DC;
+        inline constexpr uintptr_t Elasticity = 0x4E0;
+        inline constexpr uintptr_t MaterialVariant = 0x538;
+    }
+
 
     namespace FlangeSoundEffect {
         inline constexpr uintptr_t Priority = 0xA0;
@@ -358,15 +852,42 @@ namespace Mur4 {
         inline constexpr uintptr_t Rate = 0xE8;
     }
 
+
     namespace FloorWire {
         inline constexpr uintptr_t Color3 = 0xC0;
         inline constexpr uintptr_t Transparency = 0xCC;
+        inline constexpr uintptr_t Texture = 0xE8;
         inline constexpr uintptr_t TextureSize = 0x128;
         inline constexpr uintptr_t CycleOffset = 0x130;
         inline constexpr uintptr_t StudsBetweenTextures = 0x134;
         inline constexpr uintptr_t Velocity = 0x138;
         inline constexpr uintptr_t WireRadius = 0x13C;
     }
+
+
+    namespace Frame {
+        inline constexpr uintptr_t Position = 0x2AC;
+        inline constexpr uintptr_t Size = 0x2CC;
+        inline constexpr uintptr_t BackgroundColor3 = 0x2D8;
+        inline constexpr uintptr_t BorderColor3 = 0x2E4;
+        inline constexpr uintptr_t AnchorPoint = 0x2F0;
+        inline constexpr uintptr_t Transparency = 0x2FC;
+        inline constexpr uintptr_t LayoutOrder = 0x314;
+        inline constexpr uintptr_t Rotation = 0x32C;
+        inline constexpr uintptr_t SelectionOrder = 0x330;
+        inline constexpr uintptr_t ZIndex = 0x33C;
+        inline constexpr uintptr_t Active = 0x340;
+        inline constexpr uintptr_t ClipsDescendants = 0x341;
+        inline constexpr uintptr_t Interactable = 0x343;
+        inline constexpr uintptr_t Selectable = 0x344;
+        inline constexpr uintptr_t Visible = 0x345;
+    }
+
+
+    namespace FunctionalTest {
+        inline constexpr uintptr_t Description = 0x98;
+    }
+
 
     namespace GroundController {
         inline constexpr uintptr_t MoveSpeedFactor = 0xA0;
@@ -383,27 +904,121 @@ namespace Mur4 {
         inline constexpr uintptr_t TurnSpeedFactor = 0xF0;
     }
 
+
     namespace GuiMain {
-        inline constexpr uintptr_t DisplayOrder = 0x720;
+        inline constexpr uintptr_t DisplayOrder = 0x508;
     }
+
+
+    namespace GuiObject {
+        inline constexpr uintptr_t Position = 0x2AC;
+        inline constexpr uintptr_t Size = 0x2CC;
+        inline constexpr uintptr_t BackgroundColor3 = 0x2D8;
+        inline constexpr uintptr_t BorderColor3 = 0x2E4;
+        inline constexpr uintptr_t AnchorPoint = 0x2F0;
+        inline constexpr uintptr_t Transparency = 0x2FC;
+        inline constexpr uintptr_t LayoutOrder = 0x314;
+        inline constexpr uintptr_t Rotation = 0x32C;
+        inline constexpr uintptr_t SelectionOrder = 0x330;
+        inline constexpr uintptr_t ZIndex = 0x33C;
+        inline constexpr uintptr_t Active = 0x340;
+        inline constexpr uintptr_t ClipsDescendants = 0x341;
+        inline constexpr uintptr_t Interactable = 0x343;
+        inline constexpr uintptr_t Selectable = 0x344;
+        inline constexpr uintptr_t Visible = 0x345;
+        inline constexpr uintptr_t Text = 0x888;
+    }
+
+
+    namespace HandleAdornment {
+        inline constexpr uintptr_t Color3 = 0xC0;
+        inline constexpr uintptr_t Transparency = 0xCC;
+        inline constexpr uintptr_t CFrame = 0x100;
+        inline constexpr uintptr_t SizeRelativeOffset = 0x130;
+    }
+
 
     namespace Handles {
         inline constexpr uintptr_t Color3 = 0xC0;
         inline constexpr uintptr_t Transparency = 0xCC;
     }
 
+
     namespace HapticEffect {
         inline constexpr uintptr_t Position = 0xC0;
         inline constexpr uintptr_t Radius = 0xCC;
     }
 
+
+    namespace Hat {
+        inline constexpr uintptr_t AttachmentPos = 0xC4;
+    }
+
+
     namespace Highlight {
+        inline constexpr uintptr_t Adornee = 0xA0;
         inline constexpr uintptr_t FillColor = 0xB0;
         inline constexpr uintptr_t OutlineColor = 0xBC;
         inline constexpr uintptr_t FillTransparency = 0xCC;
         inline constexpr uintptr_t OutlineTransparency = 0xD4;
         inline constexpr uintptr_t Enabled = 0xDC;
     }
+
+
+    namespace HopperBin {
+        inline constexpr uintptr_t TextureId = 0x348;
+    }
+
+
+    namespace Humanoid {
+        inline constexpr uintptr_t DisplayName = 0xA0;
+        inline constexpr uintptr_t CameraOffset = 0x110;
+        inline constexpr uintptr_t WalkToPoint = 0x158;
+        inline constexpr uintptr_t HealthDisplayDistance = 0x17C;
+        inline constexpr uintptr_t Health = 0x184;
+        inline constexpr uintptr_t HipHeight = 0x188;
+        inline constexpr uintptr_t JumpHeight = 0x198;
+        inline constexpr uintptr_t JumpPower = 0x19C;
+        inline constexpr uintptr_t MaxHealth = 0x1A0;
+        inline constexpr uintptr_t MaxSlopeAngle = 0x1A4;
+        inline constexpr uintptr_t NameDisplayDistance = 0x1A8;
+        inline constexpr uintptr_t WalkSpeed = 0x1C8;
+        inline constexpr uintptr_t AutoJumpEnabled = 0x1CC;
+        inline constexpr uintptr_t AutoRotate = 0x1CD;
+        inline constexpr uintptr_t AutomaticScalingEnabled = 0x1CE;
+        inline constexpr uintptr_t BreakJointsOnDeath = 0x1D0;
+        inline constexpr uintptr_t EvaluateStateMachine = 0x1D1;
+        inline constexpr uintptr_t Jump = 0x1D4;
+        inline constexpr uintptr_t PlatformStand = 0x1D6;
+        inline constexpr uintptr_t RequiresNeck = 0x1D7;
+        inline constexpr uintptr_t Sit = 0x1D8;
+        inline constexpr uintptr_t UseJumpPower = 0x1DA;
+        inline constexpr uintptr_t Torso = 0x4C8;
+        inline constexpr uintptr_t HumanoidRootPart = 0x5D8;
+    }
+
+
+    namespace HumanoidDescription {
+        inline constexpr uintptr_t ClimbAnimation = 0xC0;
+        inline constexpr uintptr_t Face = 0xC8;
+        inline constexpr uintptr_t FallAnimation = 0xD0;
+        inline constexpr uintptr_t GraphicTShirt = 0xD8;
+        inline constexpr uintptr_t IdleAnimation = 0xE0;
+        inline constexpr uintptr_t JumpAnimation = 0xE8;
+        inline constexpr uintptr_t MoodAnimation = 0xF0;
+        inline constexpr uintptr_t Pants = 0xF8;
+        inline constexpr uintptr_t RunAnimation = 0x100;
+        inline constexpr uintptr_t Shirt = 0x108;
+        inline constexpr uintptr_t SwimAnimation = 0x110;
+        inline constexpr uintptr_t WalkAnimation = 0x118;
+        inline constexpr uintptr_t BodyTypeScale = 0x120;
+        inline constexpr uintptr_t DepthScale = 0x124;
+        inline constexpr uintptr_t HeadScale = 0x128;
+        inline constexpr uintptr_t HeightScale = 0x12C;
+        inline constexpr uintptr_t ProportionScale = 0x134;
+        inline constexpr uintptr_t WidthScale = 0x138;
+    }
+
 
     namespace HumanoidRigDescription {
         inline constexpr uintptr_t ChestRangeMax = 0x668;
@@ -474,46 +1089,96 @@ namespace Mur4 {
         inline constexpr uintptr_t WaistSize = 0x8CC;
     }
 
-    namespace ImageLabel {
-        inline constexpr uintptr_t Position = 0x4DC;
-        inline constexpr uintptr_t Size = 0x4FC;
-        inline constexpr uintptr_t BackgroundColor3 = 0x508;
-        inline constexpr uintptr_t BorderColor3 = 0x514;
-        inline constexpr uintptr_t AnchorPoint = 0x520;
-        inline constexpr uintptr_t Transparency = 0x52C;
-        inline constexpr uintptr_t LayoutOrder = 0x544;
-        inline constexpr uintptr_t Rotation = 0x55C;
-        inline constexpr uintptr_t SelectionOrder = 0x560;
-        inline constexpr uintptr_t ZIndex = 0x56C;
-        inline constexpr uintptr_t TileSize = 0xADC;
-        inline constexpr uintptr_t ImageColor3 = 0xAE8;
-        inline constexpr uintptr_t ImageRectOffset = 0xAFC;
-        inline constexpr uintptr_t ImageRectSize = 0xB04;
-        inline constexpr uintptr_t ImageTransparency = 0xB0C;
-        inline constexpr uintptr_t SliceScale = 0xB18;
+
+    namespace IKControl {
+        inline constexpr uintptr_t Priority = 0x140;
+        inline constexpr uintptr_t SmoothTime = 0x144;
+        inline constexpr uintptr_t Weight = 0x14C;
     }
 
-    namespace InputActionLabel {
-        inline constexpr uintptr_t Position = 0x4DC;
-        inline constexpr uintptr_t Size = 0x4FC;
-        inline constexpr uintptr_t BackgroundColor3 = 0x508;
-        inline constexpr uintptr_t BorderColor3 = 0x514;
-        inline constexpr uintptr_t AnchorPoint = 0x520;
-        inline constexpr uintptr_t Transparency = 0x52C;
-        inline constexpr uintptr_t LayoutOrder = 0x544;
-        inline constexpr uintptr_t Rotation = 0x55C;
-        inline constexpr uintptr_t SelectionOrder = 0x560;
-        inline constexpr uintptr_t ZIndex = 0x56C;
-        inline constexpr uintptr_t ImageColor3 = 0xA08;
-        inline constexpr uintptr_t TextColor3 = 0xA14;
-        inline constexpr uintptr_t ImageTransparency = 0xA20;
-        inline constexpr uintptr_t TextSize = 0xA24;
-        inline constexpr uintptr_t TextTransparency = 0xA28;
+
+    namespace ImageButton {
+        inline constexpr uintptr_t Position = 0x2AC;
+        inline constexpr uintptr_t Size = 0x2CC;
+        inline constexpr uintptr_t BackgroundColor3 = 0x2D8;
+        inline constexpr uintptr_t BorderColor3 = 0x2E4;
+        inline constexpr uintptr_t AnchorPoint = 0x2F0;
+        inline constexpr uintptr_t Transparency = 0x2FC;
+        inline constexpr uintptr_t LayoutOrder = 0x314;
+        inline constexpr uintptr_t Rotation = 0x32C;
+        inline constexpr uintptr_t SelectionOrder = 0x330;
+        inline constexpr uintptr_t ZIndex = 0x33C;
+        inline constexpr uintptr_t HoverImageContent = 0x9C0;
+        inline constexpr uintptr_t ImageContent = 0x9F0;
+        inline constexpr uintptr_t PressedImageContent = 0xA50;
+        inline constexpr uintptr_t TileSize = 0xA84;
+        inline constexpr uintptr_t ImageColor3 = 0xA90;
+        inline constexpr uintptr_t ImageRectOffset = 0xAA4;
+        inline constexpr uintptr_t ImageRectSize = 0xAAC;
+        inline constexpr uintptr_t ImageTransparency = 0xAB4;
+        inline constexpr uintptr_t SliceScale = 0xAC0;
     }
+
+
+    namespace ImageHandleAdornment {
+        inline constexpr uintptr_t Color3 = 0xC0;
+        inline constexpr uintptr_t Transparency = 0xCC;
+        inline constexpr uintptr_t CFrame = 0x124;
+        inline constexpr uintptr_t SizeRelativeOffset = 0x130;
+        inline constexpr uintptr_t ImageContent = 0x1A0;
+        inline constexpr uintptr_t Size = 0x1C0;
+    }
+
+
+    namespace ImageLabel {
+        inline constexpr uintptr_t Position = 0x2AC;
+        inline constexpr uintptr_t Size = 0x2CC;
+        inline constexpr uintptr_t BackgroundColor3 = 0x2D8;
+        inline constexpr uintptr_t BorderColor3 = 0x2E4;
+        inline constexpr uintptr_t AnchorPoint = 0x2F0;
+        inline constexpr uintptr_t Transparency = 0x2FC;
+        inline constexpr uintptr_t LayoutOrder = 0x314;
+        inline constexpr uintptr_t Rotation = 0x32C;
+        inline constexpr uintptr_t SelectionOrder = 0x330;
+        inline constexpr uintptr_t ZIndex = 0x33C;
+        inline constexpr uintptr_t ImageContent = 0x740;
+        inline constexpr uintptr_t TileSize = 0x7A4;
+        inline constexpr uintptr_t ImageColor3 = 0x7B0;
+        inline constexpr uintptr_t ImageRectOffset = 0x7C4;
+        inline constexpr uintptr_t ImageRectSize = 0x7CC;
+        inline constexpr uintptr_t ImageTransparency = 0x7D4;
+        inline constexpr uintptr_t SliceScale = 0x7E0;
+    }
+
+
+    namespace InputAction {
+        inline constexpr uintptr_t DisplayName = 0xA0;
+    }
+
+
+    namespace InputActionLabel {
+        inline constexpr uintptr_t Position = 0x2AC;
+        inline constexpr uintptr_t Size = 0x2CC;
+        inline constexpr uintptr_t BackgroundColor3 = 0x2D8;
+        inline constexpr uintptr_t BorderColor3 = 0x2E4;
+        inline constexpr uintptr_t AnchorPoint = 0x2F0;
+        inline constexpr uintptr_t Transparency = 0x2FC;
+        inline constexpr uintptr_t LayoutOrder = 0x314;
+        inline constexpr uintptr_t Rotation = 0x32C;
+        inline constexpr uintptr_t SelectionOrder = 0x330;
+        inline constexpr uintptr_t ZIndex = 0x33C;
+        inline constexpr uintptr_t ImageColor3 = 0x6D0;
+        inline constexpr uintptr_t TextColor3 = 0x6DC;
+        inline constexpr uintptr_t ImageTransparency = 0x6E8;
+        inline constexpr uintptr_t TextSize = 0x6EC;
+        inline constexpr uintptr_t TextTransparency = 0x6F0;
+    }
+
 
     namespace InputContext {
         inline constexpr uintptr_t Priority = 0xA0;
     }
+
 
     namespace Instance {
         inline constexpr uintptr_t ChildrenEnd = 0x8;
@@ -524,49 +1189,236 @@ namespace Mur4 {
         inline constexpr uintptr_t ChildrenStart = 0x78;
     }
 
+
     namespace IntConstrainedValue {
         inline constexpr uintptr_t MaxValue = 0xA0;
         inline constexpr uintptr_t MinValue = 0xA8;
         inline constexpr uintptr_t Value = 0xB0;
     }
 
+
+    namespace IntersectOperation {
+        inline constexpr uintptr_t BackParamA = 0xB0;
+        inline constexpr uintptr_t BackParamB = 0xB4;
+        inline constexpr uintptr_t BottomParamA = 0xC0;
+        inline constexpr uintptr_t BottomParamB = 0xC4;
+        inline constexpr uintptr_t FrontParamA = 0xD0;
+        inline constexpr uintptr_t FrontParamB = 0xD4;
+        inline constexpr uintptr_t LeftParamA = 0xE0;
+        inline constexpr uintptr_t LeftParamB = 0xE4;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0xF0;
+        inline constexpr uintptr_t Reflectance = 0xF4;
+        inline constexpr uintptr_t RightParamA = 0xF8;
+        inline constexpr uintptr_t RightParamB = 0xFC;
+        inline constexpr uintptr_t TopParamA = 0x108;
+        inline constexpr uintptr_t TopParamB = 0x10C;
+        inline constexpr uintptr_t Transparency = 0x118;
+        inline constexpr uintptr_t MaterialVariant = 0x1F0;
+    }
+
+
+    namespace JointInstance {
+        inline constexpr uintptr_t Part0 = 0x100;
+        inline constexpr uintptr_t Part1 = 0x110;
+    }
+
+
     namespace KeyframeSequence {
         inline constexpr uintptr_t AuthoredHipHeight = 0xC8;
     }
+
 
     namespace Light {
         inline constexpr uintptr_t Color = 0xA8;
         inline constexpr uintptr_t Brightness = 0xB4;
     }
 
+
+    namespace Lighting {
+        inline constexpr uintptr_t Ambient = 0xB8;
+        inline constexpr uintptr_t ColorShift_Bottom = 0xC4;
+        inline constexpr uintptr_t ColorShift_Top = 0xD0;
+        inline constexpr uintptr_t FogColor = 0xDC;
+        inline constexpr uintptr_t OutdoorAmbient = 0xE8;
+        inline constexpr uintptr_t ShadowColor = 0xF4;
+        inline constexpr uintptr_t Brightness = 0x100;
+        inline constexpr uintptr_t EnvironmentDiffuseScale = 0x104;
+        inline constexpr uintptr_t EnvironmentSpecularScale = 0x108;
+        inline constexpr uintptr_t ExposureCompensation = 0x10C;
+        inline constexpr uintptr_t FogEnd = 0x114;
+        inline constexpr uintptr_t FogStart = 0x118;
+        inline constexpr uintptr_t GeographicLatitude = 0x11C;
+        inline constexpr uintptr_t ShadowSoftness = 0x124;
+        inline constexpr uintptr_t Sky = 0x1B0;
+    }
+
+
+    namespace LineForce {
+        inline constexpr uintptr_t Magnitude = 0x158;
+        inline constexpr uintptr_t MaxForce = 0x15C;
+    }
+
+
+    namespace LinearVelocity {
+        inline constexpr uintptr_t MaxForce = 0x178;
+        inline constexpr uintptr_t MaxPlanarAxesForce = 0x1B0;
+        inline constexpr uintptr_t MaxAxesForce = 0x220;
+        inline constexpr uintptr_t VectorVelocity = 0x22C;
+    }
+
+
+    namespace LocalScript {
+        inline constexpr uintptr_t GUID = 0xB8;
+        inline constexpr uintptr_t ByteCode = 0x178;
+    }
+
+
+    namespace LocalizationTable {
+        inline constexpr uintptr_t SourceLocaleId = 0xA0;
+    }
+
+
     namespace MakeupDescription {
         inline constexpr uintptr_t Order = 0xB4;
     }
 
+
     namespace MaterialVariant {
+        inline constexpr uintptr_t ColorMapContent = 0xB0;
+        inline constexpr uintptr_t EmissiveMaskContent = 0xE0;
+        inline constexpr uintptr_t MetalnessMapContent = 0x110;
+        inline constexpr uintptr_t NormalMapContent = 0x140;
+        inline constexpr uintptr_t RoughnessMapContent = 0x170;
         inline constexpr uintptr_t EmissiveTint = 0x1DC;
         inline constexpr uintptr_t EmissiveStrength = 0x1F8;
         inline constexpr uintptr_t StudsPerTile = 0x200;
     }
 
+
+    namespace MeshPart {
+        inline constexpr uintptr_t CollisionGroup = 0x68;
+        inline constexpr uintptr_t BackParamA = 0xB0;
+        inline constexpr uintptr_t BackParamB = 0xB4;
+        inline constexpr uintptr_t BottomParamA = 0xC0;
+        inline constexpr uintptr_t BottomParamB = 0xC4;
+        inline constexpr uintptr_t FrontParamA = 0xD0;
+        inline constexpr uintptr_t FrontParamB = 0xD4;
+        inline constexpr uintptr_t LeftParamA = 0xE0;
+        inline constexpr uintptr_t LeftParamB = 0xE4;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0xF0;
+        inline constexpr uintptr_t Reflectance = 0xF4;
+        inline constexpr uintptr_t RightParamA = 0xF8;
+        inline constexpr uintptr_t RightParamB = 0xFC;
+        inline constexpr uintptr_t TopParamA = 0x108;
+        inline constexpr uintptr_t TopParamB = 0x10C;
+        inline constexpr uintptr_t Transparency = 0x118;
+        inline constexpr uintptr_t MeshId = 0x2F8;
+        inline constexpr uintptr_t Texture = 0x328;
+        inline constexpr uintptr_t TextureID = 0x328;
+        inline constexpr uintptr_t DoubleSided = 0x364;
+        inline constexpr uintptr_t MaterialVariant = 0x438;
+    }
+
+
+    namespace Misc {
+        inline constexpr uintptr_t Adornee = 0xA0;
+        inline constexpr uintptr_t AnimationId = 0xA8;
+    }
+
+
     namespace Model {
+        inline constexpr uintptr_t Scale = 0x12C;
         inline constexpr uintptr_t PrimaryPart = 0x240;
     }
+
+
+    namespace ModuleScript {
+        inline constexpr uintptr_t GUID = 0xB8;
+        inline constexpr uintptr_t ByteCode = 0x120;
+    }
+
+
+    namespace NegateOperation {
+        inline constexpr uintptr_t BackParamA = 0xB0;
+        inline constexpr uintptr_t BackParamB = 0xB4;
+        inline constexpr uintptr_t BottomParamA = 0xC0;
+        inline constexpr uintptr_t BottomParamB = 0xC4;
+        inline constexpr uintptr_t FrontParamA = 0xD0;
+        inline constexpr uintptr_t FrontParamB = 0xD4;
+        inline constexpr uintptr_t LeftParamA = 0xE0;
+        inline constexpr uintptr_t LeftParamB = 0xE4;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0xF0;
+        inline constexpr uintptr_t Reflectance = 0xF4;
+        inline constexpr uintptr_t RightParamA = 0xF8;
+        inline constexpr uintptr_t RightParamB = 0xFC;
+        inline constexpr uintptr_t TopParamA = 0x108;
+        inline constexpr uintptr_t TopParamB = 0x10C;
+        inline constexpr uintptr_t Transparency = 0x118;
+    }
+
 
     namespace NumberPose {
         inline constexpr uintptr_t Weight = 0xA8;
         inline constexpr uintptr_t Value = 0xB8;
     }
 
+
     namespace Pants {
+        inline constexpr uintptr_t PantsTemplateContent = 0xB8;
         inline constexpr uintptr_t Color3 = 0x108;
     }
 
+
     namespace Part {
-        inline constexpr uintptr_t Primitive = 0x148;
+        inline constexpr uintptr_t CanQuery = 0x8E;
+        inline constexpr uintptr_t BackParamA = 0xB0;
+        inline constexpr uintptr_t BackParamB = 0xB4;
+        inline constexpr uintptr_t BottomParamA = 0xC0;
+        inline constexpr uintptr_t BottomParamB = 0xC4;
+        inline constexpr uintptr_t FrontParamA = 0xD0;
+        inline constexpr uintptr_t FrontParamB = 0xD4;
+        inline constexpr uintptr_t LeftParamA = 0xE0;
+        inline constexpr uintptr_t LeftParamB = 0xE4;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0xF0;
+        inline constexpr uintptr_t Reflectance = 0xF4;
+        inline constexpr uintptr_t RightParamA = 0xF8;
+        inline constexpr uintptr_t RightParamB = 0xFC;
+        inline constexpr uintptr_t TopParamA = 0x108;
+        inline constexpr uintptr_t TopParamB = 0x10C;
+        inline constexpr uintptr_t Transparency = 0x118;
+        inline constexpr uintptr_t CastShadow = 0x120;
+        inline constexpr uintptr_t Locked = 0x121;
+        inline constexpr uintptr_t Massless = 0x122;
+        inline constexpr uintptr_t CanCollide = 0x181;
+        inline constexpr uintptr_t Anchored = 0x1A1;
+        inline constexpr uintptr_t Primitive = 0x208;
+        inline constexpr uintptr_t MaterialVariant = 0x608;
+        inline constexpr uintptr_t CanTouch = 0x7D8;
     }
 
+
+    namespace PartOperation {
+        inline constexpr uintptr_t BackParamA = 0xB0;
+        inline constexpr uintptr_t BackParamB = 0xB4;
+        inline constexpr uintptr_t BottomParamA = 0xC0;
+        inline constexpr uintptr_t BottomParamB = 0xC4;
+        inline constexpr uintptr_t FrontParamA = 0xD0;
+        inline constexpr uintptr_t FrontParamB = 0xD4;
+        inline constexpr uintptr_t LeftParamA = 0xE0;
+        inline constexpr uintptr_t LeftParamB = 0xE4;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0xF0;
+        inline constexpr uintptr_t Reflectance = 0xF4;
+        inline constexpr uintptr_t RightParamA = 0xF8;
+        inline constexpr uintptr_t RightParamB = 0xFC;
+        inline constexpr uintptr_t TopParamA = 0x108;
+        inline constexpr uintptr_t TopParamB = 0x10C;
+        inline constexpr uintptr_t Transparency = 0x118;
+        inline constexpr uintptr_t CollisionGroup = 0x438;
+    }
+
+
     namespace ParticleEmitter {
+        inline constexpr uintptr_t TextureContent = 0x1A8;
         inline constexpr uintptr_t Acceleration = 0x1C8;
         inline constexpr uintptr_t FlipbookFramerate = 0x1D4;
         inline constexpr uintptr_t Lifetime = 0x1DC;
@@ -578,6 +1430,7 @@ namespace Mur4 {
         inline constexpr uintptr_t Drag = 0x208;
         inline constexpr uintptr_t LightEmission = 0x220;
         inline constexpr uintptr_t LightInfluence = 0x224;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0x228;
         inline constexpr uintptr_t Rate = 0x230;
         inline constexpr uintptr_t ShapePartial = 0x23C;
         inline constexpr uintptr_t TimeScale = 0x244;
@@ -588,7 +1441,9 @@ namespace Mur4 {
         inline constexpr uintptr_t WindAffectsDrag = 0x254;
     }
 
+
     namespace ParticleEmitter2D {
+        inline constexpr uintptr_t TextureContent = 0x1A8;
         inline constexpr uintptr_t Acceleration = 0x1E8;
         inline constexpr uintptr_t EmissionOffset = 0x1F0;
         inline constexpr uintptr_t EmissionSpread = 0x1F8;
@@ -601,11 +1456,13 @@ namespace Mur4 {
         inline constexpr uintptr_t Brightness = 0x22C;
         inline constexpr uintptr_t Drag = 0x230;
         inline constexpr uintptr_t EmissionAngle = 0x234;
+        inline constexpr uintptr_t LightInfluence = 0x24C;
         inline constexpr uintptr_t Rate = 0x250;
         inline constexpr uintptr_t SpreadAngle = 0x254;
         inline constexpr uintptr_t TimeScale = 0x258;
         inline constexpr uintptr_t ZIndex = 0x25C;
     }
+
 
     namespace Path2D {
         inline constexpr uintptr_t Color3 = 0xC8;
@@ -613,10 +1470,49 @@ namespace Mur4 {
         inline constexpr uintptr_t ZIndex = 0xE0;
     }
 
+
+    namespace PathfindingLink {
+        inline constexpr uintptr_t Label = 0xA0;
+    }
+
+
+    namespace PathfindingModifier {
+        inline constexpr uintptr_t Label = 0xA0;
+    }
+
+
+    namespace PhysicsActivitySensor {
+        inline constexpr uintptr_t Position = 0x220;
+        inline constexpr uintptr_t Size = 0x22C;
+    }
+
+
     namespace PitchShiftSoundEffect {
         inline constexpr uintptr_t Priority = 0xA0;
         inline constexpr uintptr_t Octave = 0xE0;
     }
+
+
+    namespace Player {
+        inline constexpr uintptr_t CharacterAppearance = 0xC0;
+        inline constexpr uintptr_t LocalPlayer = 0x118;
+        inline constexpr uintptr_t Character = 0x2A0;
+        inline constexpr uintptr_t ModelInstance = 0x2A0;
+        inline constexpr uintptr_t CharacterAppearanceId = 0x308;
+        inline constexpr uintptr_t CameraMaxZoomDistance = 0x370;
+        inline constexpr uintptr_t MaxZoomDistance = 0x370;
+        inline constexpr uintptr_t CameraMinZoomDistance = 0x374;
+        inline constexpr uintptr_t MinZoomDistance = 0x374;
+        inline constexpr uintptr_t HealthDisplayDistance = 0x3A0;
+        inline constexpr uintptr_t NameDisplayDistance = 0x3B0;
+    }
+
+
+    namespace Players {
+        inline constexpr uintptr_t LocalPlayer = 0x118;
+        inline constexpr uintptr_t RespawnTime = 0x130;
+    }
+
 
     namespace PointLight {
         inline constexpr uintptr_t Color = 0xA8;
@@ -626,13 +1522,54 @@ namespace Mur4 {
         inline constexpr uintptr_t Range = 0xC0;
     }
 
+
     namespace Pose {
         inline constexpr uintptr_t Weight = 0xA8;
     }
 
+
     namespace Primitive {
         inline constexpr uintptr_t Validate = 0x6;
+        inline constexpr uintptr_t Owner = 0x10;
+        inline constexpr uintptr_t Flags = 0x34;
+        inline constexpr uintptr_t CFrame = 0x88;
+        inline constexpr uintptr_t Rotation = 0x88;
+        inline constexpr uintptr_t Position = 0xAC;
+        inline constexpr uintptr_t BackParamA = 0xB0;
+        inline constexpr uintptr_t BackParamB = 0xB4;
+        inline constexpr uintptr_t BottomParamA = 0xC0;
+        inline constexpr uintptr_t BottomParamB = 0xC4;
+        inline constexpr uintptr_t FrontParamA = 0xD0;
+        inline constexpr uintptr_t FrontParamB = 0xD4;
+        inline constexpr uintptr_t AssemblyLinearVelocity = 0xE0;
+        inline constexpr uintptr_t LeftParamA = 0xE0;
+        inline constexpr uintptr_t Velocity = 0xE0;
+        inline constexpr uintptr_t LeftParamB = 0xE4;
+        inline constexpr uintptr_t AssemblyAngularVelocity = 0xEC;
+        inline constexpr uintptr_t RotVelocity = 0xEC;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0xF0;
+        inline constexpr uintptr_t Reflectance = 0xF4;
+        inline constexpr uintptr_t Size = 0xF4;
+        inline constexpr uintptr_t RightParamA = 0xF8;
+        inline constexpr uintptr_t RightParamB = 0xFC;
+        inline constexpr uintptr_t TopParamA = 0x108;
+        inline constexpr uintptr_t TopParamB = 0x10C;
+        inline constexpr uintptr_t Transparency = 0x118;
+        inline constexpr uintptr_t Friction = 0x25C;
+        inline constexpr uintptr_t Elasticity = 0x260;
     }
+
+
+    namespace PrimitiveFlags {
+        inline constexpr uintptr_t CanQuery = 0x1;
+        inline constexpr uintptr_t CastShadow = 0x1;
+        inline constexpr uintptr_t CanTouch = 0x2;
+        inline constexpr uintptr_t Locked = 0x2;
+        inline constexpr uintptr_t Anchored = 0x4;
+        inline constexpr uintptr_t Massless = 0x20;
+        inline constexpr uintptr_t CanCollide = 0x40;
+    }
+
 
     namespace PrismaticConstraint {
         inline constexpr uintptr_t LinearResponsiveness = 0x15C;
@@ -648,13 +1585,33 @@ namespace Mur4 {
         inline constexpr uintptr_t Velocity = 0x184;
     }
 
+
+    namespace ProceduralModel {
+        inline constexpr uintptr_t Size = 0x360;
+        inline constexpr uintptr_t ExplorerIconContent = 0x410;
+    }
+
+
     namespace PyramidHandleAdornment {
         inline constexpr uintptr_t Color3 = 0xC0;
         inline constexpr uintptr_t Transparency = 0xCC;
+        inline constexpr uintptr_t CFrame = 0x124;
         inline constexpr uintptr_t SizeRelativeOffset = 0x130;
         inline constexpr uintptr_t Height = 0x190;
         inline constexpr uintptr_t Size = 0x19C;
     }
+
+
+    namespace RenderingTest {
+        inline constexpr uintptr_t Description = 0xA0;
+        inline constexpr uintptr_t Ticket = 0xC0;
+        inline constexpr uintptr_t Position = 0x10C;
+        inline constexpr uintptr_t RenderingTestFrameCount = 0x11C;
+        inline constexpr uintptr_t Timeout = 0x120;
+        inline constexpr uintptr_t ComparisonDiffThreshold = 0x1D0;
+        inline constexpr uintptr_t ComparisonPsnrThreshold = 0x1D4;
+    }
+
 
     namespace ReverbSoundEffect {
         inline constexpr uintptr_t Priority = 0xA0;
@@ -664,6 +1621,7 @@ namespace Mur4 {
         inline constexpr uintptr_t DryLevel = 0xEC;
         inline constexpr uintptr_t WetLevel = 0xF0;
     }
+
 
     namespace RocketPropulsion {
         inline constexpr uintptr_t MaxTorque = 0x280;
@@ -678,32 +1636,106 @@ namespace Mur4 {
         inline constexpr uintptr_t TurnP = 0x2B4;
     }
 
-    namespace ScreenGui {
-        inline constexpr uintptr_t DisplayOrder = 0x720;
+
+    namespace RopeConstraint {
+        inline constexpr uintptr_t Length = 0x158;
+        inline constexpr uintptr_t Restitution = 0x15C;
+        inline constexpr uintptr_t Thickness = 0x160;
+        inline constexpr uintptr_t WinchForce = 0x164;
+        inline constexpr uintptr_t WinchResponsiveness = 0x168;
+        inline constexpr uintptr_t WinchSpeed = 0x16C;
+        inline constexpr uintptr_t WinchTarget = 0x170;
     }
 
-    namespace Seat {
-        inline constexpr uintptr_t Disabled = 0x220;
+
+    namespace ScreenGui {
+        inline constexpr uintptr_t IgnoreGuiInset = 0x95;
+        inline constexpr uintptr_t Enabled = 0x260;
+        inline constexpr uintptr_t ResetOnSpawn = 0x261;
+        inline constexpr uintptr_t DisplayOrder = 0x508;
     }
+
+
+    namespace Script {
+        inline constexpr uintptr_t GUID = 0xB8;
+        inline constexpr uintptr_t ByteCode = 0x178;
+    }
+
+
+    namespace ScrollingFrame {
+        inline constexpr uintptr_t Position = 0x2AC;
+        inline constexpr uintptr_t Size = 0x2CC;
+        inline constexpr uintptr_t BackgroundColor3 = 0x2D8;
+        inline constexpr uintptr_t BorderColor3 = 0x2E4;
+        inline constexpr uintptr_t AnchorPoint = 0x2F0;
+        inline constexpr uintptr_t Transparency = 0x2FC;
+        inline constexpr uintptr_t LayoutOrder = 0x314;
+        inline constexpr uintptr_t Rotation = 0x32C;
+        inline constexpr uintptr_t SelectionOrder = 0x330;
+        inline constexpr uintptr_t ZIndex = 0x33C;
+        inline constexpr uintptr_t ClipsDescendants = 0x341;
+        inline constexpr uintptr_t Visible = 0x345;
+        inline constexpr uintptr_t BottomImageContent = 0x678;
+        inline constexpr uintptr_t MidImageContent = 0x6A8;
+        inline constexpr uintptr_t TopImageContent = 0x6D8;
+        inline constexpr uintptr_t CanvasSize = 0x6FC;
+        inline constexpr uintptr_t ScrollBarImageColor3 = 0x728;
+        inline constexpr uintptr_t CanvasPosition = 0x73C;
+        inline constexpr uintptr_t ScrollBarImageTransparency = 0x764;
+        inline constexpr uintptr_t ScrollBarThickness = 0x768;
+        inline constexpr uintptr_t ScrollingEnabled = 0x77C;
+    }
+
+
+    namespace Seat {
+        inline constexpr uintptr_t BackParamA = 0xB0;
+        inline constexpr uintptr_t BackParamB = 0xB4;
+        inline constexpr uintptr_t BottomParamA = 0xC0;
+        inline constexpr uintptr_t BottomParamB = 0xC4;
+        inline constexpr uintptr_t FrontParamA = 0xD0;
+        inline constexpr uintptr_t FrontParamB = 0xD4;
+        inline constexpr uintptr_t LeftParamA = 0xE0;
+        inline constexpr uintptr_t LeftParamB = 0xE4;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0xF0;
+        inline constexpr uintptr_t Reflectance = 0xF4;
+        inline constexpr uintptr_t RightParamA = 0xF8;
+        inline constexpr uintptr_t RightParamB = 0xFC;
+        inline constexpr uintptr_t TopParamA = 0x108;
+        inline constexpr uintptr_t TopParamB = 0x10C;
+        inline constexpr uintptr_t Transparency = 0x118;
+        inline constexpr uintptr_t Disabled = 0x220;
+        inline constexpr uintptr_t Position = 0x354;
+        inline constexpr uintptr_t Velocity = 0x360;
+        inline constexpr uintptr_t RotVelocity = 0x36C;
+        inline constexpr uintptr_t Size = 0x444;
+        inline constexpr uintptr_t CollisionGroup = 0x4C0;
+        inline constexpr uintptr_t Friction = 0x4DC;
+        inline constexpr uintptr_t Elasticity = 0x4E0;
+    }
+
 
     namespace SelectionBox {
         inline constexpr uintptr_t Color3 = 0xC0;
         inline constexpr uintptr_t Transparency = 0xCC;
+        inline constexpr uintptr_t Adornee = 0xD8;
         inline constexpr uintptr_t SurfaceColor3 = 0xF0;
         inline constexpr uintptr_t LineThickness = 0xFC;
         inline constexpr uintptr_t SurfaceTransparency = 0x100;
     }
+
 
     namespace SelectionPartLasso {
         inline constexpr uintptr_t Color3 = 0xC0;
         inline constexpr uintptr_t Transparency = 0xCC;
     }
 
+
     namespace SelectionPointLasso {
         inline constexpr uintptr_t Color3 = 0xC0;
         inline constexpr uintptr_t Transparency = 0xCC;
         inline constexpr uintptr_t Point = 0xF0;
     }
+
 
     namespace SelectionSphere {
         inline constexpr uintptr_t Color3 = 0xC0;
@@ -712,22 +1744,57 @@ namespace Mur4 {
         inline constexpr uintptr_t SurfaceTransparency = 0xFC;
     }
 
+
     namespace Shirt {
+        inline constexpr uintptr_t ShirtTemplateContent = 0xE8;
         inline constexpr uintptr_t Color3 = 0x108;
     }
 
+
     namespace ShirtGraphic {
+        inline constexpr uintptr_t TextureContent = 0xB8;
         inline constexpr uintptr_t Color3 = 0xD8;
     }
 
+
+    namespace SkateboardPlatform {
+        inline constexpr uintptr_t CollisionGroup = 0x68;
+        inline constexpr uintptr_t BackParamA = 0xB0;
+        inline constexpr uintptr_t BackParamB = 0xB4;
+        inline constexpr uintptr_t BottomParamA = 0xC0;
+        inline constexpr uintptr_t BottomParamB = 0xC4;
+        inline constexpr uintptr_t FrontParamA = 0xD0;
+        inline constexpr uintptr_t FrontParamB = 0xD4;
+        inline constexpr uintptr_t LeftParamA = 0xE0;
+        inline constexpr uintptr_t LeftParamB = 0xE4;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0xF0;
+        inline constexpr uintptr_t Reflectance = 0xF4;
+        inline constexpr uintptr_t RightParamA = 0xF8;
+        inline constexpr uintptr_t RightParamB = 0xFC;
+        inline constexpr uintptr_t TopParamA = 0x108;
+        inline constexpr uintptr_t TopParamB = 0x10C;
+        inline constexpr uintptr_t Transparency = 0x118;
+    }
+
+
     namespace Sky {
+        inline constexpr uintptr_t MoonTextureId = 0xB0;
+        inline constexpr uintptr_t SkyboxBk = 0xE0;
+        inline constexpr uintptr_t SkyboxDownContent = 0x110;
+        inline constexpr uintptr_t SkyboxFt = 0x140;
+        inline constexpr uintptr_t SkyboxLf = 0x170;
+        inline constexpr uintptr_t SkyboxRt = 0x1A0;
+        inline constexpr uintptr_t SkyboxUpContent = 0x1D0;
+        inline constexpr uintptr_t SunTextureId = 0x200;
         inline constexpr uintptr_t SkyboxOrientation = 0x220;
         inline constexpr uintptr_t MoonAngularSize = 0x22C;
         inline constexpr uintptr_t SunAngularSize = 0x234;
     }
 
+
     namespace Smoke {
         inline constexpr uintptr_t Color = 0xA0;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0xAC;
         inline constexpr uintptr_t TimeScale = 0xB0;
         inline constexpr uintptr_t Opacity = 0xB4;
         inline constexpr uintptr_t RiseVelocity = 0xB8;
@@ -735,31 +1802,63 @@ namespace Mur4 {
         inline constexpr uintptr_t Enabled = 0xC0;
     }
 
-    namespace Sound {
-        inline constexpr uintptr_t TimePosition = 0xE0;
-        inline constexpr uintptr_t LoopRegion = 0xE8;
-        inline constexpr uintptr_t PlaybackRegion = 0xF0;
-        inline constexpr uintptr_t PlaybackSpeed = 0x10C;
-        inline constexpr uintptr_t RollOffMaxDistance = 0x110;
-        inline constexpr uintptr_t RollOffMinDistance = 0x114;
-        inline constexpr uintptr_t Volume = 0x120;
-        inline constexpr uintptr_t Looped = 0x12D;
-        inline constexpr uintptr_t PlayOnRemove = 0x12E;
-        inline constexpr uintptr_t PlaybackRegionsEnabled = 0x12F;
-        inline constexpr uintptr_t Playing = 0x130;
+
+    namespace SoundService {
+        inline constexpr uintptr_t DistanceFactor = 0x14C;
+        inline constexpr uintptr_t DopplerScale = 0x150;
+        inline constexpr uintptr_t RolloffScale = 0x158;
     }
+
 
     namespace Sparkles {
         inline constexpr uintptr_t SparkleColor = 0xA0;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0xAC;
         inline constexpr uintptr_t TimeScale = 0xB0;
         inline constexpr uintptr_t Enabled = 0xB4;
     }
+
+
+    namespace SpawnLocation {
+        inline constexpr uintptr_t BackParamA = 0xB0;
+        inline constexpr uintptr_t BackParamB = 0xB4;
+        inline constexpr uintptr_t BottomParamA = 0xC0;
+        inline constexpr uintptr_t BottomParamB = 0xC4;
+        inline constexpr uintptr_t FrontParamA = 0xD0;
+        inline constexpr uintptr_t FrontParamB = 0xD4;
+        inline constexpr uintptr_t LeftParamA = 0xE0;
+        inline constexpr uintptr_t LeftParamB = 0xE4;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0xF0;
+        inline constexpr uintptr_t Reflectance = 0xF4;
+        inline constexpr uintptr_t RightParamA = 0xF8;
+        inline constexpr uintptr_t RightParamB = 0xFC;
+        inline constexpr uintptr_t TopParamA = 0x108;
+        inline constexpr uintptr_t TopParamB = 0x10C;
+        inline constexpr uintptr_t Transparency = 0x118;
+        inline constexpr uintptr_t Duration = 0x1D0;
+        inline constexpr uintptr_t AllowTeamChangeOnTouch = 0x1D8;
+        inline constexpr uintptr_t Enabled = 0x1D9;
+        inline constexpr uintptr_t Neutral = 0x1DA;
+        inline constexpr uintptr_t MaterialVariant = 0x238;
+    }
+
 
     namespace SpecialMesh {
         inline constexpr uintptr_t Offset = 0xA0;
         inline constexpr uintptr_t Scale = 0xAC;
         inline constexpr uintptr_t VertexColor = 0xB8;
+        inline constexpr uintptr_t MeshId = 0xE0;
+        inline constexpr uintptr_t TextureId = 0x110;
     }
+
+
+    namespace SphereHandleAdornment {
+        inline constexpr uintptr_t Color3 = 0xC0;
+        inline constexpr uintptr_t Transparency = 0xCC;
+        inline constexpr uintptr_t CFrame = 0x124;
+        inline constexpr uintptr_t SizeRelativeOffset = 0x130;
+        inline constexpr uintptr_t Radius = 0x190;
+    }
+
 
     namespace SpotLight {
         inline constexpr uintptr_t Color = 0xA8;
@@ -770,17 +1869,36 @@ namespace Mur4 {
         inline constexpr uintptr_t Range = 0xC8;
     }
 
+
+    namespace SpringConstraint {
+        inline constexpr uintptr_t Coils = 0x158;
+        inline constexpr uintptr_t Damping = 0x15C;
+        inline constexpr uintptr_t FreeLength = 0x160;
+        inline constexpr uintptr_t MaxForce = 0x164;
+        inline constexpr uintptr_t MaxLength = 0x168;
+        inline constexpr uintptr_t MinLength = 0x16C;
+        inline constexpr uintptr_t Radius = 0x170;
+        inline constexpr uintptr_t Stiffness = 0x174;
+        inline constexpr uintptr_t Thickness = 0x178;
+    }
+
+
     namespace StateMachineTransitionDefinition {
+        inline constexpr uintptr_t TransitionId = 0x98;
         inline constexpr uintptr_t Priority = 0xD8;
     }
+
 
     namespace StyleDerive {
         inline constexpr uintptr_t Priority = 0xB4;
     }
 
+
     namespace StyleRule {
+        inline constexpr uintptr_t Selector = 0x118;
         inline constexpr uintptr_t Priority = 0x15C;
     }
+
 
     namespace SunRaysEffect {
         inline constexpr uintptr_t Enabled = 0x98;
@@ -788,21 +1906,36 @@ namespace Mur4 {
         inline constexpr uintptr_t Spread = 0xA4;
     }
 
+
     namespace SurfaceAppearance {
+        inline constexpr uintptr_t ColorMapContent = 0xB0;
+        inline constexpr uintptr_t EmissiveMaskContent = 0xE0;
+        inline constexpr uintptr_t MetalnessMapContent = 0x110;
+        inline constexpr uintptr_t NormalMapContent = 0x140;
+        inline constexpr uintptr_t RoughnessMapContent = 0x170;
         inline constexpr uintptr_t Color = 0x1C0;
         inline constexpr uintptr_t EmissiveTint = 0x1CC;
         inline constexpr uintptr_t EmissiveStrength = 0x1DC;
         inline constexpr uintptr_t SurfaceSlot = 0x1E4;
     }
 
+
     namespace SurfaceGui {
-        inline constexpr uintptr_t ClipsDescendants = 0x49;
-        inline constexpr uintptr_t FaceCamera = 0x49;
-        inline constexpr uintptr_t AlwaysOnTop = 0x68;
-        inline constexpr uintptr_t Active = 0x312;
-        inline constexpr uintptr_t Enabled = 0x490;
-        inline constexpr uintptr_t ResetOnSpawn = 0x491;
+        inline constexpr uintptr_t FaceCamera = 0x68;
+        inline constexpr uintptr_t CanvasSize = 0xFC;
+        inline constexpr uintptr_t Enabled = 0x260;
+        inline constexpr uintptr_t ResetOnSpawn = 0x261;
+        inline constexpr uintptr_t Active = 0x51C;
+        inline constexpr uintptr_t Brightness = 0x608;
+        inline constexpr uintptr_t LightInfluence = 0x610;
+        inline constexpr uintptr_t MaxDistance = 0x614;
+        inline constexpr uintptr_t PixelsPerStud = 0x618;
+        inline constexpr uintptr_t ToolPunchThroughDistance = 0x624;
+        inline constexpr uintptr_t ZOffset = 0x628;
+        inline constexpr uintptr_t AlwaysOnTop = 0x62C;
+        inline constexpr uintptr_t ClipsDescendants = 0x62D;
     }
+
 
     namespace SurfaceLight {
         inline constexpr uintptr_t Color = 0xA8;
@@ -813,10 +1946,12 @@ namespace Mur4 {
         inline constexpr uintptr_t Range = 0xC8;
     }
 
+
     namespace SurfaceSelection {
         inline constexpr uintptr_t Color3 = 0xC0;
         inline constexpr uintptr_t Transparency = 0xCC;
     }
+
 
     namespace SwimController {
         inline constexpr uintptr_t MoveSpeedFactor = 0xA0;
@@ -827,62 +1962,168 @@ namespace Mur4 {
         inline constexpr uintptr_t RollSpeedFactor = 0xD8;
     }
 
+
+    namespace TaskScheduler {
+        inline constexpr uintptr_t JobName = 0x18;
+        inline constexpr uintptr_t JobStart = 0xC8;
+        inline constexpr uintptr_t JobEnd = 0xD0;
+        inline constexpr uintptr_t Pointer = 0x82B9F48;
+    }
+
+
+    namespace Team {
+        inline constexpr uintptr_t Score = 0x9C;
+        inline constexpr uintptr_t AutoAssignable = 0xA4;
+    }
+
+
+    namespace TeleportOptions {
+        inline constexpr uintptr_t ReservedServerAccessCode = 0x98;
+        inline constexpr uintptr_t ReservedServerId = 0xB8;
+        inline constexpr uintptr_t ServerInstanceId = 0xD8;
+        inline constexpr uintptr_t VipServerId = 0xF8;
+    }
+
+
     namespace TerrainDetail {
+        inline constexpr uintptr_t ColorMapContent = 0xB0;
+        inline constexpr uintptr_t EmissiveMaskContent = 0xE0;
+        inline constexpr uintptr_t MetalnessMapContent = 0x110;
+        inline constexpr uintptr_t NormalMapContent = 0x140;
+        inline constexpr uintptr_t RoughnessMapContent = 0x170;
         inline constexpr uintptr_t EmissiveTint = 0x1C0;
         inline constexpr uintptr_t EmissiveStrength = 0x1CC;
         inline constexpr uintptr_t StudsPerTile = 0x1D8;
     }
 
+
     namespace TextBox {
-        inline constexpr uintptr_t Position = 0x4DC;
-        inline constexpr uintptr_t Size = 0x4FC;
-        inline constexpr uintptr_t BackgroundColor3 = 0x508;
-        inline constexpr uintptr_t BorderColor3 = 0x514;
-        inline constexpr uintptr_t AnchorPoint = 0x520;
-        inline constexpr uintptr_t Transparency = 0x52C;
-        inline constexpr uintptr_t LayoutOrder = 0x544;
-        inline constexpr uintptr_t Rotation = 0x55C;
-        inline constexpr uintptr_t SelectionOrder = 0x560;
-        inline constexpr uintptr_t ZIndex = 0x56C;
-        inline constexpr uintptr_t LineHeight = 0xCB0;
-        inline constexpr uintptr_t PlaceholderColor3 = 0xED0;
-        inline constexpr uintptr_t TextColor3 = 0xEDC;
-        inline constexpr uintptr_t TextStrokeColor3 = 0xEE8;
-        inline constexpr uintptr_t MaxVisibleGraphemes = 0xEFC;
-        inline constexpr uintptr_t TextStrokeTransparency = 0xF14;
+        inline constexpr uintptr_t ClearTextOnFocus = 0x68;
+        inline constexpr uintptr_t TextEditable = 0x68;
+        inline constexpr uintptr_t TextWrapped = 0x68;
+        inline constexpr uintptr_t MultiLine = 0x69;
+        inline constexpr uintptr_t RichText = 0x69;
+        inline constexpr uintptr_t TextScaled = 0x1A9;
+        inline constexpr uintptr_t Position = 0x2AC;
+        inline constexpr uintptr_t Size = 0x2CC;
+        inline constexpr uintptr_t BackgroundColor3 = 0x2D8;
+        inline constexpr uintptr_t BorderColor3 = 0x2E4;
+        inline constexpr uintptr_t AnchorPoint = 0x2F0;
+        inline constexpr uintptr_t Transparency = 0x2FC;
+        inline constexpr uintptr_t LayoutOrder = 0x314;
+        inline constexpr uintptr_t Rotation = 0x32C;
+        inline constexpr uintptr_t SelectionOrder = 0x330;
+        inline constexpr uintptr_t ZIndex = 0x33C;
+        inline constexpr uintptr_t Visible = 0x345;
+        inline constexpr uintptr_t Text = 0x780;
+        inline constexpr uintptr_t LineHeight = 0x8D8;
+        inline constexpr uintptr_t PlaceholderText = 0xA88;
+        inline constexpr uintptr_t OpenTypeFeatures = 0xAF0;
+        inline constexpr uintptr_t PlaceholderColor3 = 0xAF8;
+        inline constexpr uintptr_t TextColor3 = 0xB04;
+        inline constexpr uintptr_t TextStrokeColor3 = 0xB10;
+        inline constexpr uintptr_t MaxVisibleGraphemes = 0xB24;
+        inline constexpr uintptr_t TextStrokeTransparency = 0xB3C;
     }
+
 
     namespace TextButton {
-        inline constexpr uintptr_t Position = 0x4DC;
-        inline constexpr uintptr_t Size = 0x4FC;
-        inline constexpr uintptr_t BackgroundColor3 = 0x508;
-        inline constexpr uintptr_t BorderColor3 = 0x514;
-        inline constexpr uintptr_t AnchorPoint = 0x520;
-        inline constexpr uintptr_t Transparency = 0x52C;
-        inline constexpr uintptr_t LayoutOrder = 0x544;
-        inline constexpr uintptr_t Rotation = 0x55C;
-        inline constexpr uintptr_t SelectionOrder = 0x560;
-        inline constexpr uintptr_t ZIndex = 0x56C;
-        inline constexpr uintptr_t TextColor3 = 0x1138;
-        inline constexpr uintptr_t TextStrokeColor3 = 0x1144;
-        inline constexpr uintptr_t LineHeight = 0x1150;
-        inline constexpr uintptr_t MaxVisibleGraphemes = 0x1154;
-        inline constexpr uintptr_t TextStrokeTransparency = 0x1160;
+        inline constexpr uintptr_t Position = 0x2AC;
+        inline constexpr uintptr_t Size = 0x2CC;
+        inline constexpr uintptr_t BackgroundColor3 = 0x2D8;
+        inline constexpr uintptr_t BorderColor3 = 0x2E4;
+        inline constexpr uintptr_t AnchorPoint = 0x2F0;
+        inline constexpr uintptr_t Transparency = 0x2FC;
+        inline constexpr uintptr_t LayoutOrder = 0x314;
+        inline constexpr uintptr_t Rotation = 0x32C;
+        inline constexpr uintptr_t SelectionOrder = 0x330;
+        inline constexpr uintptr_t ZIndex = 0x33C;
+        inline constexpr uintptr_t Text = 0xA08;
+        inline constexpr uintptr_t LineHeight = 0xB60;
+        inline constexpr uintptr_t OpenTypeFeatures = 0xD58;
+        inline constexpr uintptr_t TextColor3 = 0xD60;
+        inline constexpr uintptr_t TextStrokeColor3 = 0xD6C;
+        inline constexpr uintptr_t MaxVisibleGraphemes = 0xD7C;
+        inline constexpr uintptr_t TextStrokeTransparency = 0xD88;
     }
 
+
+    namespace TextChannelWindow {
+        inline constexpr uintptr_t Position = 0x2AC;
+        inline constexpr uintptr_t Size = 0x2CC;
+        inline constexpr uintptr_t BackgroundColor3 = 0x2D8;
+        inline constexpr uintptr_t BorderColor3 = 0x2E4;
+        inline constexpr uintptr_t AnchorPoint = 0x2F0;
+        inline constexpr uintptr_t Transparency = 0x2FC;
+        inline constexpr uintptr_t LayoutOrder = 0x314;
+        inline constexpr uintptr_t Rotation = 0x32C;
+        inline constexpr uintptr_t SelectionOrder = 0x330;
+        inline constexpr uintptr_t ZIndex = 0x33C;
+    }
+
+
+    namespace TextChatCommand {
+        inline constexpr uintptr_t PrimaryAlias = 0x98;
+        inline constexpr uintptr_t SecondaryAlias = 0xB8;
+    }
+
+
+    namespace TextChatMessageProperties {
+        inline constexpr uintptr_t PrefixText = 0x98;
+        inline constexpr uintptr_t Text = 0xB8;
+        inline constexpr uintptr_t Translation = 0xD8;
+    }
+
+
     namespace TextGenerator {
+        inline constexpr uintptr_t SystemPrompt = 0x98;
         inline constexpr uintptr_t Seed = 0xB8;
         inline constexpr uintptr_t Temperature = 0xBC;
         inline constexpr uintptr_t TopP = 0xC0;
     }
 
+
+    namespace TextLabel {
+        inline constexpr uintptr_t TextWrapped = 0x48;
+        inline constexpr uintptr_t Active = 0x1BC;
+        inline constexpr uintptr_t Position = 0x2AC;
+        inline constexpr uintptr_t Size = 0x2CC;
+        inline constexpr uintptr_t BackgroundColor3 = 0x2D8;
+        inline constexpr uintptr_t BorderColor3 = 0x2E4;
+        inline constexpr uintptr_t AnchorPoint = 0x2F0;
+        inline constexpr uintptr_t Transparency = 0x2FC;
+        inline constexpr uintptr_t LayoutOrder = 0x314;
+        inline constexpr uintptr_t Rotation = 0x32C;
+        inline constexpr uintptr_t SelectionOrder = 0x330;
+        inline constexpr uintptr_t ZIndex = 0x33C;
+        inline constexpr uintptr_t ClipsDescendants = 0x341;
+        inline constexpr uintptr_t Visible = 0x345;
+        inline constexpr uintptr_t RichText = 0x658;
+        inline constexpr uintptr_t Text = 0x788;
+        inline constexpr uintptr_t LineHeight = 0x8E0;
+        inline constexpr uintptr_t OpenTypeFeatures = 0xAD8;
+        inline constexpr uintptr_t TextColor3 = 0xAE0;
+        inline constexpr uintptr_t TextStrokeColor3 = 0xAEC;
+        inline constexpr uintptr_t MaxVisibleGraphemes = 0xAFC;
+        inline constexpr uintptr_t TextStrokeTransparency = 0xB08;
+    }
+
+
     namespace Texture {
+        inline constexpr uintptr_t EmissiveMaskContent = 0xD8;
+        inline constexpr uintptr_t MetalnessMapContent = 0x138;
+        inline constexpr uintptr_t NormalMapContent = 0x168;
+        inline constexpr uintptr_t RoughnessMapContent = 0x198;
+        inline constexpr uintptr_t TextureContent = 0x1C8;
         inline constexpr uintptr_t Color3 = 0x238;
         inline constexpr uintptr_t EmissiveTint = 0x244;
         inline constexpr uintptr_t UVOffset = 0x250;
         inline constexpr uintptr_t UVScale = 0x258;
         inline constexpr uintptr_t EmissiveStrength = 0x260;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0x264;
         inline constexpr uintptr_t Rotation = 0x26C;
+        inline constexpr uintptr_t Shiny = 0x270;
+        inline constexpr uintptr_t Specular = 0x274;
         inline constexpr uintptr_t Transparency = 0x278;
         inline constexpr uintptr_t ZIndex = 0x27C;
         inline constexpr uintptr_t OffsetStudsU = 0x2D0;
@@ -891,17 +2132,44 @@ namespace Mur4 {
         inline constexpr uintptr_t StudsPerTileV = 0x2DC;
     }
 
+
+    namespace Tool {
+        inline constexpr uintptr_t TextureId = 0x348;
+        inline constexpr uintptr_t ToolTip = 0x450;
+        inline constexpr uintptr_t Grip = 0x470;
+        inline constexpr uintptr_t GripPos = 0x494;
+        inline constexpr uintptr_t CanBeDropped = 0x4A0;
+        inline constexpr uintptr_t Enabled = 0x4A1;
+        inline constexpr uintptr_t ManualActivationOnly = 0x4A2;
+        inline constexpr uintptr_t RequiresHandle = 0x4A3;
+    }
+
+
+    namespace TorsionSpringConstraint {
+        inline constexpr uintptr_t Coils = 0x158;
+        inline constexpr uintptr_t Damping = 0x15C;
+        inline constexpr uintptr_t MaxAngle = 0x160;
+        inline constexpr uintptr_t MaxTorque = 0x164;
+        inline constexpr uintptr_t Radius = 0x168;
+        inline constexpr uintptr_t Restitution = 0x16C;
+        inline constexpr uintptr_t Stiffness = 0x170;
+    }
+
+
     namespace Trail {
+        inline constexpr uintptr_t TextureContent = 0x168;
         inline constexpr uintptr_t Brightness = 0x1A8;
         inline constexpr uintptr_t Lifetime = 0x1AC;
         inline constexpr uintptr_t LightEmission = 0x1B0;
         inline constexpr uintptr_t LightInfluence = 0x1B4;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0x1B8;
         inline constexpr uintptr_t MaxLength = 0x1BC;
         inline constexpr uintptr_t MinLength = 0x1C0;
         inline constexpr uintptr_t TextureLength = 0x1C4;
         inline constexpr uintptr_t Enabled = 0x1CC;
         inline constexpr uintptr_t FaceCamera = 0x1CD;
     }
+
 
     namespace TremoloSoundEffect {
         inline constexpr uintptr_t Priority = 0xA0;
@@ -910,14 +2178,36 @@ namespace Mur4 {
         inline constexpr uintptr_t Frequency = 0xE8;
     }
 
+
+    namespace TrussPart {
+        inline constexpr uintptr_t BackParamA = 0xB0;
+        inline constexpr uintptr_t BackParamB = 0xB4;
+        inline constexpr uintptr_t BottomParamA = 0xC0;
+        inline constexpr uintptr_t BottomParamB = 0xC4;
+        inline constexpr uintptr_t FrontParamA = 0xD0;
+        inline constexpr uintptr_t FrontParamB = 0xD4;
+        inline constexpr uintptr_t LeftParamA = 0xE0;
+        inline constexpr uintptr_t LeftParamB = 0xE4;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0xF0;
+        inline constexpr uintptr_t Reflectance = 0xF4;
+        inline constexpr uintptr_t RightParamA = 0xF8;
+        inline constexpr uintptr_t RightParamB = 0xFC;
+        inline constexpr uintptr_t TopParamA = 0x108;
+        inline constexpr uintptr_t TopParamB = 0x10C;
+        inline constexpr uintptr_t Transparency = 0x118;
+    }
+
+
     namespace UIAspectRatioConstraint {
         inline constexpr uintptr_t AspectRatio = 0xB8;
     }
+
 
     namespace UIBlur {
         inline constexpr uintptr_t Color = 0xB0;
         inline constexpr uintptr_t Transparency = 0xC0;
     }
+
 
     namespace UICorner {
         inline constexpr uintptr_t CornerRadius = 0xB8;
@@ -925,7 +2215,10 @@ namespace Mur4 {
         inline constexpr uintptr_t TopRightRadius = 0xD0;
     }
 
+
     namespace UIDragDetector {
+        inline constexpr uintptr_t ActivatedCursorIconContent = 0xC8;
+        inline constexpr uintptr_t CursorIconContent = 0xF8;
         inline constexpr uintptr_t DragUDim2 = 0x154;
         inline constexpr uintptr_t MaxDragTranslation = 0x164;
         inline constexpr uintptr_t MinDragTranslation = 0x174;
@@ -936,16 +2229,32 @@ namespace Mur4 {
         inline constexpr uintptr_t SelectionModeRotateSpeed = 0x1B8;
     }
 
+
     namespace UIFlexItem {
         inline constexpr uintptr_t GrowRatio = 0xB4;
         inline constexpr uintptr_t ShrinkRatio = 0xBC;
     }
+
+
+    namespace UIGradient {
+        inline constexpr uintptr_t Offset = 0x128;
+        inline constexpr uintptr_t Rotation = 0x130;
+        inline constexpr uintptr_t Scale = 0x134;
+        inline constexpr uintptr_t Enabled = 0x140;
+    }
+
 
     namespace UIGridLayout {
         inline constexpr uintptr_t CellPadding = 0x14C;
         inline constexpr uintptr_t CellSize = 0x15C;
         inline constexpr uintptr_t FillDirectionMaxCells = 0x178;
     }
+
+
+    namespace UIListLayout {
+        inline constexpr uintptr_t Padding = 0x148;
+    }
+
 
     namespace UIPadding {
         inline constexpr uintptr_t PaddingBottom = 0xB0;
@@ -954,14 +2263,17 @@ namespace Mur4 {
         inline constexpr uintptr_t PaddingTop = 0xC8;
     }
 
+
     namespace UIPageLayout {
         inline constexpr uintptr_t Padding = 0x150;
         inline constexpr uintptr_t TweenTime = 0x160;
     }
 
+
     namespace UIScale {
         inline constexpr uintptr_t Scale = 0xB0;
     }
+
 
     namespace UIShadow {
         inline constexpr uintptr_t Offset = 0xB4;
@@ -972,22 +2284,232 @@ namespace Mur4 {
         inline constexpr uintptr_t ZIndex = 0xEC;
     }
 
+
     namespace UISizeConstraint {
         inline constexpr uintptr_t MaxSize = 0xB8;
         inline constexpr uintptr_t MinSize = 0xC0;
     }
 
+
+    namespace UIStroke {
+        inline constexpr uintptr_t Color = 0xB8;
+        inline constexpr uintptr_t BorderOffset = 0xC8;
+        inline constexpr uintptr_t Thickness = 0xDC;
+        inline constexpr uintptr_t Transparency = 0xE0;
+        inline constexpr uintptr_t ZIndex = 0xE4;
+        inline constexpr uintptr_t Enabled = 0xE8;
+    }
+
+
+    namespace UITableLayout {
+        inline constexpr uintptr_t Padding = 0x14C;
+    }
+
+
+    namespace UnionOperation {
+        inline constexpr uintptr_t BackParamA = 0xB0;
+        inline constexpr uintptr_t BackParamB = 0xB4;
+        inline constexpr uintptr_t BottomParamA = 0xC0;
+        inline constexpr uintptr_t BottomParamB = 0xC4;
+        inline constexpr uintptr_t FrontParamA = 0xD0;
+        inline constexpr uintptr_t FrontParamB = 0xD4;
+        inline constexpr uintptr_t LeftParamA = 0xE0;
+        inline constexpr uintptr_t LeftParamB = 0xE4;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0xF0;
+        inline constexpr uintptr_t Reflectance = 0xF4;
+        inline constexpr uintptr_t RightParamA = 0xF8;
+        inline constexpr uintptr_t RightParamB = 0xFC;
+        inline constexpr uintptr_t TopParamA = 0x108;
+        inline constexpr uintptr_t TopParamB = 0x10C;
+        inline constexpr uintptr_t Transparency = 0x118;
+        inline constexpr uintptr_t UsePartColor = 0x3A5;
+    }
+
+
+    namespace UniversalConstraint {
+        inline constexpr uintptr_t MaxAngle = 0x158;
+        inline constexpr uintptr_t Radius = 0x15C;
+        inline constexpr uintptr_t Restitution = 0x160;
+    }
+
+
+    namespace VectorForce {
+        inline constexpr uintptr_t Force = 0x158;
+    }
+
+
+    namespace VehicleSeat {
+        inline constexpr uintptr_t BackParamA = 0xB0;
+        inline constexpr uintptr_t BackParamB = 0xB4;
+        inline constexpr uintptr_t BottomParamA = 0xC0;
+        inline constexpr uintptr_t BottomParamB = 0xC4;
+        inline constexpr uintptr_t FrontParamA = 0xD0;
+        inline constexpr uintptr_t FrontParamB = 0xD4;
+        inline constexpr uintptr_t LeftParamA = 0xE0;
+        inline constexpr uintptr_t LeftParamB = 0xE4;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0xF0;
+        inline constexpr uintptr_t Reflectance = 0xF4;
+        inline constexpr uintptr_t RightParamA = 0xF8;
+        inline constexpr uintptr_t RightParamB = 0xFC;
+        inline constexpr uintptr_t TopParamA = 0x108;
+        inline constexpr uintptr_t TopParamB = 0x10C;
+        inline constexpr uintptr_t Transparency = 0x118;
+        inline constexpr uintptr_t MaxSpeed = 0x210;
+        inline constexpr uintptr_t SteerFloat = 0x214;
+        inline constexpr uintptr_t ThrottleFloat = 0x218;
+        inline constexpr uintptr_t Torque = 0x21C;
+        inline constexpr uintptr_t TurnSpeed = 0x220;
+        inline constexpr uintptr_t Disabled = 0x224;
+        inline constexpr uintptr_t HeadsUpDisplay = 0x225;
+    }
+
+
+    namespace VideoDisplay {
+        inline constexpr uintptr_t Position = 0x2AC;
+        inline constexpr uintptr_t Size = 0x2CC;
+        inline constexpr uintptr_t BackgroundColor3 = 0x2D8;
+        inline constexpr uintptr_t BorderColor3 = 0x2E4;
+        inline constexpr uintptr_t AnchorPoint = 0x2F0;
+        inline constexpr uintptr_t Transparency = 0x2FC;
+        inline constexpr uintptr_t LayoutOrder = 0x314;
+        inline constexpr uintptr_t Rotation = 0x32C;
+        inline constexpr uintptr_t SelectionOrder = 0x330;
+        inline constexpr uintptr_t ZIndex = 0x33C;
+        inline constexpr uintptr_t TileSize = 0x72C;
+        inline constexpr uintptr_t VideoColor3 = 0x738;
+        inline constexpr uintptr_t VideoRectOffset = 0x744;
+        inline constexpr uintptr_t VideoRectSize = 0x74C;
+        inline constexpr uintptr_t VideoTransparency = 0x75C;
+    }
+
+
+    namespace VideoFrame {
+        inline constexpr uintptr_t Position = 0x2AC;
+        inline constexpr uintptr_t Size = 0x2CC;
+        inline constexpr uintptr_t BackgroundColor3 = 0x2D8;
+        inline constexpr uintptr_t BorderColor3 = 0x2E4;
+        inline constexpr uintptr_t AnchorPoint = 0x2F0;
+        inline constexpr uintptr_t Transparency = 0x2FC;
+        inline constexpr uintptr_t LayoutOrder = 0x314;
+        inline constexpr uintptr_t Rotation = 0x32C;
+        inline constexpr uintptr_t SelectionOrder = 0x330;
+        inline constexpr uintptr_t ZIndex = 0x33C;
+        inline constexpr uintptr_t VideoContent = 0x678;
+        inline constexpr uintptr_t TimePosition = 0x6A0;
+        inline constexpr uintptr_t RollOffMaxDistance = 0x6B0;
+        inline constexpr uintptr_t RollOffMinDistance = 0x6B4;
+        inline constexpr uintptr_t Volume = 0x6BC;
+        inline constexpr uintptr_t Video = 0x9D0;
+    }
+
+
+    namespace VideoPlayer {
+        inline constexpr uintptr_t VideoContent = 0x130;
+        inline constexpr uintptr_t TimePosition = 0x150;
+        inline constexpr uintptr_t PlaybackSpeed = 0x160;
+        inline constexpr uintptr_t Volume = 0x164;
+    }
+
+
+    namespace ViewportCamera {
+        inline constexpr uintptr_t HeadScale = 0x130;
+    }
+
+
+    namespace ViewportFrame {
+        inline constexpr uintptr_t Position = 0x2AC;
+        inline constexpr uintptr_t Size = 0x2CC;
+        inline constexpr uintptr_t BackgroundColor3 = 0x2D8;
+        inline constexpr uintptr_t BorderColor3 = 0x2E4;
+        inline constexpr uintptr_t AnchorPoint = 0x2F0;
+        inline constexpr uintptr_t Transparency = 0x2FC;
+        inline constexpr uintptr_t LayoutOrder = 0x314;
+        inline constexpr uintptr_t Rotation = 0x32C;
+        inline constexpr uintptr_t SelectionOrder = 0x330;
+        inline constexpr uintptr_t ZIndex = 0x33C;
+        inline constexpr uintptr_t Ambient = 0x6A8;
+        inline constexpr uintptr_t ImageColor3 = 0x6B4;
+        inline constexpr uintptr_t LightColor = 0x6C0;
+        inline constexpr uintptr_t LightDirection = 0x6CC;
+        inline constexpr uintptr_t ImageTransparency = 0x6DC;
+    }
+
+
+    namespace WedgePart {
+        inline constexpr uintptr_t BackParamA = 0xB0;
+        inline constexpr uintptr_t BackParamB = 0xB4;
+        inline constexpr uintptr_t BottomParamA = 0xC0;
+        inline constexpr uintptr_t BottomParamB = 0xC4;
+        inline constexpr uintptr_t FrontParamA = 0xD0;
+        inline constexpr uintptr_t FrontParamB = 0xD4;
+        inline constexpr uintptr_t LeftParamA = 0xE0;
+        inline constexpr uintptr_t LeftParamB = 0xE4;
+        inline constexpr uintptr_t LocalTransparencyModifier = 0xF0;
+        inline constexpr uintptr_t Reflectance = 0xF4;
+        inline constexpr uintptr_t RightParamA = 0xF8;
+        inline constexpr uintptr_t RightParamB = 0xFC;
+        inline constexpr uintptr_t TopParamA = 0x108;
+        inline constexpr uintptr_t TopParamB = 0x10C;
+        inline constexpr uintptr_t Transparency = 0x118;
+        inline constexpr uintptr_t MaterialVariant = 0x238;
+    }
+
+
+    namespace Weld {
+        inline constexpr uintptr_t Part0 = 0x100;
+        inline constexpr uintptr_t Part1 = 0x110;
+    }
+
+
+    namespace WeldConstraint {
+        inline constexpr uintptr_t Part0 = 0xA0;
+        inline constexpr uintptr_t Part1 = 0xB0;
+        inline constexpr uintptr_t Enabled = 0xC0;
+    }
+
+
+    namespace Wire {
+        inline constexpr uintptr_t SourceName = 0xA0;
+        inline constexpr uintptr_t TargetName = 0xC0;
+    }
+
+
     namespace WireframeHandleAdornment {
         inline constexpr uintptr_t Color3 = 0xC0;
         inline constexpr uintptr_t Transparency = 0xCC;
+        inline constexpr uintptr_t CFrame = 0x124;
         inline constexpr uintptr_t SizeRelativeOffset = 0x130;
         inline constexpr uintptr_t Scale = 0x190;
         inline constexpr uintptr_t Thickness = 0x19C;
     }
 
+
+    namespace Workspace {
+        inline constexpr uintptr_t World = 0x3F8;
+        inline constexpr uintptr_t CurrentCamera = 0x4A0;
+        inline constexpr uintptr_t Terrain = 0x4B0;
+        inline constexpr uintptr_t GlobalWind = 0x4C8;
+        inline constexpr uintptr_t AirDensity = 0x4D4;
+        inline constexpr uintptr_t StreamingMinRadius = 0x570;
+        inline constexpr uintptr_t StreamingTargetRadius = 0x574;
+        inline constexpr uintptr_t Gravity = 0x9C8;
+        inline constexpr uintptr_t ReadOnlyGravity = 0x9C8;
+    }
+
+
+    namespace World {
+        inline constexpr uintptr_t FallenPartsDestroyHeight = 0x20C;
+        inline constexpr uintptr_t Gravity = 0x218;
+        inline constexpr uintptr_t AirProperties = 0x230;
+        inline constexpr uintptr_t worldStepsPerSec = 0x868;
+    }
+
+
     namespace WrapTextureTransfer {
+        inline constexpr uintptr_t ReferenceCageMeshContent = 0xA8;
         inline constexpr uintptr_t UVMaxBound = 0xC8;
         inline constexpr uintptr_t UVMinBound = 0xD0;
     }
+
 
 }
